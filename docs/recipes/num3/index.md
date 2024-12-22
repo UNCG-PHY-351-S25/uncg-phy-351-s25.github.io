@@ -1,0 +1,3 @@
+# Numerical Methods 3: ODE Integration
+
+Most of the central principles of physics are expressed as differential equations, and — consequently — a great deal of "doing physics" comes down to solving differential equations. In the space of all differential equations that we might reasonably encounter in physical problems, only a tiny sliver can be solved analytically. For the rest, we turn to computational methods. In this chunk, we introduce recipes for solving ordinary differential equations (ODEs) numerically. (Partial differential equations — PDEs — are such a vast topic that we won't be able to address them in this course. _Sorry!_)

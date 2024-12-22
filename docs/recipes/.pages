@@ -1,0 +1,8 @@
+nav:
+    - Intro to Recipes: index.md
+    - A) Core Python: core
+    - B) Numerical Methods 1: num1
+    - C) Scientific Python: scipy
+    - D) Numerical Methods 2: num2
+    - E) Numerical Methods 3: num3
+    - F) Visual Python: visual

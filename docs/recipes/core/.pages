@@ -1,0 +1,43 @@
+nav:
+    - Overview: index.md
+    - Workflow:
+        - (Recipe List): workflow-recipes.md
+        - get-do-submit.md
+        - launch-calc-save.md
+    - Calculation:
+        - (Recipe List): calculation-recipes.md
+        - calc-interactively.md
+        - use-functions.md
+        - complex-numbers.md
+        - print.md
+        - scripts.md
+        - user-input.md
+    - Functions:
+        - (Recipe List): function-recipes.md
+        - custom-functions.md
+        - factoring.md
+        - optional-args.md
+        - safety-check.md
+        - conditionals.md
+        - namespaces.md
+    - Iteration:
+        - (Recipe List): iteration-recipes.md
+        - ranges.md
+        - monte-carlo.md
+        - skip-break.md
+        - while.md
+    - Tuples & Lists:
+        - (Recipe List): tuple-list-recipes.md
+        - tuples.md
+        - lists.md
+        - iterate.md
+        - set-or-append.md
+        - find-in-list.md
+        - combine-lists.md
+    - Sets & Dictionaries:
+        - (Recipe List): set-dict-recipes.md
+        - sets.md
+        - overlap.md
+        - dicts.md
+        - dict-iteration.md
+        - counters.md

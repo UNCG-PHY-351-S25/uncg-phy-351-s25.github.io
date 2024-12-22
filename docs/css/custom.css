@@ -1,0 +1,16 @@
+/* Fix spacing above and below nested lists (applies to both <ul> and <ol>) */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0; /* Remove or adjust excess space above nested lists */
+    margin-bottom: 0; /* Remove or adjust excess space below nested lists */
+}
+
+/* Fine-tune spacing between parent and child list items (nested lists) */
+ul ul > li, ol ol > li, ul ol > li, ol ul > li {
+    margin-top: 0.3em; /* Add space above nested list items */
+    margin-bottom: 0.5em; /* Add space below nested list items */
+}
+
+/* Adjust spacing between top-level list items (main lists) */
+ul > li, ol > li {
+    margin-bottom: 1em; /* Ensure consistent spacing between main items */
+}
