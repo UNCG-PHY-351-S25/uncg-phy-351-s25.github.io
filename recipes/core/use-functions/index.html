@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Use Python Functions - PHY 351 Reference</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../../css/custom.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">PHY 351 Reference</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Course Admin</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../admin/syllabus/" class="dropdown-item">Syllabus</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Recipes</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../" class="dropdown-item">Intro to Recipes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">A) Core Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../" class="dropdown-item">Overview</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Workflow</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../workflow-recipes/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../get-do-submit/" class="dropdown-item">Get, Do, Submit</a>
+</li>
+            
+<li>
+    <a href="../launch-calc-save/" class="dropdown-item">Launch, Calc, Save</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Calculation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../calculation-recipes/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../calc-interactively/" class="dropdown-item">Calculate Interactively</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Use Python Functions</a>
+</li>
+            
+<li>
+    <a href="../complex-numbers/" class="dropdown-item">Use Complex Numbers</a>
+</li>
+            
+<li>
+    <a href="../print/" class="dropdown-item">Print Formatted Output</a>
+</li>
+            
+<li>
+    <a href="../scripts/" class="dropdown-item">Script a Calculation</a>
+</li>
+            
+<li>
+    <a href="../user-input/" class="dropdown-item">Ask for User Input</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Functions</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../function-recipes/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../custom-functions/" class="dropdown-item">Custom functions</a>
+</li>
+            
+<li>
+    <a href="../factoring/" class="dropdown-item">Factoring</a>
+</li>
+            
+<li>
+    <a href="../optional-args/" class="dropdown-item">Optional args</a>
+</li>
+            
+<li>
+    <a href="../safety-check/" class="dropdown-item">Safety check</a>
+</li>
+            
+<li>
+    <a href="../conditionals/" class="dropdown-item">Conditionals</a>
+</li>
+            
+<li>
+    <a href="../namespaces/" class="dropdown-item">Namespaces</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Iteration</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../iteration-recipes/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../ranges/" class="dropdown-item">Ranges</a>
+</li>
+            
+<li>
+    <a href="../monte-carlo/" class="dropdown-item">Monte carlo</a>
+</li>
+            
+<li>
+    <a href="../skip-break/" class="dropdown-item">Skip break</a>
+</li>
+            
+<li>
+    <a href="../while/" class="dropdown-item">While</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Tuples & Lists</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../tuple-list-recipes/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../tuples/" class="dropdown-item">Tuples</a>
+</li>
+            
+<li>
+    <a href="../lists/" class="dropdown-item">Lists</a>
+</li>
+            
+<li>
+    <a href="../iterate/" class="dropdown-item">Iterate</a>
+</li>
+            
+<li>
+    <a href="../set-or-append/" class="dropdown-item">Set or append</a>
+</li>
+            
+<li>
+    <a href="../find-in-list/" class="dropdown-item">Find in list</a>
+</li>
+            
+<li>
+    <a href="../combine-lists/" class="dropdown-item">Combine lists</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Sets & Dictionaries</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../set-dict-recipes/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../sets/" class="dropdown-item">Sets</a>
+</li>
+            
+<li>
+    <a href="../overlap/" class="dropdown-item">Overlap</a>
+</li>
+            
+<li>
+    <a href="../dicts/" class="dropdown-item">Dicts</a>
+</li>
+            
+<li>
+    <a href="../dict-iteration/" class="dropdown-item">Dict iteration</a>
+</li>
+            
+<li>
+    <a href="../counters/" class="dropdown-item">Counters</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">B) Numerical Methods 1</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../num1/" class="dropdown-item">Numerical Methods 1: Finding Roots &amp; Extrema</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C) Scientific Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../scipy/" class="dropdown-item">Skillset B: Scientific Python</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">D) Numerical Methods 2</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../num2/" class="dropdown-item">Numerical Methods 2: Numerical Calculus</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">E) Numerical Methods 3</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../num3/" class="dropdown-item">Numerical Methods 3: ODE Integration</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">F) Visual Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../visual/" class="dropdown-item">Skillset C: Visual Python</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Topics</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../topics/" class="dropdown-item">Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../topics/external/" class="dropdown-item">External Tutorials</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Core Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../topics/core/operators/" class="dropdown-item">Arithmetic Operators</a>
+</li>
+            
+<li>
+    <a href="../../../topics/core/precedence/" class="dropdown-item">Operator Precedence</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Scientific Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../topics/scipy/numpy/" class="dropdown-item">Introduction to Numpy</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../calc-interactively/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../complex-numbers/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/use-functions.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
+                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="true">
+                                    <i class="fa-solid fa-sun fa-fw"></i>
+                                    <span class="ms-2">Light</span>
+                                    <i class="fa-solid fa-check ms-auto"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                    <i class="fa-solid fa-moon fa-fw"></i>
+                                    <span class="ms-2">Dark</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                    <span class="ms-2">Auto</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                              </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/darkmode.js"></script>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#use-python-functions" class="nav-link">Use Python Functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-for-built-in-functions" class="nav-link">Recipe for Built-In Functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-for-standard-library-functions-version-a-selective-import" class="nav-link">Recipe for Standard Library Functions, Version A: Selective Import</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-for-standard-library-functions-version-b-import-the-module" class="nav-link">Recipe for Standard Library Functions, Version B: Import the Module</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-for-standard-library-functions-version-c-import-everything-from-the-module" class="nav-link">Recipe for Standard Library Functions, Version C: Import Everything From the Module</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#an-example" class="nav-link">An Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="use-python-functions">Use Python Functions</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to use predefined mathematical (or other) functions, like sine or absolute-value, in my calculation.</strong></p>
+</blockquote>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p>Python has a truly incredible arsenal of ready-to-use functions available to you. A few are built into core python, many many more are available through python's "standard library modules", and a truly humongous number are available through a vast ecosystem of third-party add-on modules that you can download and install as needed.</p>
+<p>I think it's fair to say that before you spend time and effort figuring out how to do a coding task, it's worth stopping and asking yourself: "Does this seem like the kind of thing that people might commonly want to do, or is it really idiosyncratic to my situation?" If the former, there's probably a function already in existence for it. Depending on how hard the task is, and how critical your code's need for efficiency is, finding that function may or may not be the worth the time. The question is worth entertaining, though, and getting familiar with the range of functionality available to you is <strong>definitely</strong> worthwhile.</p>
+<p>In this recipe, we'll focus predominantly on mathematically-oriented functions, but the same process applies to string (text) manipulation, rearranging collections of things, serving up web pages, and so on.</p>
+<hr />
+<h2 id="recipe-for-built-in-functions">Recipe for Built-In Functions</h2>
+<p>(This barely deserves the name "recipe".) If you need functionality provided by core python functions, just use them, like this: <code>function_name()</code> for a function that takes no arguments, or <code>function_name(argument_value_1, argument_value_2, ...)</code> for a function that takes one or more arguments.</p>
+<ul>
+<li>To get the absolute value of the number stored in variable <code>x</code>, use <code>abs(x)</code>.</li>
+<li>To calculate the seventh power of <code>x</code>, <code>pow(x, 7)</code> and <code>x**7</code> are equivalent.</li>
+<li>To round a floating-point number <code>a</code> to its nearest integer, use <code>round(a)</code>.</li>
+<li>To round a floating-point number <code>a</code> to <code>n</code> decimal places, use <code>round(a, n)</code>.</li>
+</ul>
+<p>That's about it for mathematically-oriented functions, unless you want to check whether a particular variable is storing an integer, floating-point, or complex number:</p>
+<pre><code class="language-python">&gt;&gt;&gt; a, b, c = 3, 3.0, 3+0j
+&gt;&gt;&gt; type(a), type(b), type(c)
+(&lt;class 'int'&gt;, &lt;class 'float'&gt;, &lt;class 'complex'&gt;)
+</code></pre>
+<p>Or, you can (sometimes) forcibly change a variable to a different numeric type:</p>
+<pre><code class="language-python">&gt;&gt;&gt; int(b)
+3
+&gt;&gt;&gt; type(int(b))
+&lt;class 'int'&gt;
+&gt;&gt;&gt; s = &quot;3.14&quot;
+&gt;&gt;&gt; round(s)
+Traceback (most recent call last):
+  File &quot;&lt;python-input-15&gt;&quot;, line 1, in &lt;module&gt;
+    round(s)
+    ~~~~~^^^
+TypeError: type str doesn't define __round__ method
+&gt;&gt;&gt; round(float(s))
+3
+&gt;&gt;&gt; float(c)
+Traceback (most recent call last):
+  File &quot;&lt;python-input-17&gt;&quot;, line 1, in &lt;module&gt;
+    float(c)
+    ~~~~~^^^
+TypeError: float() argument must be a string or a real number, not 'complex'
+</code></pre>
+<p><a href="https://realpython.com/python-built-in-functions/">See here</a> if you want a thorough explanation of the core python functions available. (That's far beyond what this course requires.)</p>
+<hr />
+<h2 id="recipe-for-standard-library-functions-version-a-selective-import">Recipe for Standard Library Functions, Version A: Selective Import</h2>
+<p>To get a sense of the "modules" available in the python "standard library" — which come as part of a standard python installation, and therefore are always available to you — take a quick browse through <a href="https://docs.python.org/3/py-modindex.html">the python module index</a>, and drill down into any specific modules that catch your interest. At the very least, browse through <a href="https://docs.python.org/3/library/math.html#module-math">the <code>math</code> module</a>; you'll be using that A LOT.</p>
+<p>It's necessary to "import" a module, or specific pieces of a module, before using them. In general, if you'll only be using a few of the functions in a module, it's best to import just those functions. Here's the generic recipe:</p>
+<pre><code class="language-python">from [module_name] import [comma-separated list of function names]
+</code></pre>
+<p>You can then use the functions you've imported exactly as if they were built-in functions. Here's a (very contrived) example:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from math import radians, degrees, sin, acos, sqrt
+&gt;&gt;&gt; angle = radians(76.543)
+&gt;&gt;&gt; degrees( acos( sqrt( 1 - sin(angle)**2 ) ) )
+76.54299999999999
+</code></pre>
+<hr />
+<h2 id="recipe-for-standard-library-functions-version-b-import-the-module">Recipe for Standard Library Functions, Version B: Import the Module</h2>
+<p>If you'll be using many functions from one module — or if you'll be doing a fair amount of exploratory calculation and you don't really know which you'll be using and don't want to bother importing each function separately as you realize you need it — you can just import the whole module. Here's an example:</p>
+<pre><code class="language-python">&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.sin(math.radians(30))
+0.49999999999999994
+</code></pre>
+<p>The general recipe is just <code>import module_name</code>, after which you must refer to the bits of the module with a prefix of <code>module_name.function_name(...)</code>. Yes, that can get a bit tedious.</p>
+<p>You can make it a bit more compact by giving the module a shorthand name as you import it, using the <code>import module_name as nickname</code> syntax:</p>
+<pre><code class="language-python">&gt;&gt;&gt; import math as m
+&gt;&gt;&gt; m.sin(m.radians(30))
+0.49999999999999994
+</code></pre>
+<p>Just be careful that you don't accidentally define a variable <code>m</code> as well, or one will "shadow" the other:</p>
+<pre><code class="language-python">&gt;&gt;&gt; import math as m
+&gt;&gt;&gt; m = 33
+&gt;&gt;&gt; m.sin(0)
+Traceback (most recent call last):
+  File &quot;&lt;python-input-33&gt;&quot;, line 1, in &lt;module&gt;
+    m.sin(0)
+    ^^^^^
+AttributeError: 'int' object has no attribute 'sin'
+</code></pre>
+<hr />
+<h2 id="recipe-for-standard-library-functions-version-c-import-everything-from-the-module">Recipe for Standard Library Functions, Version C: Import Everything From the Module</h2>
+<p>If you really don't want to be bothered typing a prefix on every imported function, and just want everything in a module available as if it were all built-in or as if you'd listed EVERYTHING on an <code>from module_name import ...</code> line, you can, via the wildcard symbol <code>*</code> that means "everything":</p>
+<pre><code class="language-python">&gt;&gt;&gt; from math import *
+&gt;&gt;&gt; angle = radians(76.543)
+&gt;&gt;&gt; sqrt( sin(angle)**2 + cos(angle)**2 )
+1.0
+</code></pre>
+<p><strong>WARNING:</strong> Everything in the module — which could include functions, constants, sub-modules, objects, and who-knows-what else — will get dumped into your namespace. That creates A LOT of potential for name collisions with your own variables, especially since you may not know all the names that were imported.</p>
+<p>For example, in physics, the Greek letters "alpha" and "tau" are frequently used to represent angular acceleration and torque, respectively. Imagine that you're doing a rotational motion calculation, and the expression you've derived for an angular acceleration is</p>
+<blockquote>
+<p><span class="arithmatex">\(\alpha = \tau / I\)</span> where <span class="arithmatex">\(I = m \left[d \ \sin(30^\circ)\right]^2\)</span></p>
+</blockquote>
+<p>with given values are <span class="arithmatex">\(\tau = 3.2 \times 10^5\)</span>, <span class="arithmatex">\(m = 1500\)</span>, and <span class="arithmatex">\(d = 18\)</span> (all in SI units).</p>
+<p>If you do this:</p>
+<pre><code class="language-python">&gt;&gt;&gt; m, d, tau = 1.5e3, 18, 3.2e5
+&gt;&gt;&gt; from math import *
+&gt;&gt;&gt; I = m * (d * sin(radians(30)))**2
+&gt;&gt;&gt; tau / I
+5.171345931835052e-05
+</code></pre>
+<p>…you'll be dead wrong. Compare the final result with this:</p>
+<pre><code class="language-python">&gt;&gt;&gt; m, d, tau = 1.5e3, 18, 3.2e5
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; I = m * (d * math.sin(math.radians(30)))**2
+&gt;&gt;&gt; tau / I
+2.633744855967079
+</code></pre>
+<p><strong>Challenge:</strong> Can you figure out why?</p>
+<hr />
+<h2 id="an-example">An Example</h2>
+<p><strong>Problem:</strong> An unpowered projectile is launched from the ground with an initial speed of 20 m/s at an angle of 50° above the horizontal. What are its speed and direction when it's height above the ground is 10 m?</p>
+<p><strong>Solution:</strong> Elementary kinematics allows one to derive expressions for the horizontal and vertical component of the projectile's velocity at any height <span class="arithmatex">\(h\)</span> (not greater than its maximum height, of course):</p>
+<div class="arithmatex">\[v_x(h) = v_{0,x} \qquad v_y(h) = \sqrt{v_{0,y}^2 - 2gh}\]</div>
+<p>where <span class="arithmatex">\(v_{0,x}\)</span> and <span class="arithmatex">\(v_{0,y}\)</span> are the components of the projectile's initial velocity, <span class="arithmatex">\(g\)</span> is the acceleration due to gravity, and <span class="arithmatex">\(h\)</span> is the height above the ground. If <span class="arithmatex">\(\theta_0\)</span> represents the velocity's initial angle above horizontal, we can decompose the initial velocity vector into:</p>
+<div class="arithmatex">\[v_{0,x} = v_0 \cos(\theta_0) \qquad v_{0,y} = v_0 \sin(\theta_0)\]</div>
+<p>We can use the expressions above to determine the components of the initial velocity vector, and then the velocity components at the given height. Once we know those, we can calculate the requested values by applying trig to find the magnitude and direction of the velocity vector at that height:</p>
+<div class="arithmatex">\[v(h) = \sqrt{v_x(h)^2 + v_y(h)^2} \qquad \theta(h) = \arctan\left(\frac{v_y(h)}{v_x(h)}\right)\]</div>
+<pre><code class="language-python">In [1]: import math as m
+
+In [2]: v0, q0 = 20, m.radians(50)
+
+In [3]: v0x, v0y = v0 * m.cos(q0), v0 * m.sin(q0)
+
+In [4]: v0x, v0y
+Out[4]: (12.855752193730787, 15.32088886237956)
+
+In [5]: g = 9.806
+
+In [6]: h = 10
+
+In [7]: vx, vy = v0x, m.sqrt(v0y**2 - 2 * g * h)
+
+In [8]: vx, vy
+Out[8]: (12.855752193730787, 6.213665225403286)
+
+In [9]: v = m.sqrt(vx**2 + vy**2)
+
+In [10]: q = m.atan2(vy, vx)
+
+In [11]: v, m.degrees(q)
+Out[11]: (14.278655398881227, 25.79621315114633)
+</code></pre>
+<h3 id="notes">Notes:</h3>
+<ul>
+<li>
+<p>I make liberal use of the "comma trick" to define two related variables on one line. You don't have to.</p>
+</li>
+<li>
+<p>Since you can't really use Greek letters in code, I've developed a habit of using <code>q</code> or <code>Q</code> in place of <span class="arithmatex">\(\theta\)</span>, <code>w</code> in place of <span class="arithmatex">\(\omega\)</span>, and <code>ph</code> in place of <span class="arithmatex">\(\phi\)</span>. Because I do this regularly, my code is still readable, at least to me. Writing out the names like <code>theta</code> isn't a bad idea either. Nor is using descriptive names like <code>initial_angle</code> or <code>angular_freq</code>.</p>
+</li>
+<li>
+<p><strong>Python's trig functions all work in radians</strong>, but we often use degrees for human interpretability, so converting back and forth is a way of life. Get used to this! A good practice is to make sure all angle variables in your code ALWAYS contain values in radians.</p>
+<ul>
+<li>
+<p>If given degrees, don't even store that value; immediately use <code>math.radians()</code> to convert to radians and store that in a variable, as I did in line 2.</p>
+</li>
+<li>
+<p>If asked to report a result in degrees, calculate it in radians and use <code>math.degrees()</code> as you display it.</p>
+</li>
+<li>
+<p>If you <em>really</em> want to store a value in degrees in a variable, give it a name like <code>theta_deg</code> to remind yourself that it's in degrees.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In line 4, I peeked at the values of the initial velocity components to make sure they seemed plausible. If I'd screwed up something, perhaps by forgetting to convert degrees to radians, I might have noticed it here.</p>
+</li>
+<li>
+<p>In line 10, I used the <code>math</code> module's <code>atan2()</code> function instead of the <code>atan()</code> function. It shouldn't really matter in this situation, but you should know about how they differ. <a href="https://docs.python.org/3/library/math.html#math.atan">Go read about them in the <code>math</code> module documentation.</a> TLDR: <code>atan2</code> is smarter about figuring out the right quadrant. <code>atan</code> can't tell between the first and third quadrants, or between the second and fourth.</p>
+</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
