@@ -52,7 +52,7 @@ Notes:
 
 It's not hard to write a better version of this recipe that handles invalid input more gracefully — for example, letting the user try repeatedly until they get it right, and showing a friendly message instead of a scary python error dump when they get it wrong. However, that requires python features we haven't reached yet. So for now, this recipe will suffice.
 
-If you want to ask for more than one value, just repeat this recipe more than once in your script.
+If you want to ask for more than one value, just repeat this recipe more than once in your script, asking the user for each value in turn.
 
 ___
 ## An Example
@@ -79,3 +79,5 @@ y = mag * sin(radians(angle))
 # Report out:
 print(f"=> The vector's components are ({x:.3g}, {y:.3g}).")
 ```
+
+Self-explanatory, no?

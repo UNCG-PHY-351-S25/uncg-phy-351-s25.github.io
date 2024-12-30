@@ -3,7 +3,7 @@
 ___
 ## Problem to Solve
 
-> **I want to use a particular calculation multiple times, perhaps with different givens, and/or have a permanent record of it.**
+> **I want to make a multi-step calculation easier to construct and debug, run multiple times, run again later, and/or have a permanent record of.**
 
 Up until now, we've been using the IPython console as a kind of scientific calculator on steroids. This makes sense for quick one-off calculations. However, it has two major drawbacks:
 

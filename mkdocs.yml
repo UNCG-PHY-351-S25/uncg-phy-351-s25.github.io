@@ -8,10 +8,12 @@ theme:
 plugins:
     - search
     - awesome-pages
+    # - myst-parser
 
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  - footnotes
 
 extra_javascript:
   - javascripts/mathjax.js
