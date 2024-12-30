@@ -1,4 +1,5 @@
 site_name: PHY 351 Reference
+repo_url: "https://github.com/UNCG-PHY-351-S25.github.io"
 
 theme:
   name: mkdocs
