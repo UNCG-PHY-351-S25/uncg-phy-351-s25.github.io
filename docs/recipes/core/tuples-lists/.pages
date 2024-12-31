@@ -1,0 +1,8 @@
+nav:
+    - (Recipe List): index.md
+    - tuples.md
+    - lists.md
+    - iterate.md
+    - set-or-append.md
+    - find-in-list.md
+    - combine-lists.md

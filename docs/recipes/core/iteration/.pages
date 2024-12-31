@@ -1,0 +1,6 @@
+nav:
+    - (Recipe List): index.md
+    - ranges.md
+    - monte-carlo.md
+    - skip-break.md
+    - while.md
