@@ -1,0 +1,3 @@
+# Introduction to Numpy
+
+TBW…
