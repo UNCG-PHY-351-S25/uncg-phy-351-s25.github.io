@@ -1,8 +1,0 @@
-nav:
-    - (Recipe List): index.md
-    - calc-interactively.md
-    - use-functions.md
-    - complex-numbers.md
-    - print.md
-    - scripts.md
-    - user-input.md

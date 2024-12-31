@@ -1,8 +1,0 @@
-nav:
-    - (Recipe List): index.md
-    - custom-functions.md
-    - factoring.md
-    - optional-args.md
-    - safety-check.md
-    - conditionals.md
-    - namespaces.md
