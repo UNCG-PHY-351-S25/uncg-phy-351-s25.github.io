@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Write Your Own Functions - PHY 351 Reference</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../../../css/custom.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">PHY 351 Reference</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Course Admin</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../admin/syllabus/" class="dropdown-item">Syllabus</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Recipes</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../" class="dropdown-item">Intro to Recipes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">A) Core Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../" class="dropdown-item">Overview</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Workflow</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../workflow/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../workflow/find-and-fork/" class="dropdown-item">Find and Fork a Repo on GitHub</a>
+</li>
+            
+<li>
+    <a href="../../workflow/beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+</li>
+            
+<li>
+    <a href="../../workflow/system-terminal/" class="dropdown-item">Open and Use the System Terminal</a>
+</li>
+            
+<li>
+    <a href="../../workflow/authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+</li>
+            
+<li>
+    <a href="../../workflow/clone-to-beskar/" class="dropdown-item">Clone a Repo to Beskar</a>
+</li>
+            
+<li>
+    <a href="../../workflow/edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+</li>
+            
+<li>
+    <a href="../../workflow/interactive-python/" class="dropdown-item">Execute Interactive Python</a>
+</li>
+            
+<li>
+    <a href="../../workflow/submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Calculation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../calculation/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../calculation/calc-interactively/" class="dropdown-item">Calculate Interactively</a>
+</li>
+            
+<li>
+    <a href="../../calculation/use-functions/" class="dropdown-item">Use Python Functions</a>
+</li>
+            
+<li>
+    <a href="../../calculation/complex-numbers/" class="dropdown-item">Use Complex Numbers</a>
+</li>
+            
+<li>
+    <a href="../../calculation/print/" class="dropdown-item">Print Formatted Output</a>
+</li>
+            
+<li>
+    <a href="../../calculation/scripts/" class="dropdown-item">Script a Calculation</a>
+</li>
+            
+<li>
+    <a href="../../calculation/user-input/" class="dropdown-item">Ask for User Input</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Functions</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Write Your Own Functions</a>
+</li>
+            
+<li>
+    <a href="../optional-args/" class="dropdown-item">Make Arguments Optional</a>
+</li>
+            
+<li>
+    <a href="../conditionals/" class="dropdown-item">Execute Code Conditionally</a>
+</li>
+            
+<li>
+    <a href="../safety-check/" class="dropdown-item">Safety Check Arguments</a>
+</li>
+            
+<li>
+    <a href="../factoring/" class="dropdown-item">Factoring</a>
+</li>
+            
+<li>
+    <a href="../globals/" class="dropdown-item">Globals</a>
+</li>
+            
+<li>
+    <a href="../run-or-import/" class="dropdown-item">Run or import</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Iteration</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../iteration/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../iteration/ranges/" class="dropdown-item">Ranges</a>
+</li>
+            
+<li>
+    <a href="../../iteration/monte-carlo/" class="dropdown-item">Monte carlo</a>
+</li>
+            
+<li>
+    <a href="../../iteration/skip-break/" class="dropdown-item">Skip break</a>
+</li>
+            
+<li>
+    <a href="../../iteration/while/" class="dropdown-item">While</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Tuples & Lists</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../tuples-lists/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/tuples/" class="dropdown-item">Tuples</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/lists/" class="dropdown-item">Lists</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/iterate/" class="dropdown-item">Iterate</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/set-or-append/" class="dropdown-item">Set or append</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/find-in-list/" class="dropdown-item">Find in list</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/combine-lists/" class="dropdown-item">Combine lists</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Sets & Dictionaries</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../sets-dicts/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/sets/" class="dropdown-item">Sets</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/overlap/" class="dropdown-item">Overlap</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/dicts/" class="dropdown-item">Dicts</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/dict-iteration/" class="dropdown-item">Dict iteration</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/counters/" class="dropdown-item">Counters</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">B) Numerical Methods 1</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../num1/" class="dropdown-item">Numerical Methods 1: Finding Roots &amp; Extrema</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C) Scientific Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../scipy/" class="dropdown-item">Skillset B: Scientific Python</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">D) Numerical Methods 2</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../num2/" class="dropdown-item">Numerical Methods 2: Numerical Calculus</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">E) Visual Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../visual/" class="dropdown-item">Skillset C: Visual Python</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Topics</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../topics/" class="dropdown-item">Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Core Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/core/operators/" class="dropdown-item">Arithmetic Operators</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/core/precedence/" class="dropdown-item">Operator Precedence</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Scientific Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/scipy/numpy/" class="dropdown-item">Introduction to Numpy</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../optional-args/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/functions/writing-functions.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
+                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="true">
+                                    <i class="fa-solid fa-sun fa-fw"></i>
+                                    <span class="ms-2">Light</span>
+                                    <i class="fa-solid fa-check ms-auto"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                    <i class="fa-solid fa-moon fa-fw"></i>
+                                    <span class="ms-2">Dark</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                    <span class="ms-2">Auto</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                              </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../../../../js/darkmode.js"></script>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#write-your-own-functions" class="nav-link">Write Your Own Functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe" class="nav-link">Recipe</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#some-examples" class="nav-link">Some Examples</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="write-your-own-functions">Write Your Own Functions</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to easily reuse a particular calculation multiple times, with different givens.</strong></p>
+</blockquote>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p>IMHO, the biggest challenge facing coders of any level, writing code for any kind of application, is managing the <em>complexity</em> of the task. In any program beyond the truly trivial (or larger software ecosystem!), there is simply more going on — more bits of functionality, more state information to track, more causal interconnections — than any human being can hold in their head. Without some powerful methodologies for managing the complexity, the task can be nearly impossible; and even if one completes a program that <em>seems</em> to work, it's really hard to be confident it's bug-free and reliable.</p>
+<p>Defining your own <em>functions</em> that wrap up well-defined chunks of functionality into reusable units is one of the most powerful tools programmers have devised to deal with this. The basic idea is that one takes a sub-task of manageable complexity and writes code to accomplish it, in a way that is as decoupled from the rest of the larger problem as possible. That chunk of code is packaged in such a way that other code can refer to it and use it as a single python expression — a "function". In that way, once the function has been written and tested, the programmer can forget about the complexity it encapsulates, and for cognitive load purposes it becomes a single "thing".</p>
+<p>Here's an example: How do you think the computer calculates, say, <code>math.sin(0.143)</code> when you put that into your program? Deep in the code for the <code>math</code> module is a <em>function definition</em> that instructs the computer to calculate a fairly complicated series approximation to the sine, with lots of logic to accurately and efficiently handle edge cases like very tiny angles. Do you really want to have to think about all of that every time you need to take the sine of something? Nope…</p>
+<p>Okay, enough philosophy. Let's get to the nuts-and-bolts. </p>
+<hr />
+<h2 id="recipe">Recipe</h2>
+<h3 id="step-1-define-the-function">Step 1: <em>Define</em> The Function</h3>
+<p>Before your code can <em>use</em> a function, it has to <em>define</em> a function. If you want <code>do_thing(3)</code> to mean something to the python interpreter when it encounters that expression, you first have to send code to the interpreter that tells it what that expression means. This is the template for a <em>function definition</em>:</p>
+<pre><code class="language-python">def function_name(arg_1, arg_2, …):
+    &quot;&quot;&quot; Here goes a descriptive comment telling a human reader what the function
+        does, including what the various arguments will affect and what kind
+        of value it will return.
+    &quot;&quot;&quot;
+    pass # REPLACE this with the code that will implement your function's
+    pass # behavior, in as many or few lines as is required.
+
+    return result_to_return
+
+# Other code that follows here is NOT part of the function.
+</code></pre>
+<p>Notes:</p>
+<ol>
+<li>
+<p>The first line, beginning with <code>def</code>, is called the <em>function signature</em>. It specifies everything that client code — code that uses this function — needs to know about how to call it.</p>
+</li>
+<li>
+<p>Replace <code>function_name</code> with a name for your function that communicates, fairly clearly, what the function's purpose is.</p>
+<ul>
+<li>In python, function names must follow the same rules as variable names: They must start with a letter, and consist only of letters, digits, and the underscore character. (Technically, the first character can be an underscore, but the python convention reserves this for special-purpose functions we don't need to get into here.) </li>
+<li>Python culture goes farther, recommending that function names begin with <strong>lowercase</strong> letters and use "snake_case", (an underscore between words) rather than "camelCase" (capital letter to start new words).</li>
+</ul>
+</li>
+<li>
+<p>Replace <code>arg_1, arg_2, …</code> with a comma-separated list of <em>arguments</em> that will be given specific values when the function is <em>called</em> (used, executed).</p>
+<ul>
+<li>The names you put here will become variables "holding" those values that the body of the function can refer to.</li>
+<li>The names you use here can be different than whatever variables "outside the function" might be used to hand value to the function. <strong>Code inside the function shouldn't care about the details of code outside the function, and vice-versa.</strong></li>
+<li>A function can specify that it wants no arguments, or one, or two, or more… Or it can even be flexible in how many it requires (see below).</li>
+</ul>
+</li>
+<li>
+<p>The descriptive comment just below the function signature line is called the <em>docstring</em>.</p>
+<ul>
+<li>The docstring is optional, but it's worth writing. Someone else trying to figure out your code, or maybe even future you, will be very glad you took the time.</li>
+<li>It's really good habit to write this comment FIRST, before you start writing the actual code. That can help you clarify in your own mind what, precisely, the function should do.</li>
+<li>BTW, the triple-quotes bound a special kind of string literal that can span multiple lines. Other than the line breaks, it's just a normal string, like <code>"blah blah"</code>.</li>
+</ul>
+</li>
+<li>
+<p>In python, <strong>indentation matters!</strong> The only thing telling the python interpreter which subsequent lines belong to the function definition and which are part of some other, subsequent code is the fact that the <em>body</em> of the function is indented, and all by the same amount.</p>
+<ul>
+<li>Warning: multiple space characters may <em>look</em> like the same indentation as a tab character, but are not the same as far as the python interpreter is concerned. Fortunately, most modern code editors will proactively replace tabs with spaces for you, protecting you from this potentially infuriating source of mystery errors.</li>
+</ul>
+</li>
+<li>
+<p>The code in the <em>function body</em> is not evaluated when the function definition is sent to the interpreter! Rather, it is stashed, and is later executed when the function is called (used) by other code, using whatever argument values have been specified at that time.</p>
+</li>
+<li>
+<p>Replace <code>result_to_return</code> with an expression that will evaluate to the result you want your function to return to whatever code called it.</p>
+<ul>
+<li>You can replace <code>result_to_return</code> with the name of a variable that is defined and given a value in the function.</li>
+<li>Alternatively, you can replace it with an expression that will be evaluated when the value is to be returned. It's even possible for a function to have no body at all other than the return line, and still be useful if that return line contains a calculation.</li>
+<li>Some functions don't return anything, but have some desirable side effect such as writing data to a file or printing text to the screen. Those can either <code>return None</code> or have no return line at all.</li>
+</ul>
+</li>
+</ol>
+<h3 id="step-2-call-the-function">Step 2: <em>Call</em> the Function</h3>
+<p>Once your code has defined a function, any code that is subsequently executed can <em>call</em> (use) it simply by giving its name, followed by parentheses containing a list of values to be passed to the function's arguments:</p>
+<pre><code class="language-python">some_variable = function_name(value_1, value_2, …)
+different_function( function_name(other_value_1, other_value_2, …) )
+</code></pre>
+<p>Note a critical difference: In python, <code>function_name</code> by itself is a reference to the function's code, whereas <code>function_name(…)</code> causes the function to execute (whether or not the parentheses are empty). The presence of the parentheses are the trigger that says "execute this".</p>
+<ul>
+<li>Black-belt tidbit: In python, you can pass a function around as an object, just like you can with a variable, by using its name without parentheses. The function's body is its "value" in the way that a number or string is a regular variable's value. That means you can actually pass a function as an argument to another function, and that other function can execute the one it's been given without knowing what it actually does! This is called a <em>callback</em>, and is a very useful technique for "decoupling" different portions of a code. In essence, it lets you pass "actions" around in the same way that you pass "values" around.</li>
+</ul>
+<h3 id="elaboration-return-multiple-values">Elaboration: Return Multiple Values</h3>
+<p>A recipe can easily return two or three (or, in principle, more) separate values via the "comma trick":</p>
+<pre><code class="language-python">def function_name(some_arg):
+    &quot;&quot;&quot; Template for a function that returns two values
+    &quot;&quot;&quot;
+    pass # Calculate result_1 and result_2 in some way.
+    return result_1, result_2
+</code></pre>
+<p>To catch them, calling code also uses the comma trick:</p>
+<pre><code class="language-python">thing_1, thing_2 = function_name(val_for_some_arg)
+</code></pre>
+<p>Notes:</p>
+<ol>
+<li>
+<p>Technically, the function only returning one "value", but that value is something called a <em>tuple</em> that packages multiple values together. The comma-separated list on the left-hand side of the calling code's assignment statement <em>unpacks</em> the tuple into separate variables. We'll look at tuples more closely in an upcoming level.</p>
+</li>
+<li>
+<p>There is, in principle, no limit to the number of values a function can return this way. However, if you're going to return more than two or three, you're probably better off wrapping them in one of python's <em>collections</em>, which are the focus of two upcoming levels.</p>
+</li>
+<li>
+<p>Similarly, if the function needs to be flexible about how many values to return, the comma trick won't suffice and you'll need a <em>collection</em> object.</p>
+</li>
+</ol>
+<hr />
+<h2 id="some-examples">Some Examples</h2>
+<blockquote>
+<p>These examples are pretty trivial, mostly because we haven't yet introduced the python structures (such as conditional logic and iteration) that get used in more complicated ones. Please take them in that spirit.</p>
+</blockquote>
+<h3 id="no-arguments">No Arguments</h3>
+<p>Functions that take no arguments are uncommon, but are occasionally convenient. For example:</p>
+<pre><code class="language-python">from random import randint
+def roll_3d6():
+    &quot;&quot;&quot; Simulate rolling three six-sided dice and return the sum.
+    &quot;&quot;&quot;
+    return randint(1, 6) + randint(1, 6) + randint(1, 6)
+</code></pre>
+<h3 id="one-argument">One Argument</h3>
+<pre><code class="language-python">from math import degrees
+def degrees_bounded(angle_in_rad):
+    &quot;&quot;&quot; Convert the given angle in radians to degrees, within the range [0, 360). Angles
+        360˚ or greater get mapped to the equivalent angle within the first revolution,
+        and negative angles get mapped to the equivalent positive angle.
+    &quot;&quot;&quot;
+    return degres(angle) % 360
+</code></pre>
+<h3 id="two-arguments">Two Arguments</h3>
+<pre><code class="language-python">def kinetic_energy(m, v):
+    &quot;&quot;&quot; Calculate the kinetic energy of an object with the given mass and velocity.
+    &quot;&quot;&quot;
+    return 0.5 * mass * velocity**2
+</code></pre>
+<h3 id="multiple-return-values">Multiple Return Values</h3>
+<pre><code class="language-python">def cartesian_to_polar(x, y):
+    &quot;&quot;&quot; Converts the given 2D Cartesian coordinates to polar coordinates. Returns the
+        polar coordinates as (r, theta) with theta in radians.
+    &quot;&quot;&quot;
+    r = math.sqrt(x**2 + y**2)
+    theta = math.atan2(y, x)
+    return r, theta
+</code></pre>
+<p>Note: This function body could be rewritten as a one-liner,</p>
+<pre><code class="language-python">def cartesian_to_polar(x, y):
+    &quot;&quot;&quot; Converts the given 2D Cartesian coordinates to polar coordinates. Returns the
+        polar coordinates as (r, theta) with theta in radians.
+    &quot;&quot;&quot;
+    return math.sqrt(x**2 + y**2), math.atan2(y, x)
+</code></pre>
+<p>but sacrificing readability for brevity is rarely worthwhile.</p>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../javascripts/mathjax.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
