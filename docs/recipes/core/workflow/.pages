@@ -1,5 +1,10 @@
 nav:
     - (Recipe List): index.md
-    - get-assignment.md
-    - launch-calc-save.md
-    - submit-work.md
+    - find-and-fork.md
+    - beskar-and-jlab.md
+    - system-terminal.md
+    - authenticate-to-github.md
+    - clone-to-beskar.md
+    - edit-file.md
+    - interactive-python.md
+    - submit-level.md

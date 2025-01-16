@@ -1,8 +1,9 @@
 nav:
     - (Recipe List): index.md
-    - custom-functions.md
-    - factoring.md
+    - writing-functions.md
     - optional-args.md
-    - safety-check.md
     - conditionals.md
-    - namespaces.md
+    - safety-check.md
+    - factoring.md
+    - globals.md
+    - run-or-import.md

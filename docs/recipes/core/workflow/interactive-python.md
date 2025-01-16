@@ -1,9 +1,16 @@
-# Launch, Calc, Save
-
+# Execute Interactive Python
 ___
+
 ## Problem to Solve
 
-> **I want to use python to do a quick calculation that I probably won’t need to use again later.**
+> **I want to execute python commands interactively (perhaps to do a one-off calculation or just try things out).**
+___
+
+## Recipe
+
+
+___
+# Old Version
 
 ___
 ## Recipe to Solve It

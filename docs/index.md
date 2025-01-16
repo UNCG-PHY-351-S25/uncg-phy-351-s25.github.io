@@ -2,9 +2,8 @@
 
 ## Course Administrivia
 
-- [About the course](admin/intro.md)
-
 - [Course syllabus](admin/syllabus.md)
+
 
 ## Recipes
 
