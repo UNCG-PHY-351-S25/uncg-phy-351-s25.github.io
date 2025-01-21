@@ -73,15 +73,11 @@
 </li>
             
 <li>
-    <a href="../beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+    <a href="../manage-files/" class="dropdown-item">Manage Files on Beskar</a>
 </li>
             
 <li>
-    <a href="../system-terminal/" class="dropdown-item">Open and Use the System Terminal</a>
-</li>
-            
-<li>
-    <a href="../authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+    <a href="../github-auth/" class="dropdown-item">Authorizing with GitHub from Beskar</a>
 </li>
             
 <li>
@@ -89,7 +85,7 @@
 </li>
             
 <li>
-    <a href="../edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Commit and Push Changes to GitHub</a>
 </li>
             
 <li>
@@ -97,7 +93,7 @@
 </li>
             
 <li>
-    <a href="../submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+    <a href="../submit-level/" class="dropdown-item">Submit a Level</a>
 </li>
     </ul>
   </li>
@@ -315,6 +311,24 @@
     <a href="../../../../topics/" class="dropdown-item">Overview</a>
 </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
 <li>
     <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
 </li>
@@ -358,7 +372,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../edit-file/" class="nav-link">
+                                <a rel="next" href="../interactive-python/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -419,6 +433,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#background-knowledge" class="nav-link">Background Knowledge</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#recipe" class="nav-link">Recipe</a>
               <ul class="nav flex-column">
               </ul>
@@ -437,7 +455,98 @@
 <p><strong>I want to make a snapshot of my work so far in case I need to roll back changes, and copy the current repo state back to GitHub for safekeeping.</strong></p>
 </blockquote>
 <hr />
+<h2 id="background-knowledge">Background Knowledge</h2>
+<h3 id="committing">Committing</h3>
+<p>In <em>git</em> and <em>GitHub</em> parlance, <em>committing</em> means "saving a snapshot of the current state of the repo". These snapshots are good for a few different things, including:</p>
+<ul>
+<li>Later on, comparing the repo's current state to the snapshot and seeing precisely what has changed (down to the line); and</li>
+<li>Resetting the repo to how it was at the time of a particular snapshot, if you've gotten all tangled up in changes you were trying to make and just want to undo everything since the snapshot.</li>
+</ul>
+<p>Committing a repo is something that you do locally (i.e., on whatever machine you've been using to work on the repo — for us, that's usually Beskar). When you do, <em>git</em> saves information about the current snapshot into some hidden folders that are stored in the repo, right alongside the repo's normal files.</p>
+<blockquote>
+<p><strong>I strongly recommend "doing a commit" every time</strong> you complete an exercise, when you take a break after having done significant work on an assignment, or when you're about to make major changes to some code that you might possibly want to undo.</p>
+</blockquote>
+<h3 id="pushing">Pushing</h3>
+<p>Before you started working on a repo in Beskar, you had to (a) <em>fork</em> it on GitHub to make your own copy, and (b) <em>clone</em> it to Beskar.</p>
+<p><em>Pushing</em> means taking whatever changes you've made to the local (Beskar) clone of the repo and "pushing" them through the internet to GitHub so that it can update your on-GitHub copy accordingly.</p>
+<blockquote>
+<p><strong>Doing this frequently is very important!</strong></p>
+</blockquote>
+<p>As of the start of the Spring 2025 semester, Beskar is <em>not</em> being backed up at all. (That's on my to-do list. It's not so easy.)</p>
+<h3 id="pulling">Pulling</h3>
+<p><em>Pulling</em> means the converse: from Beskar, "pulling" down from GitHub any changes that may have occurred to your copy of the repo there and updating your local, on-Beskar clone accordingly.</p>
+<p>This isn't something you're likely to need very often, unless (a) you've used GitHub's web-based editor to change something, or (b) I've made changes to the master repo that you originally forked and that I've told you to pull down. (In that case, you'll first have to pull the changes from the master to your fork. When the need arises, I'll explain how to do that.)</p>
+<h3 id="syncing">Syncing</h3>
+<p><em>Syncing</em> just means doing both a push and a pull simultaneously, and reconciling any conflicts (e.g., if a file was edited both on Beskar and on GitHub). If only one version has changed, this is the same as doing the appropriate push or pull.</p>
+<p>I recommend avoiding making edits on both GitHub and Beskar between pushes/pulls, because the conflict reconciliation process can be confusing and frustrating. If you never make changes directly on GitHub, you won't have to worry about this unless I have to distribute updates or bugfixes.</p>
+<hr />
 <h2 id="recipe">Recipe</h2>
+<h3 id="recipe-1-committing">Recipe 1: Committing</h3>
+<p>You can do all this through the Terminal, via text commands, but I recommend using JupyterLab's built-in GitHub support.</p>
+<ol>
+<li>
+<p>In the top menubar, find the "Git" menu, click on it, and make sure the item "Simple staging" is checked. If not, select it to turn it on.</p>
+<ul>
+<li>This setting should be remembered hereafter.</li>
+</ul>
+</li>
+<li>
+<p>Click on the Git icon in the left-hand border. That's the one that looks like a diamond containing a couple of dots connected by branching lines (subway map??).</p>
+<ul>
+<li>When you do, the File Browser panel should be replaced by one that says, at the top, "Current Repository" and the name of your repo.</li>
+</ul>
+</li>
+<li>
+<p>That panel has two sub-panels, with side-by-side tabs labeled "Changes" and "History". If "Changes" isn't selected already, click that.</p>
+<ul>
+<li>You should see a list of all files in the project that have been added, modified, or removed since your last commit. </li>
+</ul>
+</li>
+<li>
+<p>Make sure the checkboxes are checked for all the files you want to commit.</p>
+<ul>
+<li>If you've created any new files, those won't be checked by default. Check them unless they're "throwaway" files you don't care about keeping in the repo. This adds them to the list of files to be tracked by git.</li>
+</ul>
+</li>
+<li>
+<p>In the "Summary" box near the bottom of the panel, type a brief note like "Finished Exercise 03".</p>
+<ul>
+<li>This will help you figure out which snapshot you might want to compare or roll back to, should the need arise.</li>
+</ul>
+</li>
+<li>
+<p>Adding a "Description" is optional.</p>
+<ul>
+<li>Write one if you want to add a comment providing more detail about what's changed for this commit.</li>
+</ul>
+</li>
+<li>
+<p>Then, click the big blue <code>Commit</code> button at the bottom (not the three-dots button on its right).</p>
+<ul>
+<li>This performs the actual commit, storing the snapshot info in the repo.</li>
+</ul>
+</li>
+</ol>
+<p><em>Save point created!</em></p>
+<h3 id="recipe-2-pushing">Recipe 2: Pushing</h3>
+<p>However, this new commit (snapshot) is only local, as is all the hard work you've done on the repo. Time to <em>push</em> it to GitHub.</p>
+<ol>
+<li>
+<p>Look at the very top of the Git panel, up above the words "Current Repository". You should see a row of three little icons: a cloud with a down-arrow, a cloud with an up-arrow, and a circular-arrow.</p>
+<ul>
+<li>These mean "pull", "push" and "sync" respectively.</li>
+<li>If you hover your mouse pointer over any of them, a tooltip should appear to tell you what it does.</li>
+<li>The "push" icon (the middle one) should have an orange dot next to it. That means the local repo has committed changes that haven't yet been pushed.</li>
+</ul>
+</li>
+<li>
+<p>Click the "push" icon.</p>
+<ul>
+<li>The dot should disappear, and a "Successfully pushed" message should briefly appear in the bottom-right corner of the JupyterLab window.</li>
+</ul>
+</li>
+</ol>
+<p><em>Relax, content in the knowledge that your work is now safely protected on GitHub's massive server farms.</em></p>
 <hr /></div>
             </div>
         </div>

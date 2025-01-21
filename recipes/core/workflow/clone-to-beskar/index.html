@@ -73,15 +73,11 @@
 </li>
             
 <li>
-    <a href="../beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+    <a href="../manage-files/" class="dropdown-item">Manage Files on Beskar</a>
 </li>
             
 <li>
-    <a href="../system-terminal/" class="dropdown-item">Open and Use the System Terminal</a>
-</li>
-            
-<li>
-    <a href="../authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+    <a href="../github-auth/" class="dropdown-item">Authorizing with GitHub from Beskar</a>
 </li>
             
 <li>
@@ -89,7 +85,7 @@
 </li>
             
 <li>
-    <a href="../edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+    <a href="../commit-push/" class="dropdown-item">Commit and Push Changes to GitHub</a>
 </li>
             
 <li>
@@ -97,7 +93,7 @@
 </li>
             
 <li>
-    <a href="../submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+    <a href="../submit-level/" class="dropdown-item">Submit a Level</a>
 </li>
     </ul>
   </li>
@@ -315,6 +311,24 @@
     <a href="../../../../topics/" class="dropdown-item">Overview</a>
 </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
 <li>
     <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
 </li>
@@ -353,12 +367,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../authenticate-to-github/" class="nav-link">
+                                <a rel="prev" href="../github-auth/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../edit-file/" class="nav-link">
+                                <a rel="next" href="../commit-push/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -425,11 +439,6 @@
             </li>
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#old-version" class="nav-link">Old Version</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
@@ -443,25 +452,46 @@
 </blockquote>
 <hr />
 <h2 id="recipe">Recipe</h2>
-<hr />
-<h1 id="old-version">Old Version</h1>
-<h3 id="part-b-clone-it-to-beskar">Part B: Clone it to Beskar</h3>
-<p><em>This part makes a copy of the assignment repo on the server you'll do your actual coding work on.</em></p>
 <ol>
 <li>
-<p>Locate <strong>the green "&lt;&gt; Code" button</strong> at the top of the page, just above the top right corner of the file list. Click on it. That should produce a dropdown menu with a bunch of information in it.</p>
+<p><strong>On GitHub, go to the main page of the repo</strong> that you want to clone. For an assignment repo, make sure you're looking at your fork, not at the instructor's original.</p>
+<ul>
+<li>If you are reading this on the GitHub site: to keep these instructions visible as you go, right-click on the repo name (e.g., <code>A-01-username</code>) at the very top of the window, and choose "Open in new tab".<ul>
+<li>Or, if you've got loads of screen real estate, "Open in new window" so you can put them side-by-side.</li>
+</ul>
+</li>
+<li>Do make sure you're looking at <strong>your</strong> fork, not at the original!</li>
+</ul>
 </li>
 <li>
-<p>In the dropdown, select the "Local" tab if it's not already selected. In the line that says "HTTPS SSH GitHub CLI", <strong>select "GitHub CLI"</strong>. The box right below where you click should now contain text that looks something like <code>gh repo clone UNCG-PHY-351-S25/L1.E</code>, where the last bit is the repo name.</p>
+<p><strong>Click the big green "Code" button</strong> near the top of the repo main page.</p>
+<ul>
+<li>That should reveal a popup dialog.</li>
+</ul>
 </li>
 <li>
-<p><strong>Click the copy button</strong> (the two overlapping squares) to the right of this text box to copy the text snippet into your computer's clipboard.</p>
+<p><strong>Select the "Local" tab</strong> in that dialog if it's not already selected.</p>
 </li>
 <li>
-<p>Open a new web browser tab or window and, in it, <a href="http://beskar.uncg.edu">navigate to Beskar</a>.</p>
+<p><strong>Select the "GitHub CLI" sub-tab</strong>.</p>
 </li>
 <li>
-<p>TBC…</p>
+<p><strong>Click the two-rectangles "copy" icon</strong> to the right of the text box that contains something analogous to <code>gh repo clone UNCG-PHY-351-S25/A-01-username</code>.</p>
+<ul>
+<li>A little tooltip that says "Copied!" should appear, briefly.</li>
+</ul>
+</li>
+<li>
+<p><strong>Open a Terminal</strong> (or switch to an already-open one) in your Beskar browser tab.</p>
+</li>
+<li>
+<p><strong>Verify that you are, in fact, in your home directory</strong> or life will get very awkward.</p>
+</li>
+<li>
+<p><strong>Paste the copied text in as a terminal command</strong> and hit return to execute it.</p>
+</li>
+<li>
+<p><strong>List the directory's contents</strong> and you should see a new subdirectory with the name of your repo.</p>
 </li>
 </ol></div>
             </div>

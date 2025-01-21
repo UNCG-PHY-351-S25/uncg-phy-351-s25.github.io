@@ -73,15 +73,11 @@
 </li>
             
 <li>
-    <a href="core/workflow/beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+    <a href="core/workflow/manage-files/" class="dropdown-item">Manage Files on Beskar</a>
 </li>
             
 <li>
-    <a href="core/workflow/system-terminal/" class="dropdown-item">Open and Use the System Terminal</a>
-</li>
-            
-<li>
-    <a href="core/workflow/authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+    <a href="core/workflow/github-auth/" class="dropdown-item">Authorizing with GitHub from Beskar</a>
 </li>
             
 <li>
@@ -89,7 +85,7 @@
 </li>
             
 <li>
-    <a href="core/workflow/edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+    <a href="core/workflow/commit-push/" class="dropdown-item">Commit and Push Changes to GitHub</a>
 </li>
             
 <li>
@@ -97,7 +93,7 @@
 </li>
             
 <li>
-    <a href="core/workflow/submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+    <a href="core/workflow/submit-level/" class="dropdown-item">Submit a Level</a>
 </li>
     </ul>
   </li>
@@ -315,6 +311,24 @@
     <a href="../topics/" class="dropdown-item">Overview</a>
 </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
 <li>
     <a href="../topics/external/" class="dropdown-item">External Tutorials</a>
 </li>
@@ -443,27 +457,23 @@
 <h2 id="recipes-by-phy-351-course-unit">Recipes by PHY 351 course unit</h2>
 <ul>
 <li>
-<p><a href="core/"><strong>Skillset A: Core Python</strong></a></p>
+<p><a href="core/"><strong>World A: Core Python</strong></a></p>
 <p>I use the term <em>core python</em> to mean the standard parts of the python ecosystem: the base python language and the "standard library" of modules that is typically installed along with it. For purposes of this course I'm also including the tool stack we'll use to work with python: <em>GitHub</em> and <em>git</em>, <em>JupyterLab</em> and its pieces, and a little of the <em>Unix</em> command-line.</p>
 </li>
 <li>
-<p><a href="num1/"><strong>Numerical Methods 1: Finding Roots &amp; Extrema</strong></a></p>
+<p><a href="num1/"><strong>World B: Numerical Methods 1 — Numerical Solving, Finding &amp; Randomness</strong></a></p>
 <p>Now that we've covered the essentials of python, let's take a break from "learning to code" in order to "learn why to code" — that is, how to use those skillz to do some physics-y stuff.</p>
 </li>
 <li>
-<p><a href="scipy/"><strong>Skillset B: Scientific Python</strong></a></p>
+<p><a href="scipy/"><strong>World C: Scientific Python</strong></a></p>
 <p>Here we introduce recipes focused on aspects of python central to numerically-intensive work. These include a deep understanding of how computers handle numbers, working with arrays and matrices of values, creating plots and other data visualizations, and reading to or writing from data files. Along the way, we'll introduce <em>numpy</em> and <em>matplotlib</em>, add-ons to the python language that support numerically-focused work.</p>
 </li>
 <li>
-<p><a href="num2/"><strong>Numerical Methods 2: Numerical Calculus</strong></a></p>
-<p>Doing math involves more than solving equations; it often requires taking derivatives and integrating. Computers can do that too! The key involves forgetting most of what you learned in calculus courses, and going back to the initial definitions of "derivative" and "integral"… and then applying a whole lot of numerical cleverness.</p>
+<p><a href="num2/"><strong>World D: Numerical Methods 2: Numerical Calculus</strong></a></p>
+<p>Doing math involves more than solving algebraic equations! It often requires taking derivatives, integrating, and solving differential equations. Computers can do that too! The key involves forgetting most of what you learned in calculus courses, and going back to the initial definitions of "derivative" and "integral"… and then applying a whole lot of numerical cleverness.</p>
 </li>
 <li>
-<p><a href="num3/"><strong>Numerical Methods 3: ODE Integration</strong></a></p>
-<p>Most of the central principles of physics are expressed as differential equations, and — consequently — a great deal of "doing physics" comes down to solving differential equations. In the space of all differential equations that we might reasonably encounter in physical problems, only a tiny sliver can be solved analytically. For the rest, we turn to computational methods. In this chunk, we introduce recipes for solving ordinary differential equations (ODEs) numerically. (Partial differential equations — PDEs — are such a vast topic that we won't be able to address them in this course. <em>Sorry!</em>)</p>
-</li>
-<li>
-<p><a href="visual/"><strong>Skillset C: Visual Python</strong></a></p>
+<p><a href="visual/"><strong>World E: Visual Python</strong></a></p>
 <p>Yeah, "solving" a physics problem and getting a bunch of numbers out – or even a pretty plot — is nice, but there's no substitute for <em>seeing</em> the behavior of your modeled system evolve in realtime. <em>VPython</em> ("visual python") is an add-on toolkit for doing exactly that, and it makes constructing and animating 3D simulations embarrassingly easy.</p>
 </li>
 </ul></div>

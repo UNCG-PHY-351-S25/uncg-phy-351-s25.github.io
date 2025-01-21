@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Open and Use the System Terminal - PHY 351 Reference</title>
+        <title>Authorizing with GitHub from Beskar - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -73,15 +73,11 @@
 </li>
             
 <li>
-    <a href="../beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+    <a href="../manage-files/" class="dropdown-item">Manage Files on Beskar</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Open and Use the System Terminal</a>
-</li>
-            
-<li>
-    <a href="../authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Authorizing with GitHub from Beskar</a>
 </li>
             
 <li>
@@ -89,7 +85,7 @@
 </li>
             
 <li>
-    <a href="../edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+    <a href="../commit-push/" class="dropdown-item">Commit and Push Changes to GitHub</a>
 </li>
             
 <li>
@@ -97,7 +93,7 @@
 </li>
             
 <li>
-    <a href="../submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+    <a href="../submit-level/" class="dropdown-item">Submit a Level</a>
 </li>
     </ul>
   </li>
@@ -315,6 +311,24 @@
     <a href="../../../../topics/" class="dropdown-item">Overview</a>
 </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
 <li>
     <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
 </li>
@@ -353,17 +367,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../beskar-and-jlab/" class="nav-link">
+                                <a rel="prev" href="../manage-files/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../authenticate-to-github/" class="nav-link">
+                                <a rel="next" href="../clone-to-beskar/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/workflow/system-terminal.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/workflow/github-auth.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -413,16 +427,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#open-and-use-the-system-terminal" class="nav-link">Open and Use the System Terminal</a>
+            <li class="nav-item" data-bs-level="1"><a href="#authorizing-with-github-from-beskar" class="nav-link">Authorizing with GitHub from Beskar</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#recipe" class="nav-link">Recipe</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -430,15 +436,60 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="open-and-use-the-system-terminal">Open and Use the System Terminal</h1>
-<hr />
-<h2 id="problem-to-solve">Problem to Solve</h2>
-<blockquote>
-<p><strong>I want to do something that must be done, or is easiest to do, directly with Beskar's operating system and filesystem ("behind the scenes") rather than in JupyterHub.</strong></p>
-</blockquote>
-<hr />
-<h2 id="recipe">Recipe</h2>
-<hr /></div>
+<h1 id="authorizing-with-github-from-beskar">Authorizing with GitHub from Beskar</h1>
+<p>Rather than typing in a password every time you need your working computer to talk to GitHub, GitHub uses a credential system that lets you authorize your computer once and then remembers the authorization. Let's get that set up.</p>
+<p>This process is rather bizarre and finicky, so please ask for help if you're at all confused — and follow the instructions very, very carefully. Fortunately, you should only have to do it once, or at least once every so often.</p>
+<ol>
+<li>
+<p><strong>Log into Beskar</strong> (if necessary).</p>
+</li>
+<li>
+<p><strong>Open a Terminal</strong>.</p>
+</li>
+<li>
+<p><strong>Navigate to your home directory</strong> (if necessary).</p>
+</li>
+<li>
+<p><strong>Execute <code>gh auth login</code></strong>. ("gh" means "github"). That will start a several-step interaction that will guide you through the process, albeit not very clearly. The steps are…</p>
+</li>
+<li>
+<p><em>Choose <code>GitHub.com</code></em>* to log into. (This should be what comes up as the default choice, so you can just hit return to accept it.)</p>
+</li>
+<li>
+<p><strong>Choose <code>HTTPS</code></strong> for the protocol. (Ditto.)</p>
+</li>
+<li>
+<p><strong>Choose <code>Login with a web browser</code></strong>. (Ditto.)</p>
+</li>
+<li>
+<p><strong>Write down the "one-time code"</strong> shown, or just make sure not to close this terminal or browser tab yet so you can get back to it.</p>
+</li>
+<li>
+<p><strong>Press <code>Enter</code></strong>.</p>
+<ul>
+<li>It will try and fail to open a web browser, because this is running on <em>my</em> server and can't control <em>your</em> web browser. So, when you get the failure message:</li>
+</ul>
+</li>
+<li>
+<p><strong>Select and copy the URL</strong> it shows.</p>
+</li>
+<li>
+<p><strong>Open a NEW browser tab/window and paste in that URL</strong>. Go there.</p>
+</li>
+<li>
+<p><strong>Sign into GitHub</strong> again, if necessary. You may need to enter an authentication code that GitHub emails or texts to you.</p>
+</li>
+<li>
+<p><strong>Enter your one-time code</strong> when asked. You'll probably want to go back to the tab with the Terminal session, copy the code, return here, and paste it in.</p>
+</li>
+<li>
+<p><strong>Agree to authorize GitHub CLI</strong> when asked whether to do so.</p>
+</li>
+<li>
+<p><strong>Return to the Terminal session</strong> and you should now see some output ending in "✓ Logged in as" and your GitHub username. Success!</p>
+</li>
+</ol>
+<p>If what you experience differs from this, let Prof. Beatty know ASAP.</p></div>
             </div>
         </div>
 

@@ -73,15 +73,11 @@
 </li>
             
 <li>
-    <a href="../beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+    <a href="../manage-files/" class="dropdown-item">Manage Files on Beskar</a>
 </li>
             
 <li>
-    <a href="../system-terminal/" class="dropdown-item">Open and Use the System Terminal</a>
-</li>
-            
-<li>
-    <a href="../authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+    <a href="../github-auth/" class="dropdown-item">Authorizing with GitHub from Beskar</a>
 </li>
             
 <li>
@@ -89,7 +85,7 @@
 </li>
             
 <li>
-    <a href="../edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+    <a href="../commit-push/" class="dropdown-item">Commit and Push Changes to GitHub</a>
 </li>
             
 <li>
@@ -97,7 +93,7 @@
 </li>
             
 <li>
-    <a href="../submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+    <a href="../submit-level/" class="dropdown-item">Submit a Level</a>
 </li>
     </ul>
   </li>
@@ -315,6 +311,24 @@
     <a href="../../../../topics/" class="dropdown-item">Overview</a>
 </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
 <li>
     <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
 </li>
@@ -358,7 +372,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../beskar-and-jlab/" class="nav-link">
+                                <a rel="next" href="../manage-files/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -445,7 +459,7 @@
 <h3 id="git-and-github">Git and GitHub</h3>
 <p><a href="https://git-scm.com/"><em>Git</em></a> is a software tool and system that helps programmers manage and collaborate on complex coding projects. One can install and run <em>Git</em> on just about any computer.</p>
 <p><a href="https://github.com/"><em>GitHub</em></a> is an online service that provides web-based Git support. It helps developer teams collaborate, keep track of (and occasionally roll back) changes to a software project, and track issues to address. We'll use it as a way for me to distribute assignment files to you, for you to submit your work back to me, and for me to provide you with specific feedback about your code.</p>
-<p><em>GitHub</em> runs on some huge server farm somewhere, and talks to <em>Git</em> runningh on your computer.</p>
+<p><em>GitHub</em> runs on some huge server farm somewhere, and talks to <em>Git</em> running on your computer.</p>
 <p>On <em>GitHub</em>, an <em>organization</em> ("org") is a space for a group of people to share and collaborate on coding projects. Prof. Beatty has created an organization for PHY 351.</p>
 <h3 id="repos-and-course-assignments">Repos and Course Assignments</h3>
 <p>On GitHub, the fundamental container or package for a coding project is called a <em>repository</em>, or "<em>repo</em>" for short. A repo is a collection of files and directories that can be shared with others and perhaps jointly edited. GitHub is built upon the <a href="https://git-scm.com/"><em>git</em></a> version control system, which takes care of (a) keeping a historical record of all changes to a repo's files over time, with snapshots of how it looked at various points in time; and (b) checking for and helping to reconcile conflicts that might arise between different contributor's edits and contributions.</p>
@@ -462,46 +476,23 @@
 <p>For this recipe, we're just focusing on Steps 1 and 2 of this process, which includes getting familiar with GitHub and how I've set up our course "org" within it.</p>
 <hr />
 <h2 id="recipe">Recipe</h2>
-<h3 id="part-a-create-a-github-account-once-only">Part A: Create a GitHub Account (once only)</h3>
-<p>For this course, you'll need to have your own account with the <em>GitHub</em> service. Even if you already have one, you'll probably need to create a new one, because you'll need a GitHub account whose username is your UNCG username. Here's how to do that:</p>
-<ol>
-<li>
-<p>In a web browser, open <a href="https://github.com/">https://github.com/</a> in a new browser tab or window.</p>
-</li>
-<li>
-<p>The page you land on should have a prominent "Sign up for GitHub" button next to a blank for your email address. Enter your <strong>UNCG</strong> email address and click.</p>
-</li>
-<li>
-<p>Follow the account creation steps (email authentication, etc.).</p>
+<h3 id="prerequisites">Prerequisites:</h3>
 <ul>
 <li>
-<p>IMPORTANT: When prompted for "Username", choose your UNCG user ID: The portion of your UNCG email address before the "@" symbol.</p>
-</li>
-<li>
-<p>Pick your password carefully, as you'll need to use it frequently. (May I suggest getting and learning to use a good password management program? I use <em>1Password</em>.)</p>
-</li>
-<li>
-<p>At the appropriate step, identify yourself as a "student". Choose the free student plan.</p>
-</li>
+<p>A GitHub account linked to your UNCG email address.</p>
+<ul>
+<li>If you don't have this yet, see <a href=""></a> for instructions.</li>
+<li>If you have a personal GitHub account not affiliated with UNCG, you should probably just create a new one for this course. (I don't know if it's possible to associate your existing one with your UNCG email address. Feel free to investigate that possibility, if you'd prefer.)</li>
 </ul>
 </li>
 <li>
-<p>When you get to the page with "The home for all developers — including you" at the top, you've succeeded!</p>
+<p>Membership in the course GitHub"org".</p>
+<ul>
+<li>If you don't have this yet, message Prof. Beatty and ask him to add you to the group, Include your GitHub user ID.</li>
+</ul>
 </li>
-</ol>
-<h3 id="part-b-get-added-to-the-course-org-once-only">Part B: Get Added to the Course "Org" (once only)</h3>
-<ol>
-<li>
-<p>Now that you've created your GitHub account, tell Prof. Beatty. He'll add you to the coure GitHub org.</p>
-</li>
-<li>
-<p>Wait… ⏳⌛️… until…</p>
-</li>
-<li>
-<p>Prof. Beatty lets you know that you've been added. Then, you can progress to the next step.</p>
-</li>
-</ol>
-<h3 id="part-c-find-the-course-org">Part C: Find the Course Org</h3>
+</ul>
+<h3 id="part-a-find-the-course-org">Part A: Find the Course Org</h3>
 <p>When I tell you I've done that (or you're impatient and want to check by yourself):</p>
 <ol>
 <li>
@@ -519,7 +510,7 @@
 <p>Feel free to explore a little, if you wish. Don't go <em>too</em> far down any rabbit-holes, however: We've got work to do!</p>
 </li>
 </ol>
-<h3 id="part-d-find-the-level-repo">Part D: Find the Level Repo</h3>
+<h3 id="part-b-find-the-level-repo">Part B: Find the Level Repo</h3>
 <p>Remember that course assignments are packaged up into <em>repositories</em> ("repos"), one level per repo. All the org repos available to you are listed on the org's repo page.</p>
 <ol>
 <li>
@@ -538,7 +529,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="part-e-fork-the-repo-once-per-repolevel">Part E: Fork the repo (once per repo/level)</h3>
+<h3 id="part-c-fork-the-repo-once-per-repolevel">Part C: Fork the repo (once per repo/level)</h3>
 <p>In GitHub parlance, <em>forking</em> a repo means making your own copy of it, so that you can make modifications without affecting anyone else.</p>
 <p>A forked repo keeps track of the original "upstream" repo that it was forked from. One benefit is if the upstream repo changes, you can choose to <em>sync</em> your forked repo with the changes in the upstream repo. (For a course level repo, that will probably occur when I inevitably discover bugs or confusing bits in an assignment that students have already started working on.)</p>
 <p>As the owner of a forked repo, you can also request that the upstream repo incorporate changes you've made in your fork. This is called <em>issuing a pull request</em> ("pullreq" — my own nickname for it).</p>

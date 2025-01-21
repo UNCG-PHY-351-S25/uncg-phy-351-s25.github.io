@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Manage Files on Beskar - PHY 351 Reference</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../../../css/custom.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">PHY 351 Reference</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Course Admin</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../admin/syllabus/" class="dropdown-item">Syllabus</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Recipes</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../" class="dropdown-item">Intro to Recipes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">A) Core Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../" class="dropdown-item">Overview</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Workflow</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../find-and-fork/" class="dropdown-item">Find and Fork a Repo on GitHub</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Manage Files on Beskar</a>
+</li>
+            
+<li>
+    <a href="../github-auth/" class="dropdown-item">Authorizing with GitHub from Beskar</a>
+</li>
+            
+<li>
+    <a href="../clone-to-beskar/" class="dropdown-item">Clone a Repo to Beskar</a>
+</li>
+            
+<li>
+    <a href="../commit-push/" class="dropdown-item">Commit and Push Changes to GitHub</a>
+</li>
+            
+<li>
+    <a href="../interactive-python/" class="dropdown-item">Execute Interactive Python</a>
+</li>
+            
+<li>
+    <a href="../submit-level/" class="dropdown-item">Submit a Level</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Calculation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../calculation/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../calculation/calc-interactively/" class="dropdown-item">Calculate Interactively</a>
+</li>
+            
+<li>
+    <a href="../../calculation/use-functions/" class="dropdown-item">Use Python Functions</a>
+</li>
+            
+<li>
+    <a href="../../calculation/complex-numbers/" class="dropdown-item">Use Complex Numbers</a>
+</li>
+            
+<li>
+    <a href="../../calculation/print/" class="dropdown-item">Print Formatted Output</a>
+</li>
+            
+<li>
+    <a href="../../calculation/scripts/" class="dropdown-item">Script a Calculation</a>
+</li>
+            
+<li>
+    <a href="../../calculation/user-input/" class="dropdown-item">Ask for User Input</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Functions</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../functions/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../functions/writing-functions/" class="dropdown-item">Write Your Own Functions</a>
+</li>
+            
+<li>
+    <a href="../../functions/optional-args/" class="dropdown-item">Make Arguments Optional</a>
+</li>
+            
+<li>
+    <a href="../../functions/conditionals/" class="dropdown-item">Execute Code Conditionally</a>
+</li>
+            
+<li>
+    <a href="../../functions/safety-check/" class="dropdown-item">Safety Check Arguments</a>
+</li>
+            
+<li>
+    <a href="../../functions/factoring/" class="dropdown-item">Factoring</a>
+</li>
+            
+<li>
+    <a href="../../functions/globals/" class="dropdown-item">Globals</a>
+</li>
+            
+<li>
+    <a href="../../functions/run-or-import/" class="dropdown-item">Run or import</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Iteration</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../iteration/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../iteration/ranges/" class="dropdown-item">Ranges</a>
+</li>
+            
+<li>
+    <a href="../../iteration/monte-carlo/" class="dropdown-item">Monte carlo</a>
+</li>
+            
+<li>
+    <a href="../../iteration/skip-break/" class="dropdown-item">Skip break</a>
+</li>
+            
+<li>
+    <a href="../../iteration/while/" class="dropdown-item">While</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Tuples & Lists</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../tuples-lists/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/tuples/" class="dropdown-item">Tuples</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/lists/" class="dropdown-item">Lists</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/iterate/" class="dropdown-item">Iterate</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/set-or-append/" class="dropdown-item">Set or append</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/find-in-list/" class="dropdown-item">Find in list</a>
+</li>
+            
+<li>
+    <a href="../../tuples-lists/combine-lists/" class="dropdown-item">Combine lists</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Sets & Dictionaries</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../sets-dicts/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/sets/" class="dropdown-item">Sets</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/overlap/" class="dropdown-item">Overlap</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/dicts/" class="dropdown-item">Dicts</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/dict-iteration/" class="dropdown-item">Dict iteration</a>
+</li>
+            
+<li>
+    <a href="../../sets-dicts/counters/" class="dropdown-item">Counters</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">B) Numerical Methods 1</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../num1/" class="dropdown-item">Numerical Methods 1: Finding Roots &amp; Extrema</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C) Scientific Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../scipy/" class="dropdown-item">Skillset B: Scientific Python</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">D) Numerical Methods 2</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../num2/" class="dropdown-item">Numerical Methods 2: Numerical Calculus</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">E) Visual Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../visual/" class="dropdown-item">Skillset C: Visual Python</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Topics</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../topics/" class="dropdown-item">Overview</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Core Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/core/operators/" class="dropdown-item">Arithmetic Operators</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/core/precedence/" class="dropdown-item">Operator Precedence</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Scientific Python</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/scipy/numpy/" class="dropdown-item">Introduction to Numpy</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../find-and-fork/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../github-auth/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/workflow/manage-files.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
+                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="true">
+                                    <i class="fa-solid fa-sun fa-fw"></i>
+                                    <span class="ms-2">Light</span>
+                                    <i class="fa-solid fa-check ms-auto"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                    <i class="fa-solid fa-moon fa-fw"></i>
+                                    <span class="ms-2">Dark</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                    <span class="ms-2">Auto</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                              </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../../../../js/darkmode.js"></script>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#manage-files-on-beskar" class="nav-link">Manage Files on Beskar</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-set-a-using-the-jupyterlab-file-browser" class="nav-link">Recipe Set A: Using the JupyterLab File Browser</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-set-b-using-the-system-terminal-command-line" class="nav-link">Recipe Set B: Using the System Terminal Command Line</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="manage-files-on-beskar">Manage Files on Beskar</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to view and/or reorganize the files and folders in my personal file space on Beskar.</strong></p>
+</blockquote>
+<hr />
+<p>This "recipe" is actually a collection of tiny little snippet-recipes. In truth, it's really more of a cheat-sheet of commands to get you comfortable with both the JupyterLab File Browser and the system terminal's command-line interface (CLI). If you're already familiar with JupyterLab, or just quick to figure out GUI interfaces, Part A is probably unnecessary for you. If you're comfortable using the unix/linux command line, Part B is probably unnecessary. Refer to this or not as you see fit.</p>
+<hr />
+<h2 id="recipe-set-a-using-the-jupyterlab-file-browser">Recipe Set A: Using the JupyterLab File Browser</h2>
+<blockquote>
+<p>A note on terminology: When a recipe says "right-click", that means to click with your right mouse-button, or (on a Mac) option-click with a one-button mouse, or tap with two fingers on a trackpad, or do whatever it is you usually do to get a contextual (pop-up) menu to appear.</p>
+</blockquote>
+<h3 id="recipe-1-hide-and-display-the-file-browser">Recipe 1: Hide and Display the File Browser</h3>
+<p>When you log into JupyterHub and are presented with the JupyterLab window, you should see some menu-type stuff across the top, a mostly-empty panel on the left, and a big area with a tab at the top that says "Launcher" and contains a collection of icon-like buttons in subsections named "Notebook", "Console", and "Other".</p>
+<p>The panel on the left is the File Browser, and it's JupyterLab's version of the Mac Finder or the Windows File Explorer.</p>
+<ul>
+<li>Collapse it by clicking on the file-folder icon in the very left-hand border of the window.</li>
+<li>Re-expand it by clicking on that icon again.</li>
+<li>Switch to a different sidebar by clicking on one of the other icons in that left-hand border. (For now, no need to worry about what they do.)</li>
+<li>Switch back to the File Browser by — yeah, you guessed it.</li>
+</ul>
+<h3 id="recipe-2-create-a-new-file">Recipe 2: Create a New File</h3>
+<ol>
+<li>Right-click on the empty space in the File Browser panel.</li>
+<li>Choose "New File" from the contextual menu that appears.<ul>
+<li>A new file will be listed in the File Browser, with the name ready to be edited.</li>
+</ul>
+</li>
+<li>Type the filename you want, replacing the default "untitled".</li>
+<li>If you want to create a plain-text file, leave the file name extension as <code>.txt</code>. If you want to create a different kind of file, change the extension too:<ul>
+<li><code>.md</code> for a markdown file</li>
+<li><code>.py</code> for a Python script</li>
+<li><code>.csv</code> for a comma-separated values file (tabular data, e.g. for a spreadsheet to ingest)</li>
+<li>Other file types can be created by other extension, but these are the ones you'll need most often.</li>
+</ul>
+</li>
+</ol>
+<h3 id="recipe-3-view-andor-edit-a-file">Recipe 3: View and/or Edit a File</h3>
+<p>For most file types, JupyterLab has only the plain-text view, so you view and edit the file in that. For a few, it has a plain-text view for editing and a formatted view for "nice" viewing. In particular, "markdown" and "CSV" files have two different views. (Some file types, like PDFs images, can't be edited or perhaps even viewed through JupyterLab.)</p>
+<ol>
+<li>To view or edit a file, double-click on it in the File Browser.<ul>
+<li>The file should open in a new tab in the right-hand panel.</li>
+<li>Other, previously-open tabs (other than the Launcher) will remain, and you can switch back and forth by clicking on their tabs.</li>
+</ul>
+</li>
+<li>For a file type that has two views, double-clicking will open whatever JupyterLab considers to be the "default" view. To get the other,<ul>
+<li>Right-click on the file in the file browser, choose "Open With" from the contextual menu, and choose the view you want.</li>
+</ul>
+</li>
+<li>If a file has opened to an editable view, you can make changes right in the displayed text. All the normal text-editing tools are available: cut, paste, undo, redo, etc. (See the Edit menu for more.)</li>
+<li>To save your changes, choose "Save" from the File menu, or use the ⌘S (Mac) or ctrl-S (Windows) keyboard shortcut.</li>
+<li>To close the file, click on the "X" in the file's tab.<ul>
+<li>If you have unsaved changes, JupyterLab will prompt you to save them before closing.</li>
+</ul>
+</li>
+</ol>
+<h3 id="recipe-4-duplicate-a-file">Recipe 4: Duplicate a File</h3>
+<ol>
+<li>Right-click on the file in the File Browser and select Duplicate.<ul>
+<li>A new copy, with something like <code>Copy1</code> appended to the name, will appear in the File Browser.</li>
+</ul>
+</li>
+</ol>
+<h3 id="recipe-5-rename-a-file-andor-change-its-type">Recipe 5: Rename a File and/or Change its Type</h3>
+<ol>
+<li>Right-click on the file in the File Browser and select Rename.<ul>
+<li>The file name will become editable.</li>
+<li>Change it to what you wish.</li>
+<li>You can change the file's type by changing the extension.</li>
+<li>Hit return to save the new name.</li>
+</ul>
+</li>
+</ol>
+<h3 id="recipe-6-delete-a-file-or-folder">Recipe 6: Delete a File or Folder</h3>
+<blockquote>
+<p><strong>Note:</strong> <strong>Unlike most of what you do on a computer, deleting a file or folder via the File Browser cannot be undone. <em>Be careful!</em></strong> Pause a moment to ensure you know what you're doing and that you really want to do it.</p>
+</blockquote>
+<ol>
+<li>Right-click on the file or folder in the File Browser and select Delete.<ul>
+<li>A confirmation dialog will appear.</li>
+<li>Click "Delete" to confirm.</li>
+</ul>
+</li>
+</ol>
+<p>JupyterLab will not let you delete a folder unless it's empty. You can either delete its contents one at a time (possibly tedious), or use the Terminal method described below in Recipe B.10.</p>
+<h3 id="recipe-7-create-a-new-folder">Recipe 7: Create a New Folder</h3>
+<ol>
+<li>Right-click on the empty space in the File Browser panel.<ul>
+<li>Alternatively, you can click on the new-folder icon (a small folder with a <code>+</code> in it) at the top of the File Browser.</li>
+<li>A new folder will appear, with its name ready to be edited.</li>
+</ul>
+</li>
+<li>Change the folder name to what you wish.</li>
+</ol>
+<h3 id="recipe-8-move-a-file">Recipe 8: Move a File</h3>
+<ul>
+<li>Click and drag the file to the folder you want to move it into.</li>
+<li>Alternatively, you can right-click on the file, select Cut, navigate into the folder you want to move it to (even a deeply nested one, a parent folder, or a different child of the current folder's parent), right-click on the empty space in the File Browser, and select Paste.</li>
+</ul>
+<h3 id="recipe-9-view-a-different-folder">Recipe 9: View a Different Folder</h3>
+<ul>
+<li>To navigate into a folder currently displayed in the File Browser, double-click on it.</li>
+<li>To navigate back up to a parent folder, click on the folder's name in the "breadcrumb" bar at the top of the File Browser.<ul>
+<li>If you seen <code>/ … /</code> in the breadcrumb bar, the sequence of parent-child-grandchild folders has been abbreviated. Click on the <code>/ … /</code> to navigate to one of the elided folders.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="recipe-set-b-using-the-system-terminal-command-line">Recipe Set B: Using the System Terminal Command Line</h2>
+<p>JupyterLab's "Terminal" gives you a no-graphics, no-mouse, command-line-only interface to the file system (and operating system) underlying JupyterHub. The Linux command line is a powerful thing, and we're only going to scratch the surface in this course.</p>
+<ul>
+<li>If you really want to nerd out on it, Google is your friend. You may want to start with <a href="https://linuxcommand.org/tlcl.php">The Linux Command Line</a> by William Shotts.</li>
+</ul>
+<p>Here is some basic functionality to get you going. (Terminology warning: "directory" means the same as "folder", but is the more conventional term in this context.)</p>
+<h3 id="recipe-1-open-the-terminal">Recipe 1: Open the Terminal</h3>
+<ol>
+<li>If the main display area is NOT showing the Launcher, display it by revealing the File Browser (if necessary) and clicking the big blue "+" button at its top.</li>
+<li>In the Launcher, click on the button labeled "Terminal" in the Other section.<ul>
+<li>A new tab should open, with a prompt like <code>jupyter-test_student@Beskar:~$</code> at the top.</li>
+</ul>
+</li>
+<li>Start typing commands after the prompt.</li>
+</ol>
+<h3 id="recipe-2-show-the-current-directory">Recipe 2: Show the Current Directory</h3>
+<p>The terminal is always "in" a specific directory (folder), and life gets very confusing if you get confused about which one. You'll probably start in your "home" directory (which is the top of your personal file space and contains everything on Beskar that's "yours"), but will eventually navigate into others. To check which one you're currently in:</p>
+<ul>
+<li>
+<p>Look at the part of the prompt just before the <code>$</code>.</p>
+<ul>
+<li>It will show your current directory. The symbol <code>~</code> is a short-hand for your home directory.</li>
+</ul>
+</li>
+<li>
+<p>Alternatively, or to see a more complete path, type <code>pwd</code> (for "print working directory") and hit return.</p>
+<ul>
+<li>The system will print out the full file path starting from the system's ultimate "root directory". It will look something like this for your home directory: <code>/home/jupyter-test_student</code>.</li>
+<li>(In Linux, the currently-active directory is often called the "working" directory.)</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-3-list-the-files-in-a-directory">Recipe 3: List the Files in a Directory</h3>
+<ul>
+<li>
+<p>To see a list of the files in the current directory, type <code>ls</code> (for "list") and hit return.</p>
+<ul>
+<li>To get additional information, you can append one or more "options" to the command, like this: <code>ls -l</code>, <code>ls -lF</code>, etc. Personally, my go-to is <code>ls -lFh</code>.</li>
+<li>For exhaustive documentation on the options available, execute <code>ls --help</code>.</li>
+</ul>
+</li>
+<li>
+<p>To see a list of files within one of the directories (folders) in your current folder, execute <code>ls &lt;foldername&gt;</code>, replacing <code>&lt;foldername&gt;</code> with the name of the folder you want to see.</p>
+<ul>
+<li>For example, <code>ls data</code> will show you the files in a folder named <code>data</code>.</li>
+<li>Folder names that contain spaces are inconvenient, and best avoided. If you have one, you can surround thename with quotes (<code>ls 'test folder'</code> or <code>ls "test folder"</code>), or "escape" the space by preceding it with a backslash (<code>ls test\ folder</code>).</li>
+</ul>
+</li>
+<li>
+<p>You can lists the contents of sub-sub-directories like this: <code>ls &lt;foldername&gt;/&lt;subfoldername&gt;</code>.</p>
+<ul>
+<li>For example, <code>ls data/2023-10-02</code> will show you the files in a folder named <code>2023-10-02</code> inside a folder named <code>data</code>.</li>
+</ul>
+</li>
+<li>
+<p>You can even list the contents of the current directory's parent with the special <code>..</code> name that means <code>parent of</code>, like this: <code>ls ..</code>.</p>
+<ul>
+<li>Or, list the contents of a sibling of the current folder with <code>../&lt;siblingname&gt;</code>.</li>
+</ul>
+</li>
+<li>
+<p>No matter what directory you're currently in, you can list the contents of the home directory via <code>ls ~</code>, the contents of one of its subfolders with <code>ls ~/subfoldername</code>, and so on.</p>
+</li>
+</ul>
+<p>Yes, Linux command-line stuff is arcane, but powerful and flexible.</p>
+<h3 id="recipe-4-view-a-calendar">Recipe 4: View a Calendar</h3>
+<p>This one isn't very important, but it's a useful illustration of some of the very deep functionality available from the command line.</p>
+<ul>
+<li>To see a compact little calendar of the current month, enter <code>cal</code>.</li>
+<li>To see the calendar for a different month and year, enter <code>cal &lt;month&gt; &lt;year&gt;</code>, for example: <code>cal 10 2026</code> or <code>cal oct 2026</code> for October 2026.</li>
+<li>To see a calendar for an entire year, execute <code>cal &lt;year&gt;</code>, for example: <code>cal 2025</code>.</li>
+<li>For exhaustive documentation, execute <code>man cal</code>. (<code>man</code> means "manual".)</li>
+</ul>
+<h3 id="recipe-5-reuse-prior-commands">Recipe 5: Reuse Prior Commands</h3>
+<p>To save typing, you can re-execute commands you've (reasonably) previously executed in the Terminal. You can even modify them before re-executing them.</p>
+<ol>
+<li>At the system prompt, press the up-arrow key.<ul>
+<li>Your most recently-executed command will appear.</li>
+<li>You can continue to step back through previous commands by pressing the up-arrow key again and again.</li>
+</ul>
+</li>
+<li>When you find the command you want to re-execute, press the return key.<ul>
+<li>If you want to modify it first, you can left-arrow and/or backspace and/or type to make changes. Then hit return.</li>
+</ul>
+</li>
+<li>If you decide that you don't want to use a prior command, you can clear the command line by typing control-C (hold down the control key and press the <code>C</code> key). That is generic Linux for "cancel that!"</li>
+</ol>
+<h3 id="recipe-6-change-the-current-directory">Recipe 6: Change the Current Directory</h3>
+<ul>
+<li>Navigate into a subdirectory of the current directory by executing <code>cd &lt;foldername&gt;</code>, replacing <code>&lt;foldername&gt;</code> with the name of the subdirectory you want to enter.<ul>
+<li>For example, <code>cd data</code> will navigate into a folder named <code>data</code>.</li>
+</ul>
+</li>
+<li>You can navigate directly into a sub-subdirectory, a parent directory, a sibling directory, and so on with the same "file path" methods as were shown above in Recipe 3: List the Files in a Directory (for the <code>ls</code> command).</li>
+<li>The <code>cd ~</code> shortcut is a super-convenient way to jump back to your home directory quickly.</li>
+</ul>
+<h3 id="recipe-7-create-a-new-directory">Recipe 7: Create a New Directory</h3>
+<ul>
+<li>Create a new, empty directory within the current directory by executing <code>mkdir &lt;foldername&gt;</code>, replacing <code>&lt;foldername&gt;</code> with the name of the new directory you want to create.<ul>
+<li>For example, <code>mkdir data</code> will create a new folder named <code>data</code> within the current directory.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-8-rename-a-file-or-directory">Recipe 8: Rename a File or Directory</h3>
+<ul>
+<li>Rename a file or directory by executing <code>mv &lt;oldname&gt; &lt;newname&gt;</code>, replacing <code>&lt;oldname&gt;</code> with the current name and <code>&lt;newname&gt;</code> with the new name you want.<ul>
+<li>For example, <code>mv oldfile.txt newfile.txt</code> will rename a file named <code>oldfile.txt</code> to <code>newfile.txt</code>.</li>
+<li><code>mv</code> stands for "move". This is really just a special case of moving a file to a different directory (see below).</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-9-move-a-file-or-directory">Recipe 9: Move a File or Directory</h3>
+<ul>
+<li>Move a file from the current directory into one of its subdirectories with <code>mv &lt;filename&gt; &lt;foldername&gt;</code>, replacing <code>&lt;filename&gt;</code> with the name of the file you want to move and <code>&lt;foldername&gt;</code> with the name of the subdirectory you want to move it into.<ul>
+<li>For example, <code>mv oldfile.txt data</code> will move a file named <code>oldfile.txt</code> into a subdirectory named <code>data</code>.</li>
+<li>The <code>mv</code> command knows that you want to move, rather than rename, because the destination is the name of an already-existing directory.</li>
+</ul>
+</li>
+<li>Move a file from somewhere other than the current directory by specifying its "file path", as described above in Recipe 3: List the Files in a Directory.<ul>
+<li>For example, <code>mv ~/other_project/file1.py data</code> will move a file named <code>file1.py</code> from a directory named <code>other_project</code> that lives in your home directory, and put it in a directory named <code>data</code> within the current directory (whatever that might be).</li>
+</ul>
+</li>
+<li>Move a file to somewhere else the same way, by prepending a path onto the destination name.<ul>
+<li>For example, undo the previous example with <code>mv data/file1.py ~/other_project</code>.</li>
+</ul>
+</li>
+<li>The character <code>.</code> is a very convenient short-hand for "the current directory".<ul>
+<li>For example, move a file from elsewhere to the current directory with <code>mv ~/other_project/file1.py .</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-10-copy-a-file-or-directory">Recipe 10: Copy a File or Directory</h3>
+<ul>
+<li>Make a copy of a file by executing <code>cp &lt;filename&gt; &lt;newfilename&gt;</code>, replacing <code>&lt;filename&gt;</code> with the name of the file you want to copy and <code>&lt;newfilename&gt;</code> with the name you want to give the copy.<ul>
+<li>For example, <code>cp oldfile.txt newfile.txt</code> will create a copy of a file named <code>oldfile.txt</code> and call it <code>newfile.txt</code>.</li>
+</ul>
+</li>
+<li>You can put the copy into a subdirectory (or, really, anywhere else) by prepending the new file's nanme with a path.<ul>
+<li>Example: <code>cp oldfile.txt data/newfile.txt</code> will create a copy of <code>oldfile.txt</code> and put it in the <code>data</code> subdirectory, calling it <code>newfile.txt</code>.</li>
+</ul>
+</li>
+<li>To make a copy of a directory and all its contents, include the <code>-r</code> option, like this: <code>cp -r &lt;foldername&gt; &lt;newfoldername&gt;</code>.<ul>
+<li>For example, <code>cp -r data data_backup</code> will create a copy of the <code>data</code> directory and call it <code>data_backup</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-11-view-the-contents-of-a-file">Recipe 11: View the Contents of a File</h3>
+<ul>
+<li>To display the contents of a text file, execute <code>cat &lt;filename&gt;</code>, replacing <code>&lt;filename&gt;</code> with the name of the file you want to view.<ul>
+<li>For example, <code>cat oldfile.txt</code> will display the contents of a file named <code>oldfile.txt</code>.</li>
+<li>Why <code>cat</code>? Because the command's full purpose is to concatenate multiple files together. We're just using it as an easy way to dump out the contents of one.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-12-save-the-output-of-a-command-to-a-file">Recipe 12: Save the Output of a Command to a File</h3>
+<ul>
+<li>To save the output of a command to a file, execute the command as normal, but append <code>&gt; &lt;filename&gt;</code> to the end of it before hitting retutrn. (Replace <code>&lt;filename&gt;</code> with the name of the file you want to save the output to, of course.)<ul>
+<li>For example, <code>ls -lFh &gt; filelist.txt</code> will save a detailed listing of the files in the current directory to a file named <code>filelist.txt</code>.</li>
+<li>If the file already exists, it will be overwritten. If it doesn't exist, it will be created.</li>
+<li>If you instead want to append the output to an existing file, use <code>&gt;&gt;</code> instead of <code>&gt;</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-13-delete-a-file-or-directory">Recipe 13: Delete a File or Directory</h3>
+<blockquote>
+<p><strong>Note:</strong> <strong>Unlike most of what you do on a computer, deleting a file or folder via the command line cannot be undone. <em>Be careful!</em></strong> Pause a moment to ensure you know what you're doing and that you really want to do it.</p>
+</blockquote>
+<ul>
+<li>Delete a file by executing <code>rm &lt;filename&gt;</code>, replacing <code>&lt;filename&gt;</code> with the name of the file you want to delete.<ul>
+<li>For example, <code>rm oldfile.txt</code> will delete a file named <code>oldfile.txt</code>.</li>
+</ul>
+</li>
+<li>Delete a directory and all its contents by executing <code>rm -r &lt;foldername&gt;</code>, replacing <code>&lt;foldername&gt;</code> with the name of the directory you want to delete.<ul>
+<li>For example, <code>rm -r data</code> will delete a directory named <code>data</code> and all its contents.</li>
+<li>The <code>-r</code> option means "recursive", which means "and everything inside it".</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-14-clear-the-terminal">Recipe 14: Clear the Terminal</h3>
+<ul>
+<li>Empty the terminal display of all prior commands and output by executing <code>clear</code>.<ul>
+<li>This does not undo the history of what's happened; it just removes the clutter from your view.</li>
+<li>You can still up-arrow through the command history.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recipe-15-quit-the-terminal-session">Recipe 15: Quit the Terminal Session</h3>
+<ul>
+<li>To quit the terminal session, execute <code>exit</code>.<ul>
+<li>This will close the current tab AND shut down the terminal process.</li>
+</ul>
+</li>
+</ul>
+<p>Warning: If you just close the Terminal display by clicking on the "X" in the tab bar, the process will still be running on the server, just out of sight. In that case:</p>
+<ol>
+<li>In the far left window border, click the square-inside-a-circle icon to replace the File Browser with the  "Running Terminals and Processes" panel.</li>
+<li>Down at the bottom, find the Terminals section, and click "Shut Down All", then agree to the confirmation dialog.<ul>
+<li>Alternatively, you can expand that section, find the terminal session listed under it, mouse over it, and click the "X" that appears to its right. This is useful if you have multiple terminals going, and only want to kill one of them.</li>
+</ul>
+</li>
+</ol>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../javascripts/mathjax.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

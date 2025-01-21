@@ -73,15 +73,11 @@
 </li>
             
 <li>
-    <a href="../../workflow/beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+    <a href="../../workflow/manage-files/" class="dropdown-item">Manage Files on Beskar</a>
 </li>
             
 <li>
-    <a href="../../workflow/system-terminal/" class="dropdown-item">Open and Use the System Terminal</a>
-</li>
-            
-<li>
-    <a href="../../workflow/authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+    <a href="../../workflow/github-auth/" class="dropdown-item">Authorizing with GitHub from Beskar</a>
 </li>
             
 <li>
@@ -89,7 +85,7 @@
 </li>
             
 <li>
-    <a href="../../workflow/edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+    <a href="../../workflow/commit-push/" class="dropdown-item">Commit and Push Changes to GitHub</a>
 </li>
             
 <li>
@@ -97,7 +93,7 @@
 </li>
             
 <li>
-    <a href="../../workflow/submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+    <a href="../../workflow/submit-level/" class="dropdown-item">Submit a Level</a>
 </li>
     </ul>
   </li>
@@ -315,6 +311,24 @@
     <a href="../../../../topics/" class="dropdown-item">Overview</a>
 </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
 <li>
     <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
 </li>
@@ -447,7 +461,7 @@
 <ul>
 <li>Pro tip: Solve all but the most trivial physics problems <strong>symbolically</strong>, deriving a symbolic answer algebraically and simplifying as much as possible before inserting numerical values. If you're given numerical values and not variable names in the problem, define your own symbols! Even the local gravitational constant should be written as <span class="arithmatex">\(g\)</span> instead of <span class="arithmatex">\(9.81 \, \text{m/s}^2\)</span> or (gasp!) <span class="arithmatex">\(9.8\)</span> until the very end.</li>
 </ul>
-<p>Overall, <strong>follow the <a href="launch-calc-save.md">launch, calculate, save</a> recipe</strong>. This recipe provides advice on what to execute during the interactive IPython session.</p>
+<p>Overall, <strong>follow the <a href="../../workflow/interactive-python/">Interactive Python</a> recipe</strong>. This recipe provides advice on what to execute during the interactive IPython session.</p>
 <ol>
 <li>
 <p><strong>Define variables for the constants</strong> you'll need, such as <code>g = 9.81</code> or <code>c = 3.00e8</code>.</p>
@@ -464,9 +478,9 @@
 </ul>
 </li>
 <li>
-<p><strong>Construct arithmetic expressions</strong> with <a href="../../topics/core/operators.md">python's arithmetic operators</a> to calculate intermediate or final values.</p>
+<p><strong>Construct arithmetic expressions</strong> with <a href="../../../../topics/core/operators/">python's arithmetic operators</a> to calculate intermediate or final values.</p>
 <ul>
-<li>Know and be careful of <a href="../../topics/core/precedence.md">operator precedence</a>, or you may get incorrect results.</li>
+<li>Know and be careful of <a href="../../../../topics/core/precedence/">operator precedence</a>, or you may get incorrect results.</li>
 </ul>
 </li>
 <li>
@@ -493,7 +507,7 @@
 <p><span class="arithmatex">\(\omega = \frac{m\,d\,v_\text{i}}{m\,d + I} = v_\text{i}\left(1 + \frac{I}{m\,d}\right)^{-1}\)</span></p>
 <p>where <span class="arithmatex">\(I = \tfrac{1}{12}\,M\,L^2\)</span> is the rotational inertia of the rod about its center.</p>
 </blockquote>
-<p>Now it's time to calculate the numerical value, which means it's time to reach for python. After <a href="launch-calc-save.md">firing up IPython</a>, your interactive session might look something like the following. (IPython provides the bits that look like <code>In [1]:</code>; you provide what follows those.)</p>
+<p>Now it's time to calculate the numerical value, which means it's time to reach for python. After <a href="../../workflow/interactive-python/">firing up IPython</a>, your interactive session might look something like the following. (IPython provides the bits that look like <code>In [1]:</code>; you provide what follows those.)</p>
 <p>Defining constants and givens:</p>
 <pre><code class="language-python">In [1]: m, M = 0.200, 0.600
 

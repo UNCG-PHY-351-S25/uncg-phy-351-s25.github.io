@@ -73,15 +73,11 @@
 </li>
             
 <li>
-    <a href="../beskar-and-jlab/" class="dropdown-item">Log Into Beskar and JupyterLab</a>
+    <a href="../manage-files/" class="dropdown-item">Manage Files on Beskar</a>
 </li>
             
 <li>
-    <a href="../system-terminal/" class="dropdown-item">Open and Use the System Terminal</a>
-</li>
-            
-<li>
-    <a href="../authenticate-to-github/" class="dropdown-item">Authenticate Your Beskar Account with GitHub</a>
+    <a href="../github-auth/" class="dropdown-item">Authorizing with GitHub from Beskar</a>
 </li>
             
 <li>
@@ -89,7 +85,7 @@
 </li>
             
 <li>
-    <a href="../edit-file/" class="dropdown-item">Edit a File in an Assignment</a>
+    <a href="../commit-push/" class="dropdown-item">Commit and Push Changes to GitHub</a>
 </li>
             
 <li>
@@ -97,7 +93,7 @@
 </li>
             
 <li>
-    <a href="../submit-level/" class="dropdown-item">Submit a Level via Commit-Push-Pullreq</a>
+    <a href="../submit-level/" class="dropdown-item">Submit a Level</a>
 </li>
     </ul>
   </li>
@@ -315,6 +311,24 @@
     <a href="../../../../topics/" class="dropdown-item">Overview</a>
 </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Setup Guide</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../topics/setup/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/github-account/" class="dropdown-item">Creating your GitHub Account</a>
+</li>
+            
+<li>
+    <a href="../../../../topics/setup/beskar-account/" class="dropdown-item">Creating your Beskar Account</a>
+</li>
+    </ul>
+  </li>
+                                    
 <li>
     <a href="../../../../topics/external/" class="dropdown-item">External Tutorials</a>
 </li>
@@ -353,7 +367,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../edit-file/" class="nav-link">
+                                <a rel="prev" href="../commit-push/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
@@ -423,15 +437,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#old-version" class="nav-link">Old Version</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#recipe-to-solve-it" class="nav-link">Recipe to Solve It</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
             <li class="nav-item" data-bs-level="2"><a href="#comments" class="nav-link">Comments</a>
               <ul class="nav flex-column">
               </ul>
@@ -451,13 +456,10 @@
 </blockquote>
 <hr />
 <h2 id="recipe">Recipe</h2>
-<hr />
-<h1 id="old-version">Old Version</h1>
-<hr />
-<h2 id="recipe-to-solve-it">Recipe to Solve It</h2>
-<p><em>This is another "procedural" recipe.</em></p>
-<h3 id="part-a-version-1-starting-ipython-from-jupyterlab">Part A, Version 1: Starting IPython from <em>JupyterLab</em></h3>
-<p>If you are logged into Beskar and looking at the <em>JupyterLab</em> interface…</p>
+<p><em>This is another "procedural" recipe. Don't worry, we'll get to actual code soon enough.</em></p>
+<h3 id="part-a-starting-ipython">Part A: Starting IPython</h3>
+<h4 id="version-1-from-jupyterlab">Version 1: From <em>JupyterLab</em></h4>
+<p>Assuming you are logged into Beskar and looking at the <em>JupyterLab</em> interface:</p>
 <ol>
 <li>
 <p>If no "Launcher" tab is open in the main JupyterLab window, <strong>open the Launcher</strong> by clicking on the <code>+</code> button to the right of whatever tab(s) is/are open. A tab labeled "Launcher" should appear in the main window.</p>
@@ -468,15 +470,8 @@
 <li>
 <p><strong>Launch an IPython console</strong> by clicking on the button labeled "Python 3 (ipykernel)" <strong>in the Console section</strong>, <em><u>not the identical button in the Notebook section above it</u></em>. The Launcher tab should disappear, replaced by a tab labeled "Console N" (where <code>N</code> is some number). You now have an active IPython session.</p>
 </li>
-<li>
-<p><strong>Type python expressions and statements into the input box</strong> at the bottom of the pane, and hit Shift-Enter (or possibly just Enter) to send them to the python interpreter for execution.</p>
-<ul>
-<li>You can decide whether you want to use Shift-Enter or just Enter to execute statements. Click the Settings menu in the JupyterLab browser window, pick "Console Run Keystroke" from the menu that appears, and select the option you prefer.</li>
-<li>If you use "Enter" to execute code, you can use Shift-Enter to insert a line break for multiline input.</li>
-</ul>
-</li>
 </ol>
-<h3 id="part-a-version-2-starting-ipython-from-the-terminal">Part A, Version 2: Starting IPython from the terminal</h3>
+<h4 id="version-2-from-the-terminal">Version 2: From the terminal</h4>
 <p>If you are working on your own computer or are logged into a different server, you can use IPython without JupyterLab. The visual appearance is different, but the functionality is equivalent.</p>
 <ol>
 <li>
@@ -496,10 +491,29 @@
 </ol>
 <h3 id="part-b-do-the-calculation">Part B: Do the calculation</h3>
 <ol>
-<li>Enter and execute a succession of python expressions and statements to accomplish your goals. (Details about how to do this are coming in future recipes, especially <a href="calc-interactively.md">the next one</a>.) The window above the input box/prompt will show you your IPython session's prior history of commands and their results. JupyterLab and most terminal programs will let you scroll back through that history, at least for a while.</li>
+<li>
+<p><strong>Type a python expression or statement into the input box</strong> at the bottom of the pane, and hit Shift-Enter to send them to the python interpreter for execution.</p>
+<ul>
+<li>If you prefer, can change the "execute" keystroke to just Enter (rather than shift-Enter). Click the Settings menu in the JupyterLab browser window, pick "Console Run Keystroke" from the menu that appears, and select the option you prefer.</li>
+<li>If you make "Enter" your execution keystroke, you can use Shift-Enter to insert a line break for multiline input.</li>
+</ul>
+</li>
+<li>
+<p><strong>Continue executing python expressions and statements</strong>, one after another.</p>
+<ul>
+<li>When you define a variable in one statement, it will be available to subsequent statements.</li>
+<li>The window above the input box/prompt will show you your IPython session's prior history of commands and their results.</li>
+</ul>
+</li>
+<li>
+<p><strong>Press the up-arrow key to step back through your prior commands</strong>.</p>
+<ul>
+<li>You can re-execute one with (shift-)Enter, or modify it before executing. This often saves considerable typing.</li>
+</ul>
+</li>
 </ol>
 <h3 id="part-c-save-if-desired">Part C: Save, if desired</h3>
-<p>If you want, you can save your IPython session's history to a file so that you have a record of what you did. </p>
+<p>If you want, you can save your IPython session's history to a file so that you have a record of what you entered. (The output, however, will not be saved. You'l have to re-execute the commands to see that.)</p>
 <ol>
 <li>
 <p><strong>Execute <code>%save filename.txt</code></strong>, replacing <code>filename</code> with something meaningful to your situation.</p>
@@ -514,22 +528,35 @@
 <li>If you're using the JupyterLab interface, the "current working directory" will be whatever directory is currently displayed in the JupyterLab File Browser.</li>
 <li>If you're using a terminal, it will be the directory your terminal was "in" when you launched IPython.</li>
 <li>If you're thinking ahead, navigate the JupyterLab File Browser or terminal to the folder/directory you'll want your history file to be stored in before launching IPython.</li>
+<li>You can see what IPython thinks the current working directory is by executing the "magic command" <code>%pwd</code> (for "print working directory") at the IPython prompt.</li>
 </ul>
 </li>
 </ol>
-<p>Technically, it is possible to <strong>reload a stored session</strong> by re-running all commands in a history file. However, this is tricky and unreliable, because any errors in the file — from times that you entered something wrong and then redid or fixed it — will cause the re-running process to halt. In general, I recommend re-doing rather than restoring prior work if you need to resume an IPython session. (For anything complex enough to make this annoying, see the <a href="scripts.md">Scripts</a> recipe.)</p>
-<h3 id="part-d-version-1-quitting-ipython-from-jupyterlab">Part D, Version 1: Quitting IPython from <em>JupyterLab</em></h3>
+<p>Technically, it is possible to <strong>reload a stored session</strong> by re-running all commands in a history file. However, this is tricky and unreliable, because any errors in the file — perhaps from incorrect expressions that you later redid — will cause the re-running process to halt. In general, I recommend re-doing rather than restoring prior work if you need to resume an IPython session. (For anything complex enough to make this annoying, see the <a href="../../calculation/scripts/">Script a Calculation</a> recipe.)</p>
+<h3 id="part-d-quitting-ipython">Part D: Quitting IPython</h3>
+<h4 id="version-1-from-jupyterlab_1">Version 1: From <em>JupyterLab</em></h4>
 <ol>
 <li>
-<p><strong>Close the console tab</strong> by clicking the "X" at the right side of the "Console N" tab.</p>
+<p><strong>Kill the python "kernel"</strong> by choosing "Shut Down" from the Kernel menu.</p>
 </li>
 <li>
-<p><strong>Kill the background interpreter</strong> by clicking on the square-within-a-circle icon in JupyterLab's far left border (it says "Running Terminals and Kernels" if hovered over) and clicking "Shut Down All" next to "KERNELS". (Or, expand the Kernels section, hover over the line for "Console N", and click the "X" that appears to its right.)</p>
+<p><strong>Close the console pane</strong> by clicking the "X" at the right side of its tab.</p>
+</li>
+<li>
+<p><strong>If you forgot to kill the kernel before closing the console pane</strong>:</p>
+<ul>
+<li>Click on the "Running Terminals and Kernels" icon in the left sidebar (looks like a square inside a circle).</li>
+<li>Expand the "Kernels" section.</li>
+<li>Click on the "X" that appears next to the "Console N" entry in the list of running kernels. Or, click the "Shut Down All" text and confirm in the dialog that appears.</li>
+</ul>
 </li>
 </ol>
-<h3 id="part-d-version-2-quitting-ipython-from-the-terminal">Part D, Version 2: Quitting IPython from the terminal</h3>
+<h4 id="version-2-from-the-terminal_1">Version 2: From the terminal</h4>
 <ol>
-<li><strong>Enter and execute <code>quit</code></strong> at the console prompt. This will return you to the terminal's command line. (Unfortunately, if you do this within the JupyterLab IPython console, it'll quit and then automatically restart the console — quite annoying.)</li>
+<li><strong>Enter and execute <code>quit</code> or <code>exit</code></strong>  at the console prompt. This will return you to the terminal's command line.<ul>
+<li>Unfortunately, if you do this within the JupyterLab IPython console, it'll quit the kernel and then automatically restart it — quite annoying.</li>
+</ul>
+</li>
 </ol>
 <hr />
 <h2 id="comments">Comments</h2>
