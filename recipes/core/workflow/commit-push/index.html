@@ -459,20 +459,19 @@
 <h3 id="committing">Committing</h3>
 <p>In <em>git</em> and <em>GitHub</em> parlance, <em>committing</em> means "saving a snapshot of the current state of the repo". These snapshots are good for a few different things, including:</p>
 <ul>
-<li>Later on, comparing the repo's current state to the snapshot and seeing precisely what has changed (down to the line); and</li>
-<li>Resetting the repo to how it was at the time of a particular snapshot, if you've gotten all tangled up in changes you were trying to make and just want to undo everything since the snapshot.</li>
+<li>At some future time, comparing the repo's state then to the snapshot in order to see precisely what has changed (even which specific lines within a file!); and</li>
+<li>Resetting the repo to how it was at the time of a particular snapshot, if you've gotten all tangled up in changes you were trying to make that aren't working and just want to undo everything since the snapshot.</li>
 </ul>
-<p>Committing a repo is something that you do locally (i.e., on whatever machine you've been using to work on the repo — for us, that's usually Beskar). When you do, <em>git</em> saves information about the current snapshot into some hidden folders that are stored in the repo, right alongside the repo's normal files.</p>
+<p>Committing a repo is something that you do locally (i.e., on whatever machine you've been using to work on the repo — for us, that's usually Beskar). When you do, <em>git</em> saves information about the current snapshot into a hidden folder that is stored in the repo, right alongside the repo's normal files.</p>
 <blockquote>
-<p><strong>I strongly recommend "doing a commit" every time</strong> you complete an exercise, when you take a break after having done significant work on an assignment, or when you're about to make major changes to some code that you might possibly want to undo.</p>
+<p><strong>I strongly recommend "doing a commit" every time you complete an exercise</strong>, when you take a break after having done significant work on an assignment, or when you're about to make major changes to some code that you might possibly want to undo.</p>
 </blockquote>
 <h3 id="pushing">Pushing</h3>
 <p>Before you started working on a repo in Beskar, you had to (a) <em>fork</em> it on GitHub to make your own copy, and (b) <em>clone</em> it to Beskar.</p>
 <p><em>Pushing</em> means taking whatever changes you've made to the local (Beskar) clone of the repo and "pushing" them through the internet to GitHub so that it can update your on-GitHub copy accordingly.</p>
 <blockquote>
-<p><strong>Doing this frequently is very important!</strong></p>
+<p><strong>Doing this frequently is very important!</strong> As of the start of the Spring 2025 semester, Beskar is <em>not</em> being backed up at all. (That's on my to-do list. It's not so easy.)</p>
 </blockquote>
-<p>As of the start of the Spring 2025 semester, Beskar is <em>not</em> being backed up at all. (That's on my to-do list. It's not so easy.)</p>
 <h3 id="pulling">Pulling</h3>
 <p><em>Pulling</em> means the converse: from Beskar, "pulling" down from GitHub any changes that may have occurred to your copy of the repo there and updating your local, on-Beskar clone accordingly.</p>
 <p>This isn't something you're likely to need very often, unless (a) you've used GitHub's web-based editor to change something, or (b) I've made changes to the master repo that you originally forked and that I've told you to pull down. (In that case, you'll first have to pull the changes from the master to your fork. When the need arises, I'll explain how to do that.)</p>
@@ -509,7 +508,7 @@
 </ul>
 </li>
 <li>
-<p>In the "Summary" box near the bottom of the panel, type a brief note like "Finished Exercise 03".</p>
+<p>In the "Summary" box near the bottom of the panel, type a brief note like "Finished Exercise 04" (or whatever is appropriate).</p>
 <ul>
 <li>This will help you figure out which snapshot you might want to compare or roll back to, should the need arise.</li>
 </ul>
@@ -524,6 +523,12 @@
 <p>Then, click the big blue <code>Commit</code> button at the bottom (not the three-dots button on its right).</p>
 <ul>
 <li>This performs the actual commit, storing the snapshot info in the repo.</li>
+</ul>
+</li>
+<li>
+<p>If you are shown a "Who is committing?" dialog, fill in your name and UNCG email address and click "OK".</p>
+<ul>
+<li>JupyterHub should remember your identity thereafter, and not demand this every time you commit.</li>
 </ul>
 </li>
 </ol>
