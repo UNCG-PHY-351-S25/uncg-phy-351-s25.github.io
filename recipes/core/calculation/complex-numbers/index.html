@@ -536,9 +536,8 @@ True
 <p>One additional operation you might need to do with a complex number (say, <span class="arithmatex">\(z\)</span>) is to take its complex conjugate (denoted <span class="arithmatex">\(z^*\)</span>). Mathematically, this is defined as flipping the sign (<span class="arithmatex">\(+ \leftrightarrow -\)</span>) of the imaginary part, or replacing <span class="arithmatex">\(i\)</span> with <span class="arithmatex">\(-i\)</span> in the polar form, (or in any form composed of real numbers and explicit <span class="arithmatex">\(i\)</span>s). Here's a possible, <strong>but bad</strong>, way to do that in python:</p>
 <pre><code class="language-python">&gt;&gt;&gt; z_star = complex(z.real, -z.imag)  # Don't do this!
 </code></pre>
-<p>Instead, use the <code>conjugate()</code> function from the <code>cmath</code> module:</p>
-<pre><code class="language-python">&gt;&gt;&gt; import cmath as cm  # If not done already imported, of course.
-&gt;&gt;&gt; z_star = cm.conjugate(z)
+<p>Instead, use the <code>conjugate()</code> method that all complex number objects (variables or literals) have:</p>
+<pre><code class="language-python">&gt;&gt;&gt; z_star = z.conjugate()
 </code></pre>
 <p>That's cleaner and easier for a human to interpret. It's also less error-prone, and slightly faster.</p>
 <p>However, a warning: <strong>Let python do the work for you!</strong> You may be so used to doing complex arithmetic "by hand" that you try to do that in your code, too. For example, here are three different, mathematically equivalent ways to find the magnitude of a complex number <code>z</code>:</p>
