@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Globals - PHY 351 Reference</title>
+        <title>Use Global Variables (Sparingly!) - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -141,7 +141,7 @@
 </li>
             
 <li>
-    <a href="../writing-functions/" class="dropdown-item">Write Your Own Functions</a>
+    <a href="../writing-functions/" class="dropdown-item">Write Your Own Function</a>
 </li>
             
 <li>
@@ -153,19 +153,19 @@
 </li>
             
 <li>
-    <a href="../safety-check/" class="dropdown-item">Safety Check Arguments</a>
+    <a href="../safety-check/" class="dropdown-item">Safety-Check Arguments</a>
 </li>
             
 <li>
-    <a href="../factoring/" class="dropdown-item">Factoring</a>
+    <a href="../factoring/" class="dropdown-item">Factor Out Subfunctions</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Globals</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Use Global Variables (Sparingly!)</a>
 </li>
             
 <li>
-    <a href="../run-or-import/" class="dropdown-item">Run or import</a>
+    <a href="../run-or-import/" class="dropdown-item">Run or Import From a Script</a>
 </li>
     </ul>
   </li>
@@ -426,12 +426,191 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#use-global-variables-sparingly" class="nav-link">Use Global Variables (Sparingly!)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#background-knowledge" class="nav-link">Background Knowledge</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipes" class="nav-link">Recipes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#examples" class="nav-link">Examples</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="use-global-variables-sparingly">Use Global Variables (Sparingly!)</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I need to get values deep into a function or subfunction, and passing them via arguments is tedious.</strong></p>
+</blockquote>
+<hr />
+<h2 id="background-knowledge">Background Knowledge</h2>
+<p>In general arguments and return values are the preferred methods of getting variable values into and out of functions. However, sometimes you'll define some variables at a very high level in your code that will need to be referenced in multiple places, including deep inside functions and subfunctions. Passing those variables from function to function to function through a succession of arguments can be tedious, and can clutter up code and make it harder for a human to quickly identify the arguments that are of particular significance for a specific function.</p>
+<p>In such situations, you can use <strong><em>global variables</em></strong>. Here are some definitions:</p>
+<ul>
+<li>
+<p><strong><em>Local variable</em></strong>: A variable that is defined inside a function, and is therefore accessible only to that function.</p>
+</li>
+<li>
+<p><strong><em>Global variable</em></strong>: A variable that is defined outside of any function, and is therefore accessible to all functions.</p>
+</li>
+</ul>
+<p>Python actually has one other category, which only occurs when a subfunction is defined (not just called) inside another function. I'll call this an <em>internal subfunction</em>. The type you saw in the previous recipe, where the subfunction definition occurs outside the function that calls it, is an <em>external subfunction</em>.</p>
+<ul>
+<li><strong><em>Nonlocal variable</em></strong>: For an internal subfunction, a variable that is defined in the scope of an enclosing function.</li>
+</ul>
+<p>Remember this:</p>
+<ol>
+<li>
+<p>Variables defined inside a function ("local variables") are only accessible within the function itself and any subfunctions also defined <u>within</u> that function.</p>
+</li>
+<li>
+<p>Variables defined outside of any function ("global variables") are accessible to all functions.</p>
+</li>
+<li>
+<p>Global variables, and variables local to an enclosing function, cannot be altered without using the <code>global</code> keyword to make it clear you're not trying to create a new local variable that happens to have the same name.</p>
+</li>
+</ol>
+<p>To keep life simple, I recommend avoiding nested function definitions ("internal subfunctions") unless you've got a very specific reason to use one.</p>
+<p>If you want a more thorough tutorial on global variables, <a href="https://realpython.com/python-use-global-variable-in-function/" target="_blank">here's one.</a></p>
+<h3 id="why-not-to-use-global-variables">Why NOT to use global variables</h3>
+<p>Use global variables sparingly. When you're trying to find a bug in your code or just convince yourself that your logic is right, tracing the flow of values into and back out of functions via arguments and return values is fairly straightforward. However, when global variables can be accessed from anywhere, the flow of information gets much more complicated and harder to follow. Bugs become more likely.</p>
+<p><em>Change</em> global variables from within functions even more sparingly… preferably <em>never</em>. Why? Because it's extremely easy for one bit of your code to change a global function in a way that breaks some other bit of your code, and whether/how the breakage occurs can depend on the details of execution order, number of repetitions, etc.</p>
+<p>Beatty's rule of thumb:</p>
+<blockquote>
+<p><strong>Use global variables to define constants that don't change and need to be accessed in multiple places. Avoid changing the values of global variables if you possibly can.</strong></p>
+</blockquote>
+<hr />
+<h2 id="recipes">Recipes</h2>
+<h3 id="flavor-a-using-a-global-variable">Flavor A: Using a Global Variable</h3>
+<pre><code class="language-python"># Define a global variable
+MY_GLOBAL = 42
+
+def my_function():
+    &quot;&quot;&quot; Uses a global variable. &quot;&quot;&quot;
+    return 2 * MY_GLOBAL - 1
+</code></pre>
+<p>BTW, a common coding convention is to put the names of variables that are intended to be constants — defined once and never changed — in all-caps, especially if they are globals.</p>
+<h3 id="flavor-b-changing-a-global-variable">Flavor B: Changing a Global Variable</h3>
+<p>If you want a function to change, not just read, the value of a global variable, you have to include an extra step. Without the <code>global</code> keyword, the function will define its own variable <code>MY_GLOBAL</code> in its own scope rather than use the global one.</p>
+<pre><code class="language-python"># Define a global variable
+MY_GLOBAL = 42
+
+def my_function(a, b):
+    &quot;&quot;&quot; Alters a global variable. &quot;&quot;&quot;
+    global MY_GLOBAL
+    MY_GLOBAL += 1
+</code></pre>
+<h3 id="flavor-c-inheriting-local-variables">Flavor C: Inheriting Local Variables</h3>
+<p>Here's the recipe for having an internal subfunction inherit variables from an enclosing function:</p>
+<pre><code class="language-python">def outer_function(arg1, arg2, arg3):
+    &quot;&quot;&quot; Defines a local variable and an internal subfunction. &quot;&quot;&quot;
+    inner_var_1 = ...  # Define a local variable somehow
+
+    def inner_function(argA):
+        &quot;&quot;&quot; Uses one or more local variables from the enclosing function. &quot;&quot;&quot;
+        a_result =  ... # Calculate using arg1, arg2, arg3, and/or inner_var_1 as well as argA
+        return a_result
+
+    return inner_function(...) # Call the internal subfunction with any legitimate expression
+</code></pre>
+<p>Again, I think the complexity of this approach is rarely worthwhile.</p>
+<hr />
+<h2 id="examples">Examples</h2>
+<h3 id="generic-mix-n-match">Generic Mix-n-Match</h3>
+<p>Here's a generic example that showcases both internal and external subfunctions, with access to local, nonlocal, and global variables. (I can think of no good reason to structure code like this, but it's an illustration.)</p>
+<pre><code class="language-python"># Define a global variable:
+a_global_var = 1.0
+
+def external_sub():
+    print(f&quot;external_sub: {a_global_var = }&quot;)
+    # Won't work:
+    # print(f&quot;external_sub: {a_local_var = }&quot;)
+
+def main():
+
+    def internal_sub():
+        print(f&quot;internal_sub: {a_global_var = }&quot;)
+        print(f&quot;internal_sub: {a_local_var = }&quot;)
+
+    # Define a local variable:
+    a_local_var = 2.0
+
+    print(f&quot;main: {a_global_var = }&quot;)
+    print(f&quot;main: {a_local_var = }&quot;)
+    internal_sub()
+    external_sub()
+
+main()
+</code></pre>
+<h3 id="actual-physics-example">Actual Physics Example</h3>
+<p>For some obscure purpose related to electromagnetism, let's say you need to write a function that takes the charges and positions of three particles arranged along the x-axis, and calculates and returns two values: (a) the net force acting on particle #3, and the electrostatic potential energy it has because of the other two (i.e., the energy required to bring particle #3 in "from infinity"). Here's one good way to implement that:</p>
+<pre><code class="language-python"># Constants
+k = 8.9875517873681764e9 # N m² C⁻²
+
+def F(qA, xA, qB, xB):
+    &quot;&quot;&quot; Calculate the electrostatic force of repulsion on particle
+        B due to particle A.
+    &quot;&quot;&quot;
+    return k * qA * qB * (xB - xA) / abs(xB - xA)**3
+
+def U(qA, xA, qB, xB):
+    &quot;&quot;&quot; Calculate the electrostatic potential energy between
+        two particles.
+    &quot;&quot;&quot;
+    return k * qA * qB / abs(xB - xA)
+
+def force_and_energy_on_3(q1, x1, q2, x2, q3, x3):
+    &quot;&quot;&quot; Calculate the net electrostatic force AND potential energy
+        on/of particle 3 from 1 and 2.
+    &quot;&quot;&quot;
+    F_net = F(q1, x1, q3, x3) + F(q2, x2, q3, x3)
+    U_net = U(q1, x1, q3, x3) + U(q2, x2, q3, x3)
+    return F_net, U_net
+</code></pre>
+<p>An alternative way to do this, reducing the passing of arguments somewhat, would be to use internal subfunctions:</p>
+<pre><code class="language-python"># Constants
+k = 8.9875517873681764e9 # N m² C⁻²
+
+def force_and_energy_on_3(q1, x1, q2, x2, q3, x3):
+    &quot;&quot;&quot; Calculate the net electrostatic force AND potential energy
+        on/of particle 3 from 1 and 2.
+    &quot;&quot;&quot;
+    def F_from(q, x):
+        &quot;&quot;&quot; Calculate the electrostatic force of repulsion on particle
+            3 (in inherited scope) due to a particle with charge `q`
+            at location `x`.
+        &quot;&quot;&quot;
+        return k * q * q3 * (x - x3) / abs(x - x3)**3
+
+    def U_from(q, x):
+        &quot;&quot;&quot; Calculate the electrostatic potential energy of particle
+            3 (in inherited scope) with a particle with charge `q`
+            at location `x`.
+        &quot;&quot;&quot;
+        return k * q * q3 / abs(x - x3)
+
+    F_net = F_from(q1, x1) + F_from(q2, x2)
+    U_net = U_from(q1, x1) + U_from(q2, x2)
+    return F_net, U_net
+</code></pre>
+<p>Personally, I don't think the modest shortening of the argument lists is worth the additional cognitive load of having to figure out where the various variable values come from.</p>
+<hr /></div>
             </div>
         </div>
 

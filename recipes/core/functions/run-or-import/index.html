@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Run or import - PHY 351 Reference</title>
+        <title>Run or Import From a Script - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -141,7 +141,7 @@
 </li>
             
 <li>
-    <a href="../writing-functions/" class="dropdown-item">Write Your Own Functions</a>
+    <a href="../writing-functions/" class="dropdown-item">Write Your Own Function</a>
 </li>
             
 <li>
@@ -153,19 +153,19 @@
 </li>
             
 <li>
-    <a href="../safety-check/" class="dropdown-item">Safety Check Arguments</a>
+    <a href="../safety-check/" class="dropdown-item">Safety-Check Arguments</a>
 </li>
             
 <li>
-    <a href="../factoring/" class="dropdown-item">Factoring</a>
+    <a href="../factoring/" class="dropdown-item">Factor Out Subfunctions</a>
 </li>
             
 <li>
-    <a href="../globals/" class="dropdown-item">Globals</a>
+    <a href="../globals/" class="dropdown-item">Use Global Variables (Sparingly!)</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Run or import</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Run or Import From a Script</a>
 </li>
     </ul>
   </li>
@@ -426,12 +426,103 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#run-or-import-from-a-script" class="nav-link">Run or Import From a Script</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#background-knowledge" class="nav-link">Background Knowledge</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe" class="nav-link">Recipe</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example" class="nav-link">Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="run-or-import-from-a-script">Run or Import From a Script</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to write a script that I can run, and I also want to use functions it defines in the console or other scripts.</strong></p>
+</blockquote>
+<hr />
+<h2 id="background-knowledge">Background Knowledge</h2>
+<p>This is not an unusual situation. One case is that you developed some reasonably general functions while solving one particular problem with a python script, and now would like to "borrow" those functions for a different calculation. You could copy-paste them, but perhaps you'd like to be able to improve or debug them in just one place while using them in multiple places.</p>
+<p>Another, common case is that you write a python script specifically to define functions for other scripts to import, but you want to include some test or demonstration code in the script that will execute if you run the script directly rather than importing it.</p>
+<p>Python has a mechanism for this, though it looks rather arcane. The key thing to understand is that when a python script is <em>run</em>, the python interpreter defines a special variable named <code>__name__</code> and sets it to the string <code>"__main__"</code>. However, when a script is <em>imported</em>, the interpreter sets <code>__name__</code> to the name of the script doing the importing. The recipe takes advantagre of this to decide whether to run some code or not.</p>
+<hr />
+<h2 id="recipe">Recipe</h2>
+<pre><code class="language-python"># Start with code that should be executed regardless of whether the script is 
+# run or imported.
+
+some_constant = ... # We can define constants available to scripts importing this one.
+
+def function_one(arg1, arg2):
+    &quot;&quot;&quot; A function available to scripts importing this one. &quot;&quot;&quot;
+    ...  # Calculate stuff
+    return ...  # Return something
+
+def function_two(arg1):
+    &quot;&quot;&quot; Another function available to scripts importing this one. &quot;&quot;&quot;
+    return ...  # Return something
+
+# Now, put the code to execute only if this script is run directly, but not when
+# it is imported.
+if __name__ == &quot;__main__&quot;:
+    # Code inside here will be executed only if the script is run, but not if it's
+    #  imported. It can (but doesn't necessarily have to) use the constants and 
+    # functions defined above.
+    ...  # Do something
+    ...  # Do something else
+</code></pre>
+<hr />
+<h2 id="example">Example</h2>
+<p>Let's say that you often need to calculate the range of a projectile, given its muzzle speed, launch angle, and (optionally) elevation of the launch point above the ground. You'd like to be able to call this function from other scripts that might, for example, iteratively search for the maximum range, or plot the range as a function of launch angle, or whatever. You'd also like to be able to run this script, have it prompt you for the input parameters, and then print out the result (to three significant figures, of course). Here's how you could accomplish that:</p>
+<pre><code class="language-python"># file: projectile.py
+
+# Imports
+from math import radians, sin, cos, sqrt
+
+# Define constants:
+g = 9.81  # N/kg == m/s**2
+
+# Define the range function
+def range(v0, theta, h=0.0):
+    &quot;&quot;&quot; Returns the range of a projectile launched at speed v0 and angle theta.
+        Optional argument h is the height of the launch point above the ground.
+        SI units are presumed.
+    &quot;&quot;&quot;
+    theta_rad = radians(theta)
+    v0x, v0y = v0 * cos(theta_rad), v0 * sin(theta_rad)
+    t_flight = (v0y + sqrt(v0y**2 + 2 * g * h)) / g
+    return v0x * t_flight
+
+# Provide the interactive interface if the script is run directly:
+if __name__ == &quot;__main__&quot;:
+    v0 = float(input(&quot;Enter the initial speed (m/s): &quot;))
+    theta = float(input(&quot;Enter the launch angle (degrees above horizontal): &quot;))
+    h = float(input(&quot;Enter the height of the launch point above the ground (m): &quot;))
+    print(f&quot;Range: {range(v0, theta, h):.3g} m&quot;)
+</code></pre>
+<p>In addition to running this script and providing the initial conditions interactively, you could have another script (or you, from the console) call it programmatically:</p>
+<pre><code class="language-python">from projectile import range
+print(f&quot;Test calculation: range = {range(50, 30):.3g} m&quot;)
+</code></pre>
+<p>And guess what? You know those useful modules like <code>math</code> and <code>cmath</code> that you import, or import functions from? <em>Now you can create your own libraries of useful functions!</em> 🤯</p>
+<hr /></div>
             </div>
         </div>
 

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Factoring - PHY 351 Reference</title>
+        <title>Factor Out Subfunctions - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -141,7 +141,7 @@
 </li>
             
 <li>
-    <a href="../writing-functions/" class="dropdown-item">Write Your Own Functions</a>
+    <a href="../writing-functions/" class="dropdown-item">Write Your Own Function</a>
 </li>
             
 <li>
@@ -153,19 +153,19 @@
 </li>
             
 <li>
-    <a href="../safety-check/" class="dropdown-item">Safety Check Arguments</a>
+    <a href="../safety-check/" class="dropdown-item">Safety-Check Arguments</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Factoring</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Factor Out Subfunctions</a>
 </li>
             
 <li>
-    <a href="../globals/" class="dropdown-item">Globals</a>
+    <a href="../globals/" class="dropdown-item">Use Global Variables (Sparingly!)</a>
 </li>
             
 <li>
-    <a href="../run-or-import/" class="dropdown-item">Run or import</a>
+    <a href="../run-or-import/" class="dropdown-item">Run or Import From a Script</a>
 </li>
     </ul>
   </li>
@@ -426,12 +426,97 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#factor-out-subfunctions" class="nav-link">Factor Out Subfunctions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe" class="nav-link">Recipe</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example" class="nav-link">Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="factor-out-subfunctions">Factor Out Subfunctions</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to break a complicated calculation into pieces to keep it manageable.</strong></p>
+</blockquote>
+<p>You will find, as you write more complicated code — multi-step calculations, multi-body physics simulations, etc. — that most of the work is done inside functions you define. For example, in a Visual Python simulation of interacting objects, you may have a function <code>update_scene()</code> whose job is to move all the 3D objects to new locations. That function will have to calculate all the interaction and constraint forces, determine the resulting accelerations of all the objects, determine how their velocities and positions change, and then give the commands to actually modify the scene.</p>
+<p>If you try to put all the code for this into the one function, it will become painfully long and hard to work with. The smart approach is to <strong><em>factor</em></strong> it into multiple small, mostly-independent calculations, and to put each one in its own function. Functionality that is factored out of one function and put into another is called a <strong><em>subfunction</em></strong>.</p>
+<hr />
+<h2 id="recipe">Recipe</h2>
+<p>Here's the general pattern:</p>
+<pre><code class="language-python">def subfunction_1(arg1, ...):
+    &quot;&quot;&quot; Encapsulates one bit of functionality. &quot;&quot;&quot;
+    result = ... # Calculate something using one or more lines of code
+    return result
+
+def subfunction_2(arg1, arg2, ...):
+    &quot;&quot;&quot; Encapsulates a different bit of functionality. &quot;&quot;&quot;
+    other_result = ... # Calculate something using one or more lines of code
+    return other_result
+
+def main_function(arg_A, arg_B, ...):
+    &quot;&quot;&quot; Does something complicated. &quot;&quot;&quot;
+    x = ... # Calculation
+    z = subfunction_1(x, arg_B, ...)
+    q = subfunction_2(z, ...)
+    end_result = ... # Calculation
+    return end_result
+</code></pre>
+<p>Hopefully it's obvious that you can give the functions, arguments, and variables any names that reflect their actual purposes and meanings.</p>
+<p>It's entirely possible to call the same subfunction multiple times from the same main function, or even from different other functions. (A function can even call itself… That's called <em>recursion</em>, and can be a powerful technique, but be careful that it doesn't go on forever.)</p>
+<h3 id="when-should-you-factor-code-into-a-subfunction">When should you factor code into a subfunction?</h3>
+<p>That's a judgment call. When considering whether to factor a particular chunk of code into a subfunction, ask yourself:</p>
+<ul>
+<li>Is this chunk of code doing something with one purpose, which could be described as the purpose of the possible subfunction?</li>
+<li>Is this chunk of code connected to the surrounding code fairly loosely, so that all it would need are a few input arguments and a return value or two? Or does it use and/or change multiple variables from the code around it in ways that are hard to cleanly factor?</li>
+<li>Is it long enough to be worth factoring?</li>
+<li>Overall, would moving this bit out make the code easier or harder to understand and debug?</li>
+</ul>
+<p>Sometimes it's worth putting a single line of code into a subfunction, if the line is nontrivial and doing so improves code readability. The ability to give that chunk a descriptive name (it's function name) can, all by itself, significantly aid readability.</p>
+<p>BTW, one very significant advantage of factoring code into subfunctions is that you can test the subfunctions individually to make sure they work correctly. Finding a head-scratcher of a bug is much easier if you've narrowed it down to somewhere in a five-line function than if it's somewhere in a 40-line function.</p>
+<hr />
+<h2 id="example">Example</h2>
+<p>Let's say we need to calculate the total electrostatic potential energy stored in an arrangement of three charged point particles. Doing that requires summing the three pairwise potential energies, so calculating the potential energy of a pair is a sensible subfunction. Also, doing each pair calculation requires finding a distance, which <em>could</em> be done inline, but could also be factored out for clarity.</p>
+<pre><code class="language-python">from math import sqrt
+
+def distance(x1, y1, z1, x2, y2, z2):
+    &quot;&quot;&quot; Returns the distance between two points in 3D.
+    &quot;&quot;&quot;
+    return sqrt((x1-x2)**2 + (y1-y2)**2 + (z1-z2)**2)
+
+def two_body_potential(q1, x1, y1, z1, q2, x2, y2, z2):
+    &quot;&quot;&quot; Returns the potential energy of two point charges, in SI 
+        units.
+    &quot;&quot;&quot;
+    k = 8.9875517873681764e9 # N m² C⁻²
+    r = distance(x1, y1, z1, x2, y2, z2)
+    return k * q1 * q2 / r
+
+def three_body potential(q1, x1, y1, z1, q2, x2, y2, z2, q3, x3, y3, z3):
+    &quot;&quot;&quot; Returns the total potential energy of three point charges, in SI 
+        units.
+    &quot;&quot;&quot;
+    return (two_body_potential(q1, x1, y1, z1, q2, x2, y2, z2) +
+            two_body_potential(q1, x1, y1, z1, q3, x3, y3, z3) +
+            two_body_potential(q2, x2, y2, z2, q3, x3, y3, z3))
+</code></pre>
+<p>Side note: The most awkward part of all this is passing around four arguments for every particle. I wouldn't actually do this; instead, I'd pack them together into <em>tuples</em> or <em>lists</em> or — getting fancy — something called a <em>named tuple</em>. We'll be covering <em>tuples</em> and <em>lists</em> in Level A-05. After doing that, if you want to teach yourself about named tuples, <a href="https://realpython.com/python-namedtuple/" target="_blank">be my guest!</a></p>
+<hr /></div>
             </div>
         </div>
 
