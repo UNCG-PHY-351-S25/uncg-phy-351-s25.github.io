@@ -1,10 +1,9 @@
 nav:
     - (Recipe List): index.md
     - find-and-fork.md
-    - beskar-and-jlab.md
-    - system-terminal.md
-    - authenticate-to-github.md
+    - manage-files.md
+    - github-auth.md
     - clone-to-beskar.md
-    - edit-file.md
+    - commit-push.md
     - interactive-python.md
     - submit-level.md

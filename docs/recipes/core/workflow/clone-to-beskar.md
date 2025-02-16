@@ -8,21 +8,26 @@ ___
 
 ## Recipe
 
+1. **On GitHub, go to the main page of the repo** that you want to clone. For an assignment repo, make sure you're looking at your fork, not at the instructor's original.
+    - If you are reading this on the GitHub site: to keep these instructions visible as you go, right-click on the repo name (e.g., `A-01-username`) at the very top of the window, and choose "Open in new tab".
+        - Or, if you've got loads of screen real estate, "Open in new window" so you can put them side-by-side.
+    - Do make sure you're looking at **your** fork, not at the original!
 
-___
-# Old Version
+1. **Click the big green "Code" button** near the top of the repo main page.
+    - That should reveal a popup dialog.
 
-### Part B: Clone it to Beskar
+1. **Select the "Local" tab** in that dialog if it's not already selected.
 
-_This part makes a copy of the assignment repo on the server you'll do your actual coding work on._
+1. **Select the "GitHub CLI" sub-tab**.
 
-1. Locate **the green "<> Code" button** at the top of the page, just above the top right corner of the file list. Click on it. That should produce a dropdown menu with a bunch of information in it.
+1. **Click the two-rectangles "copy" icon** to the right of the text box that contains something analogous to `gh repo clone UNCG-PHY-351-S25/A-01-username`.
+    - A little tooltip that says "Copied!" should appear, briefly.
 
-2. In the dropdown, select the "Local" tab if it's not already selected. In the line that says "HTTPS SSH GitHub CLI", **select "GitHub CLI"**. The box right below where you click should now contain text that looks something like `gh repo clone UNCG-PHY-351-S25/L1.E`, where the last bit is the repo name.
+1. **Open a Terminal** (or switch to an already-open one) in your Beskar browser tab.
 
-3. **Click the copy button** (the two overlapping squares) to the right of this text box to copy the text snippet into your computer's clipboard.
+1. **Verify that you are, in fact, in your home directory** or life will get very awkward.
 
-4. Open a new web browser tab or window and, in it, [navigate to Beskar](http://beskar.uncg.edu).
+1. **Paste the copied text in as a terminal command** and hit return to execute it.
 
-5. TBC…
+1. **List the directory's contents** and you should see a new subdirectory with the name of your repo.
 

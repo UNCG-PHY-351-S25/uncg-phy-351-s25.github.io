@@ -9,19 +9,17 @@
 
 This compendium of computational physics "recipes" is the primary reference material of the PHY 351 course. Rather than reading it straight through, as you might a traditional textbook, let the course assignments guide you. The various _exercises_ each specify one recipe that you are to try for yourself; that is a good time to read the recipe in detail. You'll probably want to refer back to prior recipes at least occasionally, until you've internalized them.
 
-- [What is a "recipe"?](recipes/)
+- [What is a "recipe"?](recipes/index.md)
 
-- [Skillset A: Core Python](recipes/core/)
+- [**World A: Core Python**](recipes/core/index.md)
 
-- [Numerical Methods 1: Finding Roots & Extrema](recipes/num1/)
+- **World B: Numerical Methods 1 — Numerical Solving, Finding & Randomness**
 
-- [Skillset B: Scientific Python](recipes/scipy/)
+- **World C: Scientific Python**
 
-- [Numerical Methods 2: Numerical Calculus](recipes/num2/)
+- **World D: Numerical Methods 2: Numerical Calculus**
 
-- [Numerical Methods 3: ODE Integration](recipes/num3/)
-
-- [Skillset C: Visual Python](recipes/visual/)
+- **World E: Visual Python**
 
 ## Topics
 

@@ -1,5 +1,6 @@
 nav:
     - Overview: index.md
+    - Setup Guide: setup
     - External Tutorials: external.md
     - Core Python: core
     - Scientific Python: scipy

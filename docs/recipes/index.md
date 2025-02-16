@@ -21,27 +21,23 @@ The recipes in this compendium are organized in the order of the course assignme
 ## Recipes by PHY 351 course unit
 
 
-- [**Skillset A: Core Python**](core/)
+- [**World A: Core Python**](core/index.md)
 
     I use the term _core python_ to mean the standard parts of the python ecosystem: the base python language and the "standard library" of modules that is typically installed along with it. For purposes of this course I'm also including the tool stack we'll use to work with python: _GitHub_ and _git_, _JupyterLab_ and its pieces, and a little of the _Unix_ command-line.
 
-- [**Numerical Methods 1: Finding Roots & Extrema**](num1/)
+- [**World B: Numerical Methods 1 — Numerical Solving, Finding & Randomness**](num1/index.md)
 
     Now that we've covered the essentials of python, let's take a break from "learning to code" in order to "learn why to code" — that is, how to use those skillz to do some physics-y stuff.
 
-- [**Skillset B: Scientific Python**](scipy/)
+- [**World C: Scientific Python**](scipy/index.md)
 
     Here we introduce recipes focused on aspects of python central to numerically-intensive work. These include a deep understanding of how computers handle numbers, working with arrays and matrices of values, creating plots and other data visualizations, and reading to or writing from data files. Along the way, we'll introduce _numpy_ and _matplotlib_, add-ons to the python language that support numerically-focused work.
 
-- [**Numerical Methods 2: Numerical Calculus**](num2/)
+- [**World D: Numerical Methods 2: Numerical Calculus**](num2/index.md)
 
-    Doing math involves more than solving equations; it often requires taking derivatives and integrating. Computers can do that too! The key involves forgetting most of what you learned in calculus courses, and going back to the initial definitions of "derivative" and "integral"… and then applying a whole lot of numerical cleverness.
+    Doing math involves more than solving algebraic equations! It often requires taking derivatives, integrating, and solving differential equations. Computers can do that too! The key involves forgetting most of what you learned in calculus courses, and going back to the initial definitions of "derivative" and "integral"… and then applying a whole lot of numerical cleverness.
 
-- [**Numerical Methods 3: ODE Integration**](num3/)
-
-    Most of the central principles of physics are expressed as differential equations, and — consequently — a great deal of "doing physics" comes down to solving differential equations. In the space of all differential equations that we might reasonably encounter in physical problems, only a tiny sliver can be solved analytically. For the rest, we turn to computational methods. In this chunk, we introduce recipes for solving ordinary differential equations (ODEs) numerically. (Partial differential equations — PDEs — are such a vast topic that we won't be able to address them in this course. _Sorry!_)
-
-- [**Skillset C: Visual Python**](visual/)
+- [**World E: Visual Python**](visual/index.md)
 
     Yeah, "solving" a physics problem and getting a bunch of numbers out – or even a pretty plot — is nice, but there's no substitute for _seeing_ the behavior of your modeled system evolve in realtime. _VPython_ ("visual python") is an add-on toolkit for doing exactly that, and it makes constructing and animating 3D simulations embarrassingly easy.
 

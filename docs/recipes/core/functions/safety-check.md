@@ -1,4 +1,4 @@
-# Safety Check Arguments
+# Safety-Check Arguments
 
 ___
 ## Problem to Solve
@@ -7,7 +7,7 @@ ___
 
 When you write quick, short-term-use functions for yourself, you probably don't need to worry about this. However, if you're writing functions as part of a larger project, and/or for others to use, and/or for you to use in the future, sparing a line or few of code to idiot-proof them against inappropriate arguments is wise.
 
-I showed you a foretaste of this back in [_Ask for User Input_](/recipes/core/calculation/user-input/), but now (a) it's more important, and (b) we've got better tools to deal with it.
+I showed you a foretaste of this back in [_Ask for User Input_](../calculation/user-input.md), but now (a) it's more important, and (b) we've got better tools to deal with it.
 
 ___
 ## Recipe
@@ -18,13 +18,13 @@ A function must guard against two basic kinds of argument error:
 
 ### Flavor A: Type Checking
 
-To check the type of an argument, you can explicit test whether it's got the right type, like this:
+To check the type of an argument, you can explicitly test whether it's got the right type, like this:
 
 ```python
 def demo_function(x):
     """ A function that requires `x` to be a float. """
     if not isinstance(x, float):
-        raise TypeError("x must be an int or a float")
+        raise TypeError("x must be a float")
     # Proceed with the function using `x`...
 ```
 
@@ -38,7 +38,17 @@ That's the python way of triggering an error message to the user.
     - `TypeError`: for when an object of inappropriate type is encountered.
     - `ValueError`: for when an object of the right type but inappropriate value is encountered.
 
-- "x must be an int or a float" is the message that will be displayed to the user. You can write whatever you like here, but it's good to be specific about what's wrong so the poor user (likely you) has some idea what to do about it.
+- "x must be a a float" is the message that will be displayed to the user. You can write whatever you like here, but it's good to be specific about what's wrong so the poor user (likely you) has some idea what to do about it.
+
+If you're okay with either an integer or floating-point value (since you can use an integer pretty much anywhere a float is expected), you can write:
+
+```python
+def demo_function(x):
+    """ A function that requires `x` to be a float or int. """
+    if not isinstance(x, (float, int)):
+        raise TypeError("x must be a float or int")
+    # Proceed with the function using `x`...
+```
 
 Sometimes, checking an argument value's type this way is the right approach. However, very often we don't actually care what the type of the argument is, so long as we can use it for our purposes. For example, if we want a float, so what if we're given an integer? We can use that just fine anywhere a decimal number is needed! So, instead of checking the type, we just _coerce_ it to an adequate type:
 
@@ -90,4 +100,111 @@ For the purposes of this course, I'll try to be explicit when an assigment cares
 
 ## Examples
 
-Here's a common situation: a function involves code that demands an integer for something, such as the number of time-steps of a simulation to run. In order 
+Here's an example illustrating a common situation: a function requires an integer for something, such as the number of times to repeat something — a random choice, a time-step in a dynamical simulation, etc. The user might plausibly want to pass very large numbers: ten thousand, a million, five million, whatever.
+
+The problem is that python interprets scientific notation such as `1e4`, `1e6`, and `5e6` as floating-point values, not integers. If you don't check for this and do the following, your user will get annoyed:
+
+```python
+def average_of_N(N):
+    """ Generates a random number by a call to `roll_die` (whose definition 
+        is not shown here), `N` times, and returns the average of all the
+        values.
+    """
+    sum = 0
+    for i in range(N):
+        sum += roll_die()
+    return sum / N
+```
+(We haven't formally introduced `for`-loop iteration or the `range` function yet. I'm assuming you've seen enough python to be able to interpret it.)
+
+Here's an example of the problem:
+
+```python
+>>> average_of_N(10_000)
+3.5042
+>>> average_of_N(1e4)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[6], line 1
+----> 1 average_of_N(1e5)
+
+Cell In[1], line 7, in average_of_N(N)
+      2 """ Generates a random number by a call to `roll_die` (whose definition 
+      3     is not shown here), `N` times, and returns the average of all the
+      4     values.
+      5 """
+      6 sum = 0
+----> 7 for i in range(N):
+      8     sum += roll_die()
+      9 return sum / N
+
+TypeError: 'float' object cannot be interpreted as an integer
+```
+
+The solution is simple, once you understand the problem:
+
+```python
+def average_of_N(N):
+    """ Generates a random number by a call to `roll_die` (whose definition 
+        is not shown here), `N` times, and returns the average of all the
+        values.
+    """
+    N = int(N)
+    sum = 0
+    for i in range(N):
+        sum += roll_die()
+    return sum / N
+```
+Now, the function works as expected:
+
+```python
+>>> average_of_N(1e4)
+3.4865
+```
+
+We still have a problem, however:
+
+```python
+>>> average_of_N(-1e4)
+-0.0
+```
+We didn't get an error, but we did get a nonsensical result. If that function call were being made by other code, and its value used in some larger calculation, we might never realize that the nonsensical value was causing the calculation to be incorrect.
+
+The problem, of course, it makes no sense to average something a negative number of times. We can fix this with a simple check:
+
+```python
+    def average_of_N(N):
+        """ Generates a random number by a call to `roll_die` (whose definition 
+            is not shown here), `N` times, and returns the average of all the
+            values.
+        """
+        N = int(N)
+        assert N > 0, "N must be positive!"
+        sum = 0
+        for i in range(N):
+            sum += roll_die()
+        return sum / N
+```
+Now:
+```python
+>>> average_of_N(-1e4)
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+Cell In[14], line 1
+----> 1 average_of_N(-1e4)
+
+Cell In[13], line 7, in average_of_N(N)
+      2 """ Generates a random number by a call to `roll_die` (whose definition 
+      3     is not shown here), `N` times, and returns the average of all the
+      4     values.
+      5 """
+      6 N = int(N)
+----> 7 assert N > 0, "N must be positive!"
+      8 sum = 0
+      9 for i in range(N):
+
+AssertionError: N must be positive!
+```
+
+Get the idea? It's not hard; it just takes a bit of discipline to stop and ask, while writing a function, "What argument types or values are legitimate here? Will it break things or cause erroneous results if an invalid argument is provided? Maybe I better toss in a couple of lines of code just to be safe."
+___

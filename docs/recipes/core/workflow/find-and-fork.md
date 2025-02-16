@@ -14,7 +14,7 @@ ___
 
 [_GitHub_](https://github.com/) is an online service that provides web-based Git support. It helps developer teams collaborate, keep track of (and occasionally roll back) changes to a software project, and track issues to address. We'll use it as a way for me to distribute assignment files to you, for you to submit your work back to me, and for me to provide you with specific feedback about your code.
 
-_GitHub_ runs on some huge server farm somewhere, and talks to _Git_ runningh on your computer.
+_GitHub_ runs on some huge server farm somewhere, and talks to _Git_ running on your computer.
 
 On _GitHub_, an _organization_ ("org") is a space for a group of people to share and collaborate on coding projects. Prof. Beatty has created an organization for PHY 351.
 
@@ -39,35 +39,16 @@ ___
 
 ## Recipe
 
-### Part A: Create a GitHub Account (once only)
+### Prerequisites:
 
-For this course, you'll need to have your own account with the _GitHub_ service. Even if you already have one, you'll probably need to create a new one, because you'll need a GitHub account whose username is your UNCG username. Here's how to do that:
+- A GitHub account linked to your UNCG email address.
+    - If you don't have this yet, see [Creating your GitHub Account](../../../../topics/setup/github-account) for instructions.
+    - If you have a personal GitHub account not affiliated with UNCG, you should probably just create a new one for this course. (I don't know if it's possible to associate your existing one with your UNCG email address. Feel free to investigate that possibility, if you'd prefer.)
 
-1. In a web browser, open [https://github.com/](https://github.com/) in a new browser tab or window.
+- Membership in the course GitHub"org".
+    - If you don't have this yet, message Prof. Beatty and ask him to add you to the group, Include your GitHub user ID.
 
-1. The page you land on should have a prominent "Sign up for GitHub" button next to a blank for your email address. Enter your **UNCG** email address and click.
-
-1. Follow the account creation steps (email authentication, etc.).
-
-    * IMPORTANT: When prompted for "Username", choose your UNCG user ID: The portion of your UNCG email address before the "@" symbol.
-    
-    * Pick your password carefully, as you'll need to use it frequently. (May I suggest getting and learning to use a good password management program? I use _1Password_.)
-
-    * At the appropriate step, identify yourself as a "student". Choose the free student plan.
-
-1. When you get to the page with "The home for all developers — including you" at the top, you've succeeded!
-
-
-### Part B: Get Added to the Course "Org" (once only)
-
-1. Now that you've created your GitHub account, tell Prof. Beatty. He'll add you to the coure GitHub org.
-
-1. Wait… ⏳⌛️… until…
-
-1. Prof. Beatty lets you know that you've been added. Then, you can progress to the next step.
-
-
-### Part C: Find the Course Org
+### Part A: Find the Course Org
 
 When I tell you I've done that (or you're impatient and want to check by yourself):
 
@@ -79,7 +60,7 @@ When I tell you I've done that (or you're impatient and want to check by yoursel
 
 2. Feel free to explore a little, if you wish. Don't go _too_ far down any rabbit-holes, however: We've got work to do!
 
-### Part D: Find the Level Repo
+### Part B: Find the Level Repo
 
 Remember that course assignments are packaged up into _repositories_ ("repos"), one level per repo. All the org repos available to you are listed on the org's repo page.
 
@@ -92,7 +73,7 @@ Remember that course assignments are packaged up into _repositories_ ("repos"), 
     - This should take you to the repo's home page. Under a bit of fairly cryptic header info you'll see a list of files and folders in the repo. In the right sidebar is a brief "About" section.
 
 
-### Part E: Fork the repo (once per repo/level)
+### Part C: Fork the repo (once per repo/level)
 
 In GitHub parlance, _forking_ a repo means making your own copy of it, so that you can make modifications without affecting anyone else.
 
@@ -119,4 +100,3 @@ Before you can start working on the assignments in a course level, you have to f
 1. Click the big green "Create fork" button.
 
 When you do, you should be taken to the home page of your new repo. The repo name, which includes both the level name and your GitHub ID, will help you distinguish your copy of the repo from the original distributed by Prof. Beatty.
-

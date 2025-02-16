@@ -1,4 +1,4 @@
-# Write Your Own Functions
+# Write Your Own Function
 
 ___
 ## Problem to Solve

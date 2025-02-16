@@ -106,11 +106,10 @@ One additional operation you might need to do with a complex number (say, $z$) i
 >>> z_star = complex(z.real, -z.imag)  # Don't do this!
 ```
 
-Instead, use the `conjugate()` function from the `cmath` module:
+Instead, use the `conjugate()` method that all complex number objects (variables or literals) have:
 
 ```python
->>> import cmath as cm  # If not done already imported, of course.
->>> z_star = cm.conjugate(z)
+>>> z_star = z.conjugate()
 ```
 
 That's cleaner and easier for a human to interpret. It's also less error-prone, and slightly faster.

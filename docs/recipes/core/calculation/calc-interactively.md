@@ -14,7 +14,7 @@ Let's assume that either you've solved the problem in question via paper-and-pen
 
 - Pro tip: Solve all but the most trivial physics problems **symbolically**, deriving a symbolic answer algebraically and simplifying as much as possible before inserting numerical values. If you're given numerical values and not variable names in the problem, define your own symbols! Even the local gravitational constant should be written as $g$ instead of $9.81 \, \text{m/s}^2$ or (gasp!) $9.8$ until the very end.
 
-Overall, **follow the [launch, calculate, save](launch-calc-save.md) recipe**. This recipe provides advice on what to execute during the interactive IPython session.
+Overall, **follow the [Interactive Python](../workflow/interactive-python.md) recipe**. This recipe provides advice on what to execute during the interactive IPython session.
 
 1. **Define variables for the constants** you'll need, such as `g = 9.81` or `c = 3.00e8`.
 
@@ -26,9 +26,9 @@ Overall, **follow the [launch, calculate, save](launch-calc-save.md) recipe**. T
     - Again, make sure units are consistent. If you're given something in units that need to be converted, it's often easiest to write the conversion calculation directly into the variable definition. For example, if a problem says the mass of body 1 is 34.5 grams, enter `m1 = 34.5 / 1000` to get a numeric value in kilograms.
     - Multiple related values can be defined on one line with the "comma trick": `m1, m2 = 1.5, 4.0` or `Vx0, Vy0, Vz0 = 25, 0, 0`. 
 
-3. **Construct arithmetic expressions** with [python's arithmetic operators](../../topics/core/operators.md) to calculate intermediate or final values.
+3. **Construct arithmetic expressions** with [python's arithmetic operators](../../../topics/core/operators.md) to calculate intermediate or final values.
 
-    - Know and be careful of [operator precedence](../../topics/core/precedence.md), or you may get incorrect results.
+    - Know and be careful of [operator precedence](../../../topics/core/precedence.md), or you may get incorrect results.
 
 1. **Import needed functions** from libraries like `math` and `complex` as you discover that you need them. (We'll have more about this in the next recipe, [use python functions](use-functions.md).)
 
@@ -51,7 +51,7 @@ Applying the principle of conservation of angular momentum and some algebraic ma
 >
 > where $I = \tfrac{1}{12}\,M\,L^2$ is the rotational inertia of the rod about its center.
 
-Now it's time to calculate the numerical value, which means it's time to reach for python. After [firing up IPython](launch-calc-save.md), your interactive session might look something like the following. (IPython provides the bits that look like `In [1]: `; you provide what follows those.)
+Now it's time to calculate the numerical value, which means it's time to reach for python. After [firing up IPython](../workflow/interactive-python.md), your interactive session might look something like the following. (IPython provides the bits that look like `In [1]: `; you provide what follows those.)
 
 Defining constants and givens:
 

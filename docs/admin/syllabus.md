@@ -114,7 +114,7 @@ The collection of recipes is available to you on a website linked to from Canvas
 
 Our course _Canvas_ site will serve as (a) a place to put general information such as my contact info, (b) a place for announcements, and (c) a place to keep track of the assignments you've completed.
 
-We'll use the _GitHub_ website to distribute assignments to you and for you to submit your completed work bac, to me. (Don't worry, walking you through the setup and process for this is all in World A, Level 1.)
+We'll use the _GitHub_ website to distribute assignments to you and for you to submit your completed work back to me. (Don't worry, walking you through the setup and process for this is all in World A, Level 1.)
 
 You'll do your actual coding-and-running on _Beskar_, the name I've given to the 48-core, 384-GB beast of a computational physics server that sits on my desk. You'll connect to it from wherever you want via web browser, so you don't need to worry about installing anything on your own computer, or whether your decrepit old laptop can manage.
 

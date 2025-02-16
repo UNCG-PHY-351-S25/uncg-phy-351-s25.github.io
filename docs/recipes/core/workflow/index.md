@@ -12,15 +12,11 @@ Here are some recipes for basic processes required to use the course "tech stack
 
 - **[Find and Fork a Repo on GitHub](find-and-fork.md)**: I want to make my own copy of a course level repo (the "package" that assignments come bundled in) so that I can start working on it.
 
-- **[Log Into Beskar and JupyterLab](beskar-and-jlab.md)**: I want to work on course assignments (or maybe apply what I'm learning to another course or project, or just noodle around with python).
+- **[Manage Files on Beskar](manage-files.md)**: I want to view and/or reorganize the files and folders in my personal file space on Beskar.
 
-- **[Open and Use the System Terminal](system-terminal.md)**: I want to do something that must be done, or is easiest to do, directly with Beskar's operating system and filesystem ("behind the scenes") rather than in JupyterHub.
-
-- **[Authenticate Your Beskar Account with GitHub](authenticate-to-github.md)**: I want to be able to copy course level (and other) repos from GitHub to Beskar without having to enter my GitHub username and password each time.
+- **[Authorizing with GitHub from Beskar](github-auth.md)**: I want GitHub to allow me to access my repos from Beskar without having to type in a password every time.
 
 - **[Clone a Repo to Beskar](clone-to-beskar.md)**: I want to copy my fork of a course level repo from GitHub to Beskar so that I can start working on it in JupyterHub.
-
-- **[Edit a File in an Assignment](edit-file.md)**: I want to make changes to the name or content of a file that came with a course level repo.
 
 - **[Commit and Push Changes to GitHub](commit-push.md)**: I want to make a snapshot of my work so far in case I need to roll back changes, and copy the current repo state back to GitHub for safekeeping.
 
