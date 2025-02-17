@@ -179,19 +179,15 @@
 </li>
             
 <li>
-    <a href="../../iteration/ranges/" class="dropdown-item">Ranges</a>
+    <a href="../../iteration/for/" class="dropdown-item">Repeat Code a Specific Number of Times</a>
 </li>
             
 <li>
-    <a href="../../iteration/monte-carlo/" class="dropdown-item">Monte carlo</a>
+    <a href="../../iteration/while/" class="dropdown-item">Repeat While or Until Something Is True</a>
 </li>
             
 <li>
-    <a href="../../iteration/skip-break/" class="dropdown-item">Skip break</a>
-</li>
-            
-<li>
-    <a href="../../iteration/while/" class="dropdown-item">While</a>
+    <a href="../../iteration/break/" class="dropdown-item">Stop Iteration Early</a>
 </li>
     </ul>
   </li>
@@ -492,8 +488,8 @@
 <p>To control the details of python code output, use the built-in <code>print()</code> function. Using it can be drop-dead simple, or mysteriously arcane and complex, depending on what your goals are. We'll build the complexity up gradually in this recipe.</p>
 <h3 id="a-bit-of-terminology-and-conceptual-background">A bit of terminology and conceptual background…</h3>
 <ul>
-<li><em>Statements</em> are chunks of python code that make changes to the python environment when they are executed, like importing a module or functions from it, or defining a variable and setting its value. Programmers call these "side effects". You can think of them as declarative sentences: "Do this." Statements generally stand alone on a line (or a multi-line block), and don't "return" a value.</li>
-<li><em>Expressions</em> are chunks of python code that are evaluated and coverted into some kind of value or object when they are executed. They don't do anything other than produce this value. Often, they are part of a statement, such as the right-hand side of <code>x = 5.0 * sin(radians(15))</code>. Expressions can be made up of other expressions: <code>15</code> is an expresion, as are <code>radians(15)</code> and <code>sin(radians(15))</code>. In IPython, when a "bare expression" — a line of python code that is an expression and not a statement — is sent to the python interpreter, the interpreter returns its value, and IPython displays that value as an "output" line.</li>
+<li><em>Statements</em> are chunks of python code that make changes to the python environment when they are executed, like importing a module or functions from it, or defining a variable and setting its value. Programmers call these "side effects". You can think of them as imperative sentences: "Do this." Statements generally stand alone on a line (or a multi-line block), and don't "return" a value.</li>
+<li><em>Expressions</em> are chunks of python code that are evaluated and converted into some kind of value or object when they are executed. They don't do anything other than produce this value. Often, they are part of a statement, such as the right-hand side of <code>x = 5.0 * sin(radians(15))</code>. Expressions can be made up of other expressions: <code>15</code> is an expression, as are <code>radians(15)</code> and <code>sin(radians(15))</code>. In IPython, when a "bare expression" — a line of python code that is an expression and not a statement — is sent to the python interpreter, the interpreter returns its value, and IPython displays that value as an "output" line.</li>
 </ul>
 <p>When working in IPython, the difference between values displayed as the result of expression evaluation and values displayed by <code>print()</code> is easy to overlook. The difference is important, however, and will be much more obvious when we move beyond IPython and start writing script files. For now, the key fact to stick into your memory is that <code>print(...)</code> is a <em>statement</em> that returns no result, but has the "side effect" of displaying text to the user. An expression simply returns a value, which might get used as part of a larger expression or statement, might be displayed to the user, or might be totally ignored depending on the context.</p>
 <p>One benefit of using <code>print()</code> statements to see your calculation results is that you get a whole lot of control over <em>how</em> values are displayed. You can embed numbers in text, control decimal digits or significant figures, force or prevent the use of scientific notation, control widths, etc.</p>

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>While - PHY 351 Reference</title>
+        <title>Repeat While or Until Something Is True - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -179,19 +179,15 @@
 </li>
             
 <li>
-    <a href="../ranges/" class="dropdown-item">Ranges</a>
+    <a href="../for/" class="dropdown-item">Repeat Code a Specific Number of Times</a>
 </li>
             
 <li>
-    <a href="../monte-carlo/" class="dropdown-item">Monte carlo</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Repeat While or Until Something Is True</a>
 </li>
             
 <li>
-    <a href="../skip-break/" class="dropdown-item">Skip break</a>
-</li>
-            
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">While</a>
+    <a href="../break/" class="dropdown-item">Stop Iteration Early</a>
 </li>
     </ul>
   </li>
@@ -367,12 +363,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../skip-break/" class="nav-link">
+                                <a rel="prev" href="../for/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../tuples-lists/" class="nav-link">
+                                <a rel="next" href="../break/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -426,12 +422,143 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#repeat-while-or-until-something-is-true" class="nav-link">Repeat While or Until Something Is True</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#background-knowledge" class="nav-link">Background Knowledge</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#base-recipe" class="nav-link">Base Recipe</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#variant-a-pre-initialization" class="nav-link">Variant A: Pre-Initialization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#variant-b-tracking-two-successive-updates" class="nav-link">Variant B: Tracking Two Successive Updates</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="repeat-while-or-until-something-is-true">Repeat While or Until Something Is True</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to repeatedly execute a chunk of code while or until some condition is true, however many times that may be.</strong></p>
+</blockquote>
+<hr />
+<h2 id="background-knowledge">Background Knowledge</h2>
+<p>As the recipe <a href="../for/"><em>Repeat Code a Specific Number of Times</em></a> said, Python has two basic ways of iterating over (i.e., repeatedly executing) a chunk of code:</p>
+<ol>
+<li>
+<p>Applying the code to every element of an ordered collection ("iterable") of things, or</p>
+</li>
+<li>
+<p>Executing the code over and over as long as some logical condition is true.</p>
+</li>
+</ol>
+<p>This recipe focuses on the second. It's useful for situations like:</p>
+<ul>
+<li>I want to repeat a calculation until the result reaches some threshold value.</li>
+<li>I want to read lines from a datafile until reaching the end of the file.</li>
+<li>I want to simulate a system until it stops changing.</li>
+</ul>
+<hr />
+<h2 id="base-recipe">Base Recipe</h2>
+<pre><code class="language-python">while &lt;&lt;boolean expression&gt;&gt;:
+    # Code to repeat over and over until the expression is False.
+</code></pre>
+<p>Notes:</p>
+<ol>
+<li>
+<p>Replace <code>&lt;&lt;boolean expression&gt;&gt;</code> with an actual expression that evaluates to <code>True</code> or <code>False</code>. This expression can be:</p>
+<ul>
+<li>the literal <code>True</code> (in which case the loop will run forever) or <code>False</code> (in which case it won't run at all), </li>
+<li>a variable with a boolean value,</li>
+<li>a boolean expression like <code>x &lt; 10</code> or <code>r != 0</code>,</li>
+<li>a compound expression like <code>(x &lt; 10) and (y &lt; x)</code>, or</li>
+<li>a function call that returns a boolean value.</li>
+</ul>
+</li>
+<li>
+<p>Something that the code block does should affect the boolean expression in some way, such that it eventually evaluates to <code>False</code> rather than <code>True</code>, or the loop will run forever. (Unless, of course, your goal is to write a program that will run until something external terminates it.)</p>
+</li>
+</ol>
+<h2 id="variant-a-pre-initialization">Variant A: Pre-Initialization</h2>
+<p>The <code>while</code> loop checks <code>&lt;&lt;boolean expression&gt;&gt;</code> at the beginning of each iteration, which means it checks before the first iteration occurs. Sometimes, that's a problem, for example if you want to repeat a chunk of code until its result meets some criterion. Before the first iteration, there isn't any result to check!</p>
+<p>Some languages have a <code>repeat… until</code> construct to handle this particular situation. Python doesn't, but that's not a bit deal. A good solution is to pre-initialize a variable that the loop will check.</p>
+<p>Sometimes, you can just precede the <code>while</code> statement with a line that sets a variable calculated in the loop to some arbitrary value that will ensure that the first <code>&lt;&lt;boolean expression&gt;&gt;</code> evaluates to <code>True</code>. Other times, it's easier or less convoluted to define a <em>flag</em> variable like this:</p>
+<pre><code class="language-python">keep_looping = True
+while keep_looping:
+    # Some calculation or another…
+    keep_looping = &lt;&lt;boolean expression&gt;&gt;
+</code></pre>
+<p>If it's more semantically meaningful, you can use a flag variable that becomes <code>True</code> when the termination condition occurs:</p>
+<pre><code class="language-python">end_loop = False
+while not end_loop:
+    # Some calculation or another…
+    end_loop = &lt;&lt;boolean expression&gt;&gt;
+</code></pre>
+<p>Either way, the <code>&lt;&lt;boolean expression&gt;&gt;</code> can now safely refer to variables and values that the code in the loop produces.</p>
+<p>Tip: Instead of <code>condition_met</code> or <code>continue_loop</code>, use a variable name that captures the specific condition: <code>end_of_data_reached</code>, <code>calculation_converged</code>, <code>object_moved</code>, etc.</p>
+<p>Another approach is to initialize a variable used in the calculation with a value that you know will make the loop execute for the first time, but will not mess up the calculation. For example, let's say you've got a calculation that produces various values of <code>x</code>, and you want to repeat it until <code>x</code> exceeds some threshold that you're sure will be positive. This would work:</p>
+<pre><code class="language-python">x = -1
+while x &lt;= &lt;&lt;threshold value&gt;&gt;:
+    x = &lt;&lt;some calculation&gt;&gt;
+</code></pre>
+<p>This will <strong>not</strong> work if the calculation uses the previous value of <code>x</code>, or if you cannot specify an initial value that you're sure will always be less than the threshold.</p>
+<h3 id="example-smallest-value-greater-than">example: smallest value greater than…</h3>
+<p>Consider the series defined by <span class="arithmatex">\(s_n \equiv 2\,s_{n-1} + 1\)</span> with <span class="arithmatex">\(s_0 = 1\)</span>: <span class="arithmatex">\({1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, \ldots}\)</span>. Let's write a function that will find the smallest value in the series that exceeds some given integer <span class="arithmatex">\(N\)</span>.</p>
+<pre><code class="language-python">def smallest_s_exceeding(N):
+    s = 1
+    while s &lt;= N:
+        s = 2*s + 1
+    return s
+</code></pre>
+<p>Simple, no? We'll hair that up a bit in the next example.</p>
+<h2 id="variant-b-tracking-two-successive-updates">Variant B: Tracking Two Successive Updates</h2>
+<p>Commonly, the body of a <code>while</code> loop updates the value of some particular variable according to a calculation. Sometimes, that calculation needs to use the variable's previous value to find the new value, like this:</p>
+<pre><code class="language-python">x = &lt;&lt;some initial value&gt;&gt;
+while &lt;&lt;boolean expression&gt;&gt;:
+    x = &lt;&lt;some calculation involving x&gt;&gt;
+</code></pre>
+<p>In the calculation line, the <code>x</code> on the right of the assignment operator <code>=</code> will be the old value, and the result of the calculation will be assigned to <code>x</code> thereafter (i.e., into the next iteration).</p>
+<p>If the calculation requires the values of the previous <em>two</em> iterations, you'll have to do a bit more work. Here's one possibility:</p>
+<pre><code class="language-python">x_old = &lt;&lt;some initial value&gt;&gt;
+x_new = &lt;&lt;some other initial value&gt;&gt;
+while &lt;&lt;boolean expression&gt;&gt;:
+    x_old, x_new = x_new, &lt;&lt;some calculation involving x_old and x_new&gt;&gt;
+</code></pre>
+<p>What's going on here?</p>
+<p>The use of the comma is a clever way to make two assignments happen <strong>simultaneously</strong>:</p>
+<ul>
+<li>The previous value of <code>x_new</code> is given to <code>x_old</code>, while, simultaneously,</li>
+<li>The previous values of <code>x_old</code> and <code>x_new</code> are used to calculate the new value of <code>x_new</code>.</li>
+</ul>
+<p>You could solve this without use of the comma trick, but you'd need to introduce yet another variable, and you'd have to do a fair amount of careful value-passing between them.</p>
+<h3 id="example-fibonacci-sequence">example: Fibonacci sequence</h3>
+<p>The Fibonacci sequence is defined as the series of numbers that begins with <span class="arithmatex">\(\{0, 1\}\)</span>, and continuing according to the rule that each number is the sum of the two preceding numbers: <span class="arithmatex">\(F_n = F_{n-1} + F_{n-2}\)</span>. The first few numbers in the sequence are <span class="arithmatex">\(\{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \ldots\}\)</span>.</p>
+<p>For some obscure reason, let's say we want a function that will find the smallest Fibonacci number that exceeds some given integer <span class="arithmatex">\(N\)</span>.</p>
+<pre><code class="language-python">def smallest_fibonacci_exceeding(N):
+    F_old, F_new = 0, 1
+    while F_new &lt;= N:
+        F_old, F_new = F_new, F_old + F_new
+    return F_new
+</code></pre>
+<p>Since each Fibonacci number depends on the two previous numbers in the sequence, we used Variant B of the recipe.</p>
+<hr /></div>
             </div>
         </div>
 

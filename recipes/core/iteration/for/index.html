@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Ranges - PHY 351 Reference</title>
+        <title>Repeat Code a Specific Number of Times - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -179,19 +179,15 @@
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Ranges</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Repeat Code a Specific Number of Times</a>
 </li>
             
 <li>
-    <a href="../monte-carlo/" class="dropdown-item">Monte carlo</a>
+    <a href="../while/" class="dropdown-item">Repeat While or Until Something Is True</a>
 </li>
             
 <li>
-    <a href="../skip-break/" class="dropdown-item">Skip break</a>
-</li>
-            
-<li>
-    <a href="../while/" class="dropdown-item">While</a>
+    <a href="../break/" class="dropdown-item">Stop Iteration Early</a>
 </li>
     </ul>
   </li>
@@ -372,12 +368,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../monte-carlo/" class="nav-link">
+                                <a rel="next" href="../while/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/iteration/ranges.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/iteration/for.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -426,12 +422,251 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#repeat-code-a-specific-number-of-times" class="nav-link">Repeat Code a Specific Number of Times</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#background-knowledge" class="nav-link">Background Knowledge</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#base-recipe-counting-from-zero" class="nav-link">Base Recipe: Counting From Zero</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-variant-a-just-repeating-some-number-of-times" class="nav-link">Recipe Variant A: Just Repeating Some Number of Times</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-variant-b-counting-from-one-or-something-else" class="nav-link">Recipe Variant B: Counting From One (or something else)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-variant-c-counting-by-steps" class="nav-link">Recipe Variant C: Counting by Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-variant-d-counting-down" class="nav-link">Recipe Variant D: Counting Down</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-variant-e-counting-by-non-integer-steps" class="nav-link">Recipe Variant E: Counting by Non-Integer Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-variant-f-doing-something-every-nth-iteration" class="nav-link">Recipe Variant F: Doing Something Every Nth Iteration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="repeat-code-a-specific-number-of-times">Repeat Code a Specific Number of Times</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to repeatedly execute a chunk of code, counting the repetitions.</strong></p>
+</blockquote>
+<hr />
+<h2 id="background-knowledge">Background Knowledge</h2>
+<h3 id="two-ways-of-iterating">two ways of iterating</h3>
+<p>Python has two basic ways of iterating over (i.e., repeatedly executing) a chunk of code:</p>
+<ol>
+<li>
+<p>Applying the code to every element of an ordered collection ("iterable") of things, or</p>
+</li>
+<li>
+<p>Executing the code over and over as long as some logical condition is true.</p>
+</li>
+</ol>
+<p>This recipe focuses on the first. (We'll get to the other soon.) It's useful for situations like:</p>
+<ul>
+<li>I want to repeat something a specific number of times.</li>
+<li>I want to do something with every number from <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(B\)</span>.</li>
+<li>I want to do something with every element of a sequence of things.</li>
+</ul>
+<h3 id="adjusting-to-python-from-from-other-languages">adjusting to python from from other languages</h3>
+<p>If you come to python from another programming language, this will likely trip you up:</p>
+<blockquote>
+<p>Python's <code>for</code> loop does not work like the <code>for</code> loop in many other, older programming languages like <em>C</em> and <em>Java</em>. You can make it work like theirs' but you often shouldn't. Python's way is <em>better</em>.</p>
+</blockquote>
+<p>Here's the essential difference:</p>
+<ul>
+<li>
+<p>In many languages, a <code>for</code> loop is a mechanism for iterating while <strong>incrementing a counter variable.</strong></p>
+</li>
+<li>
+<p>In python, a <code>for</code> loop is a mechanism for <strong>iterating through the elements of an ordered collection of things.</strong></p>
+<ul>
+<li>All languages have ways of achieving the same thing, and some (like JavaScript) have an equivalent <code>.forEach</code> method on arrays. It's usually clumsier than python's though.</li>
+<li>Some newer languages, like <em>Julia</em>, <em>Swift</em>, and <em>Rust</em>, have adopted python's approach to <code>for</code>.</li>
+</ul>
+</li>
+</ul>
+<p>If you are not aware of this difference, you will try to make python behave like Java or C, and will end up with unnecessarily ugly, clumsy, un-pythonic code.</p>
+<hr />
+<h2 id="base-recipe-counting-from-zero">Base Recipe: Counting From Zero</h2>
+<p>If you want to count the iterations, perhaps so that you can use the iteration number in a calculation, here's the recipe:</p>
+<pre><code class="language-python">for i in range(N + 1):
+    # Anything in here will be executed N times, with values of i successively
+    # equal to 0, 1, 2, ..., N
+</code></pre>
+<p>The name <code>i</code> is fairly traditional in programming to represent an iteration number. However, if the counter has meaning in your code, I suggest picking something more descriptive, such as <code>row_num</code> (for successive rows in a table), <code>particle</code> (for successive particles in a physics calculation), or <code>power</code> (for successive powers of a number). Pick something that will make the code easier to interpret.</p>
+<p>How does this recipe work? We haven't talked in detail about <em>collections</em> yet, but here's the basic idea: the built-in python function <code>range(limit)</code> produces a sequence of integers, beginning with 0 and ending with <strong>the last integer before <code>limit</code></strong>. For example, <code>range(5)</code> produces the sequence <code>0, 1, 2, 3, 4</code>. Note that the value of the "upper limit" argument is not itself included in the sequence produced!</p>
+<blockquote>
+<p>Forgetting that <code>range</code> begins withy 0 (not 1) and ends with <code>limit - 1</code> (not <code>limit</code>) is a common source of bugs in python code.</p>
+<p>Remember it this way:
+1. In python, we always count from 0 unless explicitly told otherwise.
+2. <code>range(N)</code> produces a N-element count.
+3. So, in python, <code>N</code> elements are counted <code>0</code>, <code>1</code>, <code>2</code>, ..., <code>N-1</code>.</p>
+</blockquote>
+<hr />
+<h2 id="recipe-variant-a-just-repeating-some-number-of-times">Recipe Variant A: Just Repeating Some Number of Times</h2>
+<p>If you want to repeat a chunk of code <span class="arithmatex">\(N\)</span> times but don't need the code to know which iteration it's on, you can do exactly the same thing, and just ignore the counter variable <code>i</code> or whatever you've called it.</p>
+<p>However, python programmers have a convention for naming variables that are not intended to be used: the underscore character, <code>_</code>. So, to repeat something <span class="arithmatex">\(N\)</span> times without numbering the iterations, use this:</p>
+<pre><code class="language-python">for _ in range(N):
+    # Code in here will be repeated N times.
+</code></pre>
+<p>The use of <code>_</code> immediately tells a reader not to worry about whether or how the counter index is being used, and that this is a simple <span class="arithmatex">\(N\)</span>-times-through repetition.</p>
+<h3 id="example">example</h3>
+<p>Here's a function that creates a one-dimensional <em>fractal</em> by repetition. It begins with the simple pattern <code>█ █</code>. Every iteration, it replaces all <code>█</code> characters with the initial pattern of <code>█ █</code>, and replaces all space characters with a block of three spaces. Thus, in each iteration, the length of the string triples.</p>
+<p>Imagine that instead of growing the length of the string, you're "zooming in" and seeing that each apparently-full cell actually has a hole in it. This is the essence of a <em>fractal</em>: Self-similarity at different scales.</p>
+<pre><code class="language-python">def fractal_string(depth):
+    &quot;&quot;&quot; Generates a string of `X` and ` ` characters with a fractal density
+        structure.
+    &quot;&quot;&quot;
+    full_cell = '█ █'
+    empty_cell = '   '
+    s = full_cell
+    for _ in range(depth):
+        s = s.replace(' ', '~')
+        s = s.replace('█', full_cell)
+        s = s.replace('~', empty_cell)
+    return s
+</code></pre>
+<p>Copy-paste it into an IPython console (or script) and play with it! (It looks better if you go to a really small font size or zoom level, so that you can get more characters on one output line.)</p>
+<p>Note: I'm omitting the usual safety-checks on arguments so you can focus on the point of the recipe. In real code, I'd convert n_max to an integer and make sure both arguments had meaningful values.</p>
+<hr />
+<h2 id="recipe-variant-b-counting-from-one-or-something-else">Recipe Variant B: Counting From One (or something else)</h2>
+<p>The <code>range</code> function has an optional argument that lets you specify the starting value of the sequence. Note that it comes <em>before</em> the required endpoint argument:</p>
+<pre><code class="language-python">for n in range(first_val, stop_before):
+    # Anything in here will be executed N times, with values of in successively
+    # equal to first_val, first_val + 1, first_val + 2, ..., stop_before - 1
+</code></pre>
+<p>Again, take note: the sequence of values will <strong>include the first value</strong> but <strong>exclude the second value</strong>. As a result, the number of iterations will always be <code>last_val - stop_before</code>.</p>
+<h3 id="example_1">example</h3>
+<p>If a biased coin lands on "heads" with probability <span class="arithmatex">\(p\)</span>, the probability of obtaining <span class="arithmatex">\(N\)</span> heads in a row is <span class="arithmatex">\(p^N\)</span>. Here's a function that displays the probability of increasingly long strings of heads:</p>
+<pre><code class="language-python">def heads_runs(p, n_max):
+    &quot;&quot;&quot; Displays the probability of obtaining successively longer runs of
+        &quot;heads&quot; with a biased coin whose probability of landing on &quot;heads&quot;
+        in any given flip is `p`. `n_max` sets the longest run considered.
+    &quot;&quot;&quot;
+    for n in range(1, n_max + 1):
+        print(f&quot;Probability of {n:2} heads in a row: {p**n:.2%}.&quot;)
+</code></pre>
+<hr />
+<h2 id="recipe-variant-c-counting-by-steps">Recipe Variant C: Counting by Steps</h2>
+<p>The <code>range</code> function has a third optional argument that lets you specify the step size of the sequence. This can be used to count by twos, threes, or any other integer increment:</p>
+<pre><code class="language-python">for val in range(first_val, stop_before, step_size):
+    # Anything in here will be executed repeatedly times with values of val
+    # successively equal to first_val, first_val + step_size, 
+    # first_val + 2 * step_size, ..., 
+</code></pre>
+<p>What will the last value be? That depends on how many multiples of the step size fit in before reaching the <code>stop_before</code> value. Python will continue iterating until adding another value of <code>step_size</code> would reach or exceed <code>stop_before</code>, and will then cease.</p>
+<hr />
+<h2 id="recipe-variant-d-counting-down">Recipe Variant D: Counting Down</h2>
+<p>Counting downwards is as easy as specifying a negative step size, and choosing a larger starting value than the stopping value:</p>
+<pre><code class="language-python">for count in range(start_val, stop_before, -step_size):
+    # Code here will execute repeatedly, with values of count starting at
+    # start_val and decreasing by step_size each time, stopping just before
+    # reaching or going past stop_before.
+</code></pre>
+<h3 id="example-countdown-with-changing-interval">example: countdown with changing interval</h3>
+<p>Want to write code for NASA Mission Control?</p>
+<pre><code class="language-python">import time
+from IPython import get_ipython
+
+def countdown(starting_time):
+    &quot;&quot;&quot; Counts down in real-time, announcing every ten seconds until ten
+        seconds are left, and then every second. If the starting time is
+        greater than 10 s, it is rounded up to the nearest multiple of 10
+        seconds.
+    &quot;&quot;&quot;
+    get_ipython().run_line_magic(&quot;clear&quot;, &quot;&quot;)
+    if (starting_time &gt; 10) and (starting_time % 10 != 0):
+        starting_time += 10 - starting_time % 10
+    if starting_time &gt;= 20:
+        for t in range(starting_time, 10, -10):
+            print(f&quot;  Launch in T minus {t} seconds&quot;)
+            time.sleep(10)
+    print(&quot;  Launch in &quot;, end=&quot;&quot;)
+    for t in range(min(10, starting_time), 0, -1):
+        print(f&quot;{t}… &quot;, end=&quot;&quot;)
+        time.sleep(1)
+    print(&quot;\n🚀🚀🚀 BLASTOFF!!! 🚀🚀🚀&quot;)
+</code></pre>
+<hr />
+<h2 id="recipe-variant-e-counting-by-non-integer-steps">Recipe Variant E: Counting by Non-Integer Steps</h2>
+<p>Alas, the <code>range()</code> function only works with integers. If you need to count by non-integer steps, you have
+three options:</p>
+<ol>
+<li>
+<p>Count by integers, but multiply the counter variable by some fractional step size when you use it. This works if you want to count by regular steps that can be easily obtained from an integer sequence.</p>
+</li>
+<li>
+<p>Use a <code>while</code> loop (coming in a recipe soon) and do all the initializing, incrementing, and endpoint-testing yourself. This is very flexible, but puts the work on you instead of on python, and can be more error-prone.</p>
+</li>
+<li>
+<p>Use features similar to <code>range</code> from the <code>numpy</code> library, which we'll cover in a future unit. This will generally be your best bet, once you've learned that skillset.</p>
+</li>
+</ol>
+<h3 id="example_2">example</h3>
+<p>For those of you taking special relativity in PHY 321: What are the values of gamma for speeds of 0, 0.05c, 0.1c, ..., c?</p>
+<pre><code class="language-python">from math import sqrt
+def gamma():
+    &quot;&quot;&quot; Display the values of the Lorentz factor &quot;gamma&quot; for velocities
+        from zero up to 1 (in SR units), showing every increment of 0.1.
+    &quot;&quot;&quot;
+    for d in range(0, 100, 5):
+        v = d / 100
+        gamma = 1 / sqrt(1 - v**2)
+        print(f&quot; v = {v:.2f} =&gt; gamma = {gamma:.5f}&quot;)
+    print(f&quot; v = {1:.2f} =&gt; gamma = infinite!&quot;)
+</code></pre>
+<hr />
+<h2 id="recipe-variant-f-doing-something-every-nth-iteration">Recipe Variant F: Doing Something Every N<sup>th</sup> Iteration</h2>
+<p>Easy. To execute an extra bit of code every <code>M</code> iterations, use the modulo <code>%</code> operator:</p>
+<pre><code class="language-python">for i in range(1, N_reps + 1):
+    # Code here executes every iteration.
+    if i % M == 0:
+        # Code here executes on the Mth, 2Mth, 3Mth, etc. iterations
+        # (when i = M, 2M, 3M, etc.)
+    # Code here also executes every iteration.
+</code></pre>
+<p>If you want to count from zero, but still execute on the M<sup>th</sup> iteration, you'll need to adjust the test slightly to avoid triggering on the first iteration (since <code>0 % M</code> is always 0):</p>
+<pre><code class="language-python">for i in range(N_reps):
+    # Code here executes every iteration.
+    if i % M == M - 1:
+        # Code here executes on the Mth, 2Mth, 3Mth, etc. iterations
+        # (when i = M-1, 2M-1, 3M-1, etc.)
+    # Code here also executes every iteration.
+</code></pre>
+<h3 id="example-quick-and-dirty-progress-bar">example: quick-and-dirty progress bar</h3>
+<p>Here's a simple progress bar that updates every <code>update_steps</code> through a loop:</p>
+<pre><code class="language-python">print(&quot;Progress: 0… &quot;, end=&quot;&quot;)
+for n in range(1, int(1e6+1)):
+    if n % update_steps == 0:
+        print(f&quot;{n}… &quot;, end=&quot;&quot;)
+    # Do whatever the loop is supposed to do here.
+print(&quot;done!&quot;)
+</code></pre></div>
             </div>
         </div>
 

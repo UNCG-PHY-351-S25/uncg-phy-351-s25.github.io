@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Skip break - PHY 351 Reference</title>
+        <title>Stop Iteration Early - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -179,19 +179,15 @@
 </li>
             
 <li>
-    <a href="../ranges/" class="dropdown-item">Ranges</a>
+    <a href="../for/" class="dropdown-item">Repeat Code a Specific Number of Times</a>
 </li>
             
 <li>
-    <a href="../monte-carlo/" class="dropdown-item">Monte carlo</a>
+    <a href="../while/" class="dropdown-item">Repeat While or Until Something Is True</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Skip break</a>
-</li>
-            
-<li>
-    <a href="../while/" class="dropdown-item">While</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Stop Iteration Early</a>
 </li>
     </ul>
   </li>
@@ -367,17 +363,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../monte-carlo/" class="nav-link">
+                                <a rel="prev" href="../while/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../while/" class="nav-link">
+                                <a rel="next" href="../../tuples-lists/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/iteration/skip-break.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/iteration/break.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -426,12 +422,143 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#stop-iteration-early" class="nav-link">Stop Iteration Early</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-a-early-termination-of-a-for-loop" class="nav-link">Recipe A: Early Termination of a 'for' Loop</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-b-early-termination-of-a-while-loop" class="nav-link">Recipe B: Early Termination of a 'while' Loop</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-c-doing-something-only-after-normal-loop-completion" class="nav-link">Recipe C: Doing Something Only After Normal Loop Completion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="stop-iteration-early">Stop Iteration Early</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>Sometimes my code needs to stop iterating before a loop has reached its normal end (of the range in <code>for</code>, boolean termination condition in <code>while</code>).</strong></p>
+</blockquote>
+<hr />
+<h2 id="recipe-a-early-termination-of-a-for-loop">Recipe A: Early Termination of a 'for' Loop</h2>
+<p>If you want a normal <code>for</code> loop (of <a href="../for/">any variant</a>), but need to stop the loop early if some logical condition <code>&lt;&lt;logical_condition&gt;&gt;</code> is met, you can use a <code>break</code> statement:</p>
+<pre><code class="language-python">for &lt;&lt;counter variable&gt;&gt; in range(&lt;&lt;usual range arguments&gt;&gt;):
+    # Can do stuff here…
+    if &lt;&lt;logical_condition&gt;&gt;:
+        break
+    # Can do more stuff here…
+</code></pre>
+<h3 id="example-repeating-until-some-condition-with-a-repetition-limit">example: repeating until some condition, with a repetition limit</h3>
+<p>Here's a common use of this recipe: Let's say you're doing a calculation or simulation that involves repeating something until a logical condition is met. Examples:</p>
+<ul>
+<li>an approximation of a transcendental function that terminates when the change from one term to the next is below some threshold; or</li>
+<li>a simulation of a falling object that ends when it reaches the ground.</li>
+</ul>
+<p>Normally, you'd use a <code>while</code> loop to express this. However, what if you also wanted to impose a maximum number of repetitions so that the calculation couldn't take longer than you're willing to wait, or possibly even forever?</p>
+<p>The "obvious" approach might be to define a step-counter variable, increment it every time through the loop, and check it in the <code>while</code> loop's condition along with the normal condition, like this:</p>
+<pre><code class="language-python">t, t_max = 0, 1e6
+x_max = 100
+while (x &lt; x_max and y &gt; 0 and t &lt; t_max):
+    x, y = ... # Calculation that updates coordinates.
+    t += 1
+</code></pre>
+<p>This involves some extra cruft, and gives the repetition limit — a "by the way, just in case" aspect of the code — on the same visual level of importance as the "real" physics or math. And it also gives no indication of why the loop ended.</p>
+<p>Here's a better way:</p>
+<pre><code class="language-python">t, t_max = 0, 1e6
+x_max = 100
+for t in range(int(t_max)):
+    x, y = ... # Calculation that updates coordinates.
+    if x &gt;= x_max:
+        print(&quot;Reached the far wall.&quot;)
+        break
+    if y &lt;= 0:
+        print(&quot;Hit the ground.&quot;)
+        break
+</code></pre>
+<hr />
+<h2 id="recipe-b-early-termination-of-a-while-loop">Recipe B: Early Termination of a 'while' Loop</h2>
+<p>The <code>while</code> loop can also be terminated early with a <code>break</code> statement, rather than "normally" when the condition on the <code>while</code> line ceases to be true. This might seem unnecessary, since any "extra" logical condition that can trigger a <code>break</code> can also be included in the <code>while</code> loop's condition with an <code>and not ...</code>. However, including a separate <code>break</code> statement might be preferable under a few circumstances:</p>
+<ol>
+<li>
+<p>The "extra" logical condition is complex, and you want to keep the <code>while</code> loop's condition simple and readable.</p>
+</li>
+<li>
+<p>The "extra" logical condition is for an occasional case, and you don't want it to have the same visual importance as the "normal" condition.</p>
+</li>
+<li>
+<p>The natural place to check the "extra" condition and possibly terminate the loop is in the middle of the loop's body, rather than at the beginning or end.</p>
+</li>
+</ol>
+<p>Here's the recipe:</p>
+<pre><code class="language-python">while &lt;&lt;normal condition&gt;&gt;:
+    # Can do stuff here…
+    if &lt;&lt;other condition&gt;&gt;:
+        break
+    # Can do more stuff here…
+</code></pre>
+<p>The example following the next recipe illustrates this.</p>
+<hr />
+<h2 id="recipe-c-doing-something-only-after-normal-loop-completion">Recipe C: Doing Something Only After Normal Loop Completion</h2>
+<p>In some situations, you'll want your code to execute something after a loop has completed, but <strong>only</strong> if it ran to its normal completion rather than being terminated early by a <code>break</code> statement. Python has an easy (and rather unusual and syntactically confusing) way to do this.</p>
+<p>Just like an <code>if</code> block, a <code>for</code> or <code>while</code> block can be followed by an <code>else</code> block. However, the meaning is totally different:</p>
+<ul>
+<li>After an <code>if</code> block, an <code>else</code> block says "do this bit if the <code>if</code> condition was false and the <code>if</code> block didn't execute.</li>
+<li>After a <code>for</code> or <code>while</code> block, an <code>else</code> block says "do this bit if the loop ran to its normal completion and wasn't terminated by a <code>break</code> statement."</li>
+</ul>
+<p>Yeah, using the word "else" seems like a weird and non-intuitive choice. My guess is that someone decided to piggyback on the existing keyword, rather than having to introduce a new one like <code>conclusion</code>. (But, python has a keyword <code>finally</code> that could have been borrowed, so 🤷‍♂️.)</p>
+<p>Here's the recipe for a <code>for</code> loop:</p>
+<pre><code class="language-python">for &lt;&lt;counter variable&gt;&gt; in range(&lt;&lt;usual range arguments&gt;&gt;):
+    # Can do stuff here…
+    if &lt;&lt;logical_condition&gt;&gt;:
+        break
+    # Can do more stuff here…
+else:
+    # Do this if the loop reached the end of the specified range, but not
+    # if it was terminated by `&lt;&lt;logical_condition&gt;&gt;`.
+</code></pre>
+<p>And for a <code>while</code> loop:</p>
+<pre><code class="language-python">while &lt;&lt;normal condition&gt;&gt;:
+    # Can do stuff here…
+    if &lt;&lt;other condition&gt;&gt;:
+        break
+    # Can do more stuff here…
+else:
+    # Do this only if the loop stopped when `&lt;&lt;normal condition&gt;&gt;` became False,
+    # not because `&lt;&lt;other condition&gt;&gt;` became True.
+</code></pre>
+<p>Yes, you <em>could</em> accomplish this without the <code>else</code>, by using an <code>if</code> block after the loop that checks variable values to figure out which condition caused the loop to end. But why would you want to? That just forces you to include redundant logic, and introduces one more place for a bug to occur.</p>
+<h3 id="example-guessing-game">example: guessing game</h3>
+<p>Yeah, this one is a bit silly, but it shows the idea.</p>
+<pre><code class="language-python">import random
+def guess_the_number(max_value = 10):
+    secret_number = random.randint(1, max_value)
+    print(f&quot;I'm thinking of a number between 1 and {max_value} inclusive. Can you guess it?&quot;)
+    print(&quot;Enter `0` if you want to give up.&quot;)
+    guess = int(input(&quot;  Your guess: &quot;))
+    while guess != secret_number:
+        guess = int(input(&quot;  Nope! Try again: &quot;))
+        if guess == 0:
+            print(&quot;Too bad. 😢&quot;)
+            break
+    else:
+        print(&quot;You got it! 🎉&quot;)
+</code></pre>
+<hr /></div>
             </div>
         </div>
 
