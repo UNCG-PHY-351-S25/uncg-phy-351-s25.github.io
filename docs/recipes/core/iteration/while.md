@@ -75,6 +75,20 @@ while x <= <<threshold value>>:
 ```
 This will **not** work if the calculation uses the previous value of `x`, or if you cannot specify an initial value that you're sure will always be less than the threshold.
 
+### example: smallest value greater than…
+
+Consider the series defined by $s_n \equiv 2\,s_{n-1} + 1$ with $s_0 = 1$: ${1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, \ldots}$. Let's write a function that will find the smallest value in the series that exceeds some given integer $N$.
+
+```python
+def smallest_s_exceeding(N):
+    s = 1
+    while s <= N:
+        s = 2*s + 1
+    return s
+```
+
+Simple, no? We'll hair that up a bit in the next example.
+
 ## Variant B: Tracking Two Successive Updates
 
 Commonly, the body of a `while` loop updates the value of some particular variable according to a calculation. Sometimes, that calculation needs to use the variable's previous value to find the new value, like this:
@@ -103,26 +117,7 @@ The use of the comma is a clever way to make two assignments happen **simultaneo
 
 You could solve this without use of the comma trick, but you'd need to introduce yet another variable, and you'd have to do a fair amount of careful value-passing between them.
 
-___
-## Examples
-
-### Example 1: Squares
-
-Consider the series defined by $s_n \equiv 2\,s_{n-1} + 1$ with $s_0 = 1$: ${1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, \ldots}$. Let's write a function that will find the smallest value in the series that exceeds some given integer $N$.
-
-```python
-def smallest_s_exceeding(N):
-    s = 1
-    while s <= N:
-        s = 2*s + 1
-    return s
-```
-
-Simple, no?
-
-Let's hair that up a bit…
-
-### Example 2: Fibonacci Sequence
+### example: Fibonacci sequence
 
 The Fibonacci sequence is defined as the series of numbers that begins with $\{0, 1\}$, and continuing according to the rule that each number is the sum of the two preceding numbers: $F_n = F_{n-1} + F_{n-2}$. The first few numbers in the sequence are $\{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \ldots\}$.
 
@@ -137,4 +132,5 @@ def smallest_fibonacci_exceeding(N):
 ```
 
 Since each Fibonacci number depends on the two previous numbers in the sequence, we used Variant B of the recipe.
+
 ___

@@ -40,11 +40,7 @@ Here's the essential difference:
 If you are not aware of this difference, you will try to make python behave like Java or C, and will end up with unnecessarily ugly, clumsy, un-pythonic code.
 
 ___
-## Recipes
-
-### Base Recipe
-
-### Variant A: Counting (from zero)
+## Base Recipe: Counting From Zero
 
 If you want to count the iterations, perhaps so that you can use the iteration number in a calculation, here's the recipe:
 
@@ -65,7 +61,8 @@ How does this recipe work? We haven't talked in detail about _collections_ yet, 
 > 2. `range(N)` produces a N-element count.
 > 3. So, in python, `N` elements are counted `0`, `1`, `2`, ..., `N-1`.
 
-### Variant B: Just Repeating Some Number of Times
+___
+## Recipe Variant A: Just Repeating Some Number of Times
 
 If you want to repeat a chunk of code $N$ times but don't need the code to know which iteration it's on, you can do exactly the same thing, and just ignore the counter variable `i` or whatever you've called it.
 
@@ -78,56 +75,7 @@ for _ in range(N):
 
 The use of `_` immediately tells a reader not to worry about whether or how the counter index is being used, and that this is a simple $N$-times-through repetition.
 
-### Variant C: Counting from One (or something else)
-
-The `range` function has an optional argument that lets you specify the starting value of the sequence. Note that it comes _before_ the required endpoint argument:
-
-```python
-for n in range(first_val, stop_before):
-    # Anything in here will be executed N times, with values of in successively
-    # equal to first_val, first_val + 1, first_val + 2, ..., stop_before - 1
-```
-
-Again, take note: the sequence of values will **include the first value** but **exclude the second value**. As a result, the number of iterations will always be `last_val - stop_before`.
-
-### Variant D: Counting by Steps
-
-The `range` function has a third optional argument that lets you specify the step size of the sequence. This can be used to count by twos, threes, or any other integer increment:
-
-```python
-for val in range(first_val, stop_before, step_size):
-    # Anything in here will be executed repeatedly times with values of val
-    # successively equal to first_val, first_val + step_size, 
-    # first_val + 2 * step_size, ..., 
-```
-What will the last value be? That depends on how many multiples of the step size fit in before reaching the `stop_before` value. Python will continue iterating until adding another value of `step_size` would reach or exceed `stop_before`, and will then cease.
-
-### Variant E: Counting Down
-
-Counting downwards is as easy as specifying a negative step size, and choosing a larger starting value than the stopping value:
-
-```python
-for count in range(start_val, stop_before, -step_size):
-    # Code here will execute repeatedly, with values of count starting at
-    # start_val and decreasing by step_size each time, stopping just before
-    # reaching or going past stop_before.
-```
-
-### Variant F: Counting by Non-Integer Steps
-
-Alas, the `range()` function only works with integers. If you need to count by non-integer steps, you have
-three options:
-
-1. Count by integers, but multiply the counter variable by some fractional step size when you use it. This works if you want to count by regular steps that can be easily obtained from an integer sequence.
-
-2. Use a `while` loop (coming in a recipe soon) and do all the initializing, incrementing, and endpoint-testing yourself. This is very flexible, but puts the work on you instead of on python, and can be more error-prone.
-
-3. Use features similar to `range` from the `numpy` library, which we'll cover in a future unit. This will generally be your best bet, once you've learned that skillset.
-
-___
-## Examples
-
-### Example 1: Uncounted Repetitions
+### example
 
 Here's a function that creates a one-dimensional _fractal_ by repetition. It begins with the simple pattern `█ █`. Every iteration, it replaces all `█` characters with the initial pattern of `█ █`, and replaces all space characters with a block of three spaces. Thus, in each iteration, the length of the string triples.
 
@@ -150,7 +98,22 @@ def fractal_string(depth):
 
 Copy-paste it into an IPython console (or script) and play with it! (It looks better if you go to a really small font size or zoom level, so that you can get more characters on one output line.)
 
-### Example 2: Counting
+Note: I'm omitting the usual safety-checks on arguments so you can focus on the point of the recipe. In real code, I'd convert n_max to an integer and make sure both arguments had meaningful values.
+
+___
+## Recipe Variant B: Counting From One (or something else)
+
+The `range` function has an optional argument that lets you specify the starting value of the sequence. Note that it comes _before_ the required endpoint argument:
+
+```python
+for n in range(first_val, stop_before):
+    # Anything in here will be executed N times, with values of in successively
+    # equal to first_val, first_val + 1, first_val + 2, ..., stop_before - 1
+```
+
+Again, take note: the sequence of values will **include the first value** but **exclude the second value**. As a result, the number of iterations will always be `last_val - stop_before`.
+
+### example
 
 If a biased coin lands on "heads" with probability $p$, the probability of obtaining $N$ heads in a row is $p^N$. Here's a function that displays the probability of increasingly long strings of heads:
 
@@ -163,9 +126,33 @@ def heads_runs(p, n_max):
     for n in range(1, n_max + 1):
         print(f"Probability of {n:2} heads in a row: {p**n:.2%}.")
 ```
-(Note: I'm omitting the usual safety-checks on arguments so you can focus on the point of the recipe. In real code, I'd convert n_max to an integer and make sure both arguments had meaningful values.)
 
-### Example 3: Countdown with changing interval
+___
+## Recipe Variant C: Counting by Steps
+
+The `range` function has a third optional argument that lets you specify the step size of the sequence. This can be used to count by twos, threes, or any other integer increment:
+
+```python
+for val in range(first_val, stop_before, step_size):
+    # Anything in here will be executed repeatedly times with values of val
+    # successively equal to first_val, first_val + step_size, 
+    # first_val + 2 * step_size, ..., 
+```
+What will the last value be? That depends on how many multiples of the step size fit in before reaching the `stop_before` value. Python will continue iterating until adding another value of `step_size` would reach or exceed `stop_before`, and will then cease.
+
+___
+## Recipe Variant D: Counting Down
+
+Counting downwards is as easy as specifying a negative step size, and choosing a larger starting value than the stopping value:
+
+```python
+for count in range(start_val, stop_before, -step_size):
+    # Code here will execute repeatedly, with values of count starting at
+    # start_val and decreasing by step_size each time, stopping just before
+    # reaching or going past stop_before.
+```
+
+### example: countdown with changing interval
 
 Want to write code for NASA Mission Control?
 
@@ -193,7 +180,19 @@ def countdown(starting_time):
     print("\n🚀🚀🚀 BLASTOFF!!! 🚀🚀🚀")
 ```
 
-### Example 4: Non-integer steps
+___
+## Recipe Variant E: Counting by Non-Integer Steps
+
+Alas, the `range()` function only works with integers. If you need to count by non-integer steps, you have
+three options:
+
+1. Count by integers, but multiply the counter variable by some fractional step size when you use it. This works if you want to count by regular steps that can be easily obtained from an integer sequence.
+
+2. Use a `while` loop (coming in a recipe soon) and do all the initializing, incrementing, and endpoint-testing yourself. This is very flexible, but puts the work on you instead of on python, and can be more error-prone.
+
+3. Use features similar to `range` from the `numpy` library, which we'll cover in a future unit. This will generally be your best bet, once you've learned that skillset.
+
+### example
 
 For those of you taking special relativity in PHY 321: What are the values of gamma for speeds of 0, 0.05c, 0.1c, ..., c?
 
@@ -209,5 +208,40 @@ def gamma():
         print(f" v = {v:.2f} => gamma = {gamma:.5f}")
     print(f" v = {1:.2f} => gamma = infinite!")
 ```
-
 ___
+## Recipe Variant F: Doing Something Every N<sup>th</sup> Iteration
+
+Easy. To execute an extra bit of code every `M` iterations, use the modulo `%` operator:
+
+```python
+for i in range(1, N_reps + 1):
+    # Code here executes every iteration.
+    if i % M == 0:
+        # Code here executes on the Mth, 2Mth, 3Mth, etc. iterations
+        # (when i = M, 2M, 3M, etc.)
+    # Code here also executes every iteration.
+```
+
+If you want to count from zero, but still execute on the M<sup>th</sup> iteration, you'll need to adjust the test slightly to avoid triggering on the first iteration (since `0 % M` is always 0):
+
+```python
+for i in range(N_reps):
+    # Code here executes every iteration.
+    if i % M == M - 1:
+        # Code here executes on the Mth, 2Mth, 3Mth, etc. iterations
+        # (when i = M-1, 2M-1, 3M-1, etc.)
+    # Code here also executes every iteration.
+```
+
+### example: quick-and-dirty progress bar
+
+Here's a simple progress bar that updates every `update_steps` through a loop:
+
+```python
+print("Progress: 0… ", end="")
+for n in range(1, int(1e6+1)):
+    if n % update_steps == 0:
+        print(f"{n}… ", end="")
+    # Do whatever the loop is supposed to do here.
+print("done!")
+```

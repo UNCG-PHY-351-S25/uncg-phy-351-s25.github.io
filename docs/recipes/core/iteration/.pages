@@ -2,5 +2,6 @@ nav:
     - (Recipe List): index.md
     - for.md
     - while.md
-    - skip-iterations.md
-    # - monte-carlo.md
+    - break.md
+    - pick.md
+    - stats.md
