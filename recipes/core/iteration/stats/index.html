@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Monte carlo - PHY 351 Reference</title>
+        <title>Determine Statistics of a Sequence - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -189,6 +189,14 @@
 <li>
     <a href="../break/" class="dropdown-item">Stop Iteration Early</a>
 </li>
+            
+<li>
+    <a href="../pick/" class="dropdown-item">Flip a Coin or Roll a Die</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Determine Statistics of a Sequence</a>
+</li>
     </ul>
   </li>
             
@@ -363,17 +371,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../for/" class="nav-link">
+                                <a rel="prev" href="../pick/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../while/" class="nav-link">
+                                <a rel="next" href="../../tuples-lists/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/iteration/monte-carlo.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/iteration/stats.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -422,12 +430,172 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#determine-statistics-of-a-sequence" class="nav-link">Determine Statistics of a Sequence</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#background-knowledge" class="nav-link">Background Knowledge</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-frequency" class="nav-link">Recipe: Frequency</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#variant-iterating-through-a-collection" class="nav-link">Variant: Iterating Through a Collection</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-mean-and-standard-deviation" class="nav-link">Recipe: Mean and Standard Deviation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#variant-mean-and-standard-deviation-with-collection" class="nav-link">Variant: Mean and Standard Deviation with Collection</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="determine-statistics-of-a-sequence">Determine Statistics of a Sequence</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to determine some simple statistical measures (like frequency, mean, and standard deviation) of a set of measurements, events, or data, and I don't want to store all of the individual values in memory.</strong></p>
+</blockquote>
+<hr />
+<h2 id="background-knowledge">Background Knowledge</h2>
+<h3 id="statistical-measures">statistical measures</h3>
+<p>A common kind of task in physics (and much of science and engineering, even social science) is to characterize the properties of a set of values that have (or at least appear to have) random variability in them. Sometimes, this comes from the inherent uncertainty in measurement. Sometimes, we use deliberate randomness in a simulation to represent variables in a complex system that we can't model deterministically.</p>
+<p><em>Statistics</em> is a vast and complicated subject all in itself, and we'll barely scratch the surface of it. A few ideas and techniques, however, will get you a long way.</p>
+<p>Let's say we've got a collection of values — measurements, say — that seem to have random variability. Three questions we might reasonably want to ask are:</p>
+<ol>
+<li>
+<p>What is the <em>frequency</em> (i.e, probability) that a particular outcome occurs? (That might mean the frequency of a specific value occurring, or the frequency that the value is above some threshold, or etc.)</p>
+<ul>
+<li>This is commonly calculated as the number of cases that meet the criterion <span class="arithmatex">\(n\)</span> divided by the total number of cases <span class="arithmatex">\(N\)</span>, and reported as either a decimal value between 0 and 1 or a percentage:</li>
+</ul>
+<div class="arithmatex">\[ f = \frac{n}{N} \]</div>
+</li>
+<li>
+<p>About what midpoint do the values tend to cluster? (Statisticians call this the <em>central tendency</em>.) We have more than one way to characterize this, but buy far the common is the <em>mean</em> or <em>average</em>:</p>
+<div class="arithmatex">\[ \bar{x} = \frac{1}{N} \sum_{i=1}^N x_i \]</div>
+</li>
+<li>
+<p>How broadly or narrowly spread are the values about this midpoint? That is, how much <em>variability</em> do they have? Again, multiple ways of characterizing this exist, but many are based on or related to the <em>standard deviation</em> of the values:</p>
+<div class="arithmatex">\[ \text{SD}(x) = \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \bar{x})^2} \]</div>
+</li>
+</ol>
+<p>Many other statistical measures exist, each with their own applications and virtues.</p>
+<h3 id="calculating-on-the-fly">calculating on the fly</h3>
+<p>Most statistical measures, such as the three given above, are defined in a way that assumes you have the entire collection of values available to work with. This often true. When it is, by far the easiest way to calculate them is with library functions such as those in the <code>statistics</code> module.</p>
+<p>Sometimes, however, it's convenient or necessary to calculate these statistics in a "running" or "on-the-fly" way as you encounter the values one at a time, such that you don't need to store all of the individual values in memory. (If you're analyzing a billion particle collider events, not having to store and read a billion values can <em>really</em> speed things up.)</p>
+<p>Not all statistical measures can be calculated in this way, but the three given above can.</p>
+<h4 id="frequency">frequency</h4>
+<p>This one is easy:</p>
+<ol>
+<li>
+<p>As you iterate through your cases, keep a running count of the total number <span class="arithmatex">\(N\)</span> (unless that's already known), and another running count of the number of cases <span class="arithmatex">\(n\)</span> that fits the criterion you want a frequency for.</p>
+</li>
+<li>
+<p>At the end, calculate the frequency as the ratio of the two counts: <span class="arithmatex">\(f = n / N\)</span>.</p>
+</li>
+</ol>
+<h4 id="mean-average">mean (average)</h4>
+<p>This is slightly less obvious. The idea is that as we iterate through the values, we keep track of the average of all cases to date; and as we encounter a new value, we calculate the new average as an appropriately weighted combination of the old average and the new value.</p>
+<ol>
+<li>Before beginning the iteration, initialize a variable for the "running mean" <span class="arithmatex">\(\bar{x}\)</span> to zero, and another variable for the case number <span class="arithmatex">\(i\)</span> to zero.</li>
+<li>In each step in the iteration, with each new value <span class="arithmatex">\(x_i\)</span>,<ol>
+<li>Increment the case counter <span class="arithmatex">\(i \leftarrow i + 1\)</span>.</li>
+<li>Calculate the difference between this value and the old running mean, <span class="arithmatex">\(\delta = x_i - \bar{x}\)</span>.</li>
+<li>Update the running mean as <span class="arithmatex">\(\bar{x} \leftarrow \bar{x} + \delta / i\)</span>.</li>
+</ol>
+</li>
+<li>After handling the last case (value), the overall average is the last value of the running mean <span class="arithmatex">\(\bar{x}\)</span>, and the total number of values is the last value of the case counter <span class="arithmatex">\(i\)</span>.</li>
+</ol>
+<h4 id="standard-deviation">standard deviation</h4>
+<p>This one is even less obvious. The basic idea is to keep a running sum of the <em>squared differences</em> between each value and the running mean at the time that value was encountered, in a way similar to the running sum of the mean, and then to calculate the standard deviation from that running sum after finishing the last iteration.</p>
+<ol>
+<li>Before beginning the iteration, initialize a variable for the "running mean" <span class="arithmatex">\(\bar{x}\)</span> to zero, a variable for the "running sum of squared differences" <span class="arithmatex">\(S\)</span> to zero, and another variable for the case number <span class="arithmatex">\(i\)</span> to zero.</li>
+<li>In each step in the iteration, with each new value <span class="arithmatex">\(x_i\)</span>,<ol>
+<li>Increment the case counter <span class="arithmatex">\(i \leftarrow i + 1\)</span>.</li>
+<li>Calculate the difference between this value and the old running mean, <span class="arithmatex">\(\delta = x_i - \bar{x}\)</span>.</li>
+<li>Update the running mean as <span class="arithmatex">\(\bar{x} \leftarrow \bar{x} + \delta / i\)</span>.</li>
+<li>Update the running sum of squared differences as <span class="arithmatex">\(S \leftarrow S + (x_i - \bar{x}) \delta\)</span>.</li>
+</ol>
+</li>
+<li>After handling the last case (value):<ul>
+<li>the overall average is the last value of the running mean <span class="arithmatex">\(\bar{x}\)</span>,</li>
+<li>the total number of values is the last value of the case counter <span class="arithmatex">\(i\)</span>, and </li>
+<li>the standard deviation is <span class="arithmatex">\(\text{SD}(x) = \sqrt{S / (i - 1)}\)</span>.</li>
+</ul>
+</li>
+</ol>
+<p>Note that you can't calculate the standard deviation without calculating the mean.</p>
+<p><strong>Critical detail:</strong> You might wonder (like I initially did) why in step 2.4 we update <span class="arithmatex">\(S\)</span> with <span class="arithmatex">\((x_i - \bar{x}) \delta\)</span> instead of just using <span class="arithmatex">\(\delta^2\)</span>, since we calculated <span class="arithmatex">\(\delta = x_i - \bar{x}\)</span> in step 2.2. THe reason is that between these two steps, in 2.4, we updated the value of the running mean <span class="arithmatex">\(\bar{x}\)</span>, so in step 2.3 <span class="arithmatex">\(\delta\)</span> uses the <strong>old</strong> <span class="arithmatex">\(\bar{x}\)</span> while <span class="arithmatex">\((x_i - \bar{x})\)</span> uses the <strong>new</strong> <span class="arithmatex">\(\bar{x}\)</span>.</p>
+<hr />
+<h2 id="recipe-frequency">Recipe: Frequency</h2>
+<p>Here's the pattern for calculating the probability that a particular outcome occurs:</p>
+<pre><code class="language-python">n_positive = 0
+for _ in range(N):
+    value = # Get or generate the next value in the data set
+    if &lt;&lt;condition&gt;&gt;:
+        n_positive += 1
+frequency = n_positive / N
+</code></pre>
+<p>Replace <code>&lt;&lt;condition&gt;&gt;</code> with a boolean expression that returns <code>True</code> if <code>value</code> meets the criterion you want a frequency for. That might be as simple as <code>value == target_value</code>, or <code>value &gt; threshold</code>, or something more complex.</p>
+<h2 id="variant-iterating-through-a-collection">Variant: Iterating Through a Collection</h2>
+<p>The syntax here might not match how your code actually gets its data values. As you'll see in <em>Collections</em>, it's possible to iterate directly over a collection of values. In such a case, the recipe looks like this:</p>
+<pre><code class="language-python">n_positive, N = 0, 0
+for value in &lt;&lt;data_collection&gt;&gt;:
+    N += 1
+    if &lt;&lt;condition&gt;&gt;:
+        n_positive += 1
+frequency = n_positive / N
+</code></pre>
+<h2 id="recipe-mean-and-standard-deviation">Recipe: Mean and Standard Deviation</h2>
+<p>Here's the pattern for calculating the mean and standard deviation:</p>
+<pre><code class="language-python">from math import sqrt
+mean, S = 0, 0
+for i in range(1, N + 1):
+    value = # Get or generate the next value in the data set
+    delta = value - mean
+    mean += delta / i
+    S += (value - mean) * delta
+standard_deviation = sqrt(S / (i - 1))
+</code></pre>
+<h2 id="variant-mean-and-standard-deviation-with-collection">Variant: Mean and Standard Deviation with Collection</h2>
+<blockquote>
+<p>This is a forward reference, put here for completeness. It uses ideas we won't encounter until a later section, and you can safely ignore it for now.</p>
+</blockquote>
+<p>If want the mean and standard deviation of the values in a <em>collection</em>, the recipe looks like this:</p>
+<pre><code class="language-python">from math import sqrt
+i, mean, S = 0, 0, 0
+for value in &lt;&lt;data_collection&gt;&gt;:
+    i += 1
+    delta = value - mean
+    mean += delta / i
+    S += (value - mean) * delta
+standard_deviation = math.sqrt(S / (i - 1))
+</code></pre>
+<p>There's actually a slightly more "pythonic" way to handle this:</p>
+<pre><code class="language-python">from math import sqrt
+mean, S = 0, 0
+for i, value in enumerate(&lt;&lt;data_collection&gt;&gt;, 1):
+    delta = value - mean
+    mean += delta / i
+    S += (value - mean) * delta
+standard_deviation = sqrt(S / (i - 1))
+</code></pre>
+<p>Again, if this <code>enumerate(...)</code> stuff is gibberish to you, ignore it for now.</p>
+<hr /></div>
             </div>
         </div>
 

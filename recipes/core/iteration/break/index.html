@@ -189,6 +189,14 @@
 <li>
     <a href="./" class="dropdown-item active" aria-current="page">Stop Iteration Early</a>
 </li>
+            
+<li>
+    <a href="../pick/" class="dropdown-item">Flip a Coin or Roll a Die</a>
+</li>
+            
+<li>
+    <a href="../stats/" class="dropdown-item">Determine Statistics of a Sequence</a>
+</li>
     </ul>
   </li>
             
@@ -368,7 +376,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../tuples-lists/" class="nav-link">
+                                <a rel="next" href="../pick/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -438,6 +446,14 @@
               </ul>
             </li>
             <li class="nav-item" data-bs-level="2"><a href="#recipe-c-doing-something-only-after-normal-loop-completion" class="nav-link">Recipe C: Doing Something Only After Normal Loop Completion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-b-early-termination-of-a-while-loop_1" class="nav-link">Recipe B: Early Termination of a 'while' Loop</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-d-skipping-to-the-next-iteration" class="nav-link">Recipe D: Skipping to the Next Iteration</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -558,6 +574,58 @@ def guess_the_number(max_value = 10):
     else:
         print(&quot;You got it! 🎉&quot;)
 </code></pre>
+<hr />
+<h2 id="recipe-b-early-termination-of-a-while-loop_1">Recipe B: Early Termination of a 'while' Loop</h2>
+<p>The <code>while</code> loop can also be terminated early with a <code>break</code> statement, rather than "normally" when the condition on the <code>while</code> line ceases to be true. This might seem unnecessary, since any "extra" logical condition that can trigger a <code>break</code> can also be included in the <code>while</code> loop's condition with an <code>and not ...</code>. However, including a separate <code>break</code> statement might be preferable under a few circumstances:</p>
+<ol>
+<li>
+<p>The "extra" logical condition is complex, and you want to keep the <code>while</code> loop's condition simple and readable.</p>
+</li>
+<li>
+<p>The "extra" logical condition is for an occasional case, and you don't want it to have the same visual importance as the "normal" condition.</p>
+</li>
+<li>
+<p>The natural place to check the "extra" condition and possibly terminate the loop is in the middle of the loop's body, rather than at the beginning or end.</p>
+</li>
+</ol>
+<p>Here's the recipe:</p>
+<pre><code class="language-python">while &lt;&lt;normal condition&gt;&gt;:
+    # Can do stuff here…
+    if &lt;&lt;other condition&gt;&gt;:
+        break
+    # Can do more stuff here…
+</code></pre>
+<p>The example following the next recipe illustrates this.</p>
+<hr />
+<h2 id="recipe-d-skipping-to-the-next-iteration">Recipe D: Skipping to the Next Iteration</h2>
+<p>Occasionally, you'll come across a situation where a loop should skip over the remainder of one iteration and start the next one. You can accomplish this by putting the part that you might need to skip over into the body of an <code>if</code> block, but there's a cleaner way: the <code>continue</code> statement. It can be used in either a <code>for</code> or a <code>while</code> loop.</p>
+<pre><code class="language-python">for &lt;&lt;counter variable&gt;&gt; in range(&lt;&lt;usual range arguments&gt;&gt;):
+    # Can do stuff here…
+    if &lt;&lt;skip condition&gt;&gt;:
+        continue
+    # Put code here that should only run if the skip condition is False.
+</code></pre>
+<pre><code class="language-python">while &lt;condition to continue&gt;&gt;:
+    # Can do stuff here…
+    if &lt;&lt;skip condition&gt;&gt;:
+        continue
+    # Put code here that should only run if the skip condition is False.
+</code></pre>
+<p>Without <code>continue</code>, this would look like:</p>
+<pre><code class="language-python">for &lt;&lt;counter variable&gt;&gt; in range(&lt;&lt;usual range arguments&gt;&gt;):
+    # Can do stuff here…
+    if not &lt;&lt;skip condition&gt;&gt;:
+        # Put code here that should only run if the skip condition is False.
+</code></pre>
+<p>What are the advantages of using <code>continue</code>?</p>
+<ol>
+<li>
+<p>Readability: The code very clearly says "My intention is to skip ove the rest of the loop body if this condition is met."</p>
+</li>
+<li>
+<p>Flatness: It avoids nesting the rest of the code one level deeper. If that code is fairly complex, with its own conditional logic and loops and other nested bits, every level of nesting you can avoid is a win.</p>
+</li>
+</ol>
 <hr /></div>
             </div>
         </div>
