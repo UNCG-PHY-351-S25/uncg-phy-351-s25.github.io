@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Counters - PHY 351 Reference</title>
+        <title>Manage Sequences of Values with Lists - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -201,41 +201,7 @@
   </li>
             
   <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Tuples & Lists</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../tuples-lists/" class="dropdown-item">(Recipe List)</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/tuples/" class="dropdown-item">Tuples</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/lists/" class="dropdown-item">Lists</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/iterate/" class="dropdown-item">Iterate</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/set-or-append/" class="dropdown-item">Set or append</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/find-in-list/" class="dropdown-item">Find in list</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/combine-lists/" class="dropdown-item">Combine lists</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Sets & Dictionaries</a>
+    <a href="#" class="dropdown-item">Collections</a>
     <ul class="dropdown-menu">
             
 <li>
@@ -243,23 +209,23 @@
 </li>
             
 <li>
-    <a href="../sets/" class="dropdown-item">Sets</a>
+    <a href="../tuples/" class="dropdown-item">Group Related Values Into Tuples</a>
 </li>
             
 <li>
-    <a href="../overlap/" class="dropdown-item">Overlap</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Manage Sequences of Values with Lists</a>
 </li>
             
 <li>
-    <a href="../dicts/" class="dropdown-item">Dicts</a>
+    <a href="../sets/" class="dropdown-item">Identify Unique &amp; Shared Elements with Sets</a>
 </li>
             
 <li>
-    <a href="../dict-iteration/" class="dropdown-item">Dict iteration</a>
+    <a href="../dicts/" class="dropdown-item">Organize Labeled Collections with Dictionaries</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Counters</a>
+    <a href="../iterate-pythonically/" class="dropdown-item">Iterate Pythonically</a>
 </li>
     </ul>
   </li>
@@ -371,17 +337,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../dict-iteration/" class="nav-link">
+                                <a rel="prev" href="../tuples/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../../num1/" class="nav-link">
+                                <a rel="next" href="../sets/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/sets-dicts/counters.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/collections/lists.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -430,12 +396,118 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#manage-sequences-of-values-with-lists" class="nav-link">Manage Sequences of Values with Lists</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#a-few-recipes" class="nav-link">A Few Recipes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="manage-sequences-of-values-with-lists">Manage Sequences of Values with Lists</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to build, modify, retrieve elements from, and iterate over a sequence of values.</strong></p>
+</blockquote>
+<p>A list is basically just like a tuple, except that it can be modified in all kinds of ways after it has been created: Lists are <em>mutable</em>. You can add elements, remove elements, change the value of existing elements, and so on.</p>
+<p>You can do almost anything with a list that you can do with a tuple, so I won't repeat those recipes here.</p>
+<ul>
+<li>(Exception: The fact that tuples are <em>immutable</em> makes them <em>hashable</em>, which means that they can be used as keys in dictionaries and as elements of sets. That is occasionally useful.)</li>
+</ul>
+<p>Again, I'll point you to some online introductions:</p>
+<ul>
+<li>
+<p><a href="https://www.w3schools.com/python/python_lists.asp" target="_blank">W3 Schools: <em>Python Lists</em></a></p>
+</li>
+<li>
+<p><a href="https://www.geeksforgeeks.org/python-lists/" target="_blank">Geeks for Geeks: <em>Python Lists</em></a></p>
+</li>
+</ul>
+<hr />
+<h2 id="a-few-recipes">A Few Recipes</h2>
+<h3 id="change-the-value-of-an-existing-list-element">change the value of an existing list element</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1[2] = 99  # change the value at index 2
+print(list1)  # yields [1, 2, 99, 4, 5]
+</code></pre>
+<h3 id="append-an-element-to-a-list">append an element to a list</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1.append(6)  # add 6 to the end of the list
+print(list1)  # yields [1, 2, 3, 4, 5, 6]
+</code></pre>
+<h3 id="append-multiple-elements-to-a-list">append multiple elements to a list</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1.extend([6, 7, 8])  # add 6, 7, and 8 to the end of the list
+print(list1)  # yields [1, 2, 3, 4, 5, 6, 7, 8]
+</code></pre>
+<p>Note that <code>append()</code> can only add one element at a time; to add multiple elements at once, use <code>extend()</code>.</p>
+<h3 id="insert-an-element-at-a-specific-index">insert an element at a specific index</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1.insert(2, 99)  # insert 99 at index 2
+print(list1)  # yields [1, 2, 99, 3, 4, 5]
+</code></pre>
+<h3 id="remove-a-specific-value-from-a-list">remove a specific value from a list</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1.remove(3)  # remove the first occurrence of 3
+print(list1)  # yields [1, 2, 4, 5]
+</code></pre>
+<h3 id="remove-an-element-at-a-specific-index">remove an element at a specific index</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1.pop(2)  # remove the element at index 2
+print(list1)  # yields [1, 2, 4, 5]
+</code></pre>
+<p>The <code>pop()</code> method returns the value of the element its removing, so you can do something like this:</p>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+i = 2
+print(f&quot;Removed {list1.pop(i)} from position {i} position in the list&quot;)
+print(list1)  # yields [1, 2, 4, 5]
+</code></pre>
+<h3 id="remove-the-last-element-from-a-list">remove the last element from a list</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1.pop()  # pop() with no argument means &quot;the last element&quot;
+print(list1)  # yields [1, 2, 3, 4]
+</code></pre>
+<h3 id="remove-all-elements-from-a-list">remove all elements from a list</h3>
+<pre><code class="language-python">list1 = [1, 2, 3, 4, 5]  # a list of integers
+list1.clear()  # remove all elements
+print(list1)  # yields []
+</code></pre>
+<h3 id="sort-a-list">sort a list</h3>
+<pre><code class="language-python">list1 = [5, 2, 4, 3, 1]  # a list of integers
+list1.sort()  # sort the list in place
+print(list1)  # yields [1, 2, 3, 4, 5]
+</code></pre>
+<h3 id="sort-a-list-in-reverse-order">sort a list in reverse order</h3>
+<pre><code class="language-python">list1 = [5, 2, 4, 3, 1]  # a list of integers
+list1.sort(reverse=True)  # sort the list in place, in reverse order
+print(list1)  # yields [5, 4, 3, 2, 1]
+</code></pre>
+<h3 id="build-a-list-iteratively">build a list iteratively</h3>
+<p>This is a very common idiom in computational physics:</p>
+<pre><code class="language-python">list1 = []  # an empty list
+for i in range(5):
+    list1.append(i**2)  # add the square of i to the list
+print(list1)  # yields [0, 1, 4, 9, 16]
+</code></pre>
+<h3 id="create-a-list-from-a-string">create a list from a string</h3>
+<pre><code class="language-python">list1 = list(&quot;abc&quot;)  # a list of characters
+print(list1)  # yields ['a', 'b', 'c']
+</code></pre>
+<h3 id="create-a-list-from-a-range-object">create a list from a range object</h3>
+<pre><code class="language-python">list1 = list(range(5))  # a list of integers
+print(list1)  # yields [0, 1, 2, 3, 4]
+</code></pre></div>
             </div>
         </div>
 

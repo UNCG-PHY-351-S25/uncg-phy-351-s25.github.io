@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Dicts - PHY 351 Reference</title>
+        <title>Identify Unique &amp; Shared Elements with Sets - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -201,41 +201,7 @@
   </li>
             
   <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Tuples & Lists</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../tuples-lists/" class="dropdown-item">(Recipe List)</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/tuples/" class="dropdown-item">Tuples</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/lists/" class="dropdown-item">Lists</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/iterate/" class="dropdown-item">Iterate</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/set-or-append/" class="dropdown-item">Set or append</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/find-in-list/" class="dropdown-item">Find in list</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/combine-lists/" class="dropdown-item">Combine lists</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Sets & Dictionaries</a>
+    <a href="#" class="dropdown-item">Collections</a>
     <ul class="dropdown-menu">
             
 <li>
@@ -243,23 +209,23 @@
 </li>
             
 <li>
-    <a href="../sets/" class="dropdown-item">Sets</a>
+    <a href="../tuples/" class="dropdown-item">Group Related Values Into Tuples</a>
 </li>
             
 <li>
-    <a href="../overlap/" class="dropdown-item">Overlap</a>
+    <a href="../lists/" class="dropdown-item">Manage Sequences of Values with Lists</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Dicts</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Identify Unique &amp; Shared Elements with Sets</a>
 </li>
             
 <li>
-    <a href="../dict-iteration/" class="dropdown-item">Dict iteration</a>
+    <a href="../dicts/" class="dropdown-item">Organize Labeled Collections with Dictionaries</a>
 </li>
             
 <li>
-    <a href="../counters/" class="dropdown-item">Counters</a>
+    <a href="../iterate-pythonically/" class="dropdown-item">Iterate Pythonically</a>
 </li>
     </ul>
   </li>
@@ -371,17 +337,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../overlap/" class="nav-link">
+                                <a rel="prev" href="../lists/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../dict-iteration/" class="nav-link">
+                                <a rel="next" href="../dicts/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/sets-dicts/dicts.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/collections/sets.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -430,12 +396,91 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#identify-unique-shared-elements-with-sets" class="nav-link">Identify Unique &amp; Shared Elements with Sets</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#a-few-recipes" class="nav-link">A Few Recipes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="identify-unique-shared-elements-with-sets">Identify Unique &amp; Shared Elements with Sets</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to keep track of a collection of unique values and perhaps compare the values present in different such collections.</strong></p>
+</blockquote>
+<p>A python <em>set</em> is a collection of elements whose properties are analogous to the mathematical concept of a set. </p>
+<p>The key differences between a <em>set</em> and a <em>list</em> are:</p>
+<ul>
+<li>
+<p>A set is a collection of unique elements, so it cannot contain duplicates.</p>
+</li>
+<li>
+<p>A set is unordered, so the order of elements is not guaranteed, and you cannot access its elements by index.</p>
+</li>
+<li>
+<p>A set is mutable, but it cannot contain mutable elements (e.g., lists or dictionaries).</p>
+</li>
+<li>
+<p>Set objects support several operations that are specific to set logic (union, intersection, etc.)</p>
+</li>
+</ul>
+<p>Some online introductions:</p>
+<ul>
+<li>
+<p><a href="https://www.w3schools.com/python/python_sets.asp" target="_blank">W3 Schools: <em>Python Sets</em></a></p>
+</li>
+<li>
+<p><a href="https://www.geeksforgeeks.org/python-sets/" target="_blank">Geeks for Geeks: <em>Python Sets</em></a></p>
+</li>
+</ul>
+<hr />
+<h2 id="a-few-recipes">A Few Recipes</h2>
+<h3 id="determining-the-number-of-elements-in-a-set">determining the number of elements in a set</h3>
+<pre><code class="language-python">set1 = {1, 2, 3, 4, 5}  # a set of integers
+len(set1)  # yields 5
+</code></pre>
+<h3 id="finding-the-intersection-of-two-sets">finding the intersection of two sets</h3>
+<pre><code class="language-python">set1 = {1, 2, 3, 4, 5}  # a set of integers
+set2 = {3, 4, 5, 6, 7}  # another set of integers
+set3 = set1.intersection(set2)  # the intersection of set1 and set2
+print(set3)  # yields {3, 4, 5}
+</code></pre>
+<h3 id="finding-the-union-of-two-sets">finding the union of two sets</h3>
+<pre><code class="language-python">set1 = {1, 2, 3, 4, 5}  # a set of integers
+set2 = {3, 4, 5, 6, 7}  # another set of integers
+set3 = set1.union(set2)  # the union of set1 and set2
+print(set3)  # yields {1, 2, 3, 4, 5, 6, 7}
+</code></pre>
+<h3 id="finding-the-elements-in-one-set-that-arent-also-in-a-second-set">finding the elements in one set that aren't also in a second set</h3>
+<pre><code class="language-python">set1 = {1, 2, 3, 4, 5}  # a set of integers
+set2 = {3, 4, 5, 6, 7}  # another set of integers
+set3 = set1.difference(set2)  # the difference of set1 and set2
+print(set3)  # yields {1, 2}
+</code></pre>
+<h3 id="finding-the-elements-in-either-set-that-arent-in-both-sets">finding the elements in either set that aren't in both sets</h3>
+<pre><code class="language-python">set1 = {1, 2, 3, 4, 5}  # a set of integers
+set2 = {3, 4, 5, 6, 7}  # another set of integers
+set3 = set1.symmetric_difference(set2)  # the symmetric difference of set1 and set2
+print(set3)  # yields {1, 2, 6, 7}
+</code></pre>
+<h3 id="removing-duplicate-elements-from-a-list">removing duplicate elements from a list</h3>
+<p>This is a useful trick!</p>
+<pre><code class="language-python">list1 = [1, 4, 3, 4, 2, 1, 5, 1, 6, 4]  # a list of integers
+list2 = list(set(list1))  # convert the list to a set and back to a list
+print(list2)  # yields [1, 2, 3, 4, 5, 6] -- order is not guaranteed!
+</code></pre></div>
             </div>
         </div>
 

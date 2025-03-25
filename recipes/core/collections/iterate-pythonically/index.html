@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Dict iteration - PHY 351 Reference</title>
+        <title>Iterate Pythonically - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -201,41 +201,7 @@
   </li>
             
   <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Tuples & Lists</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../tuples-lists/" class="dropdown-item">(Recipe List)</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/tuples/" class="dropdown-item">Tuples</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/lists/" class="dropdown-item">Lists</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/iterate/" class="dropdown-item">Iterate</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/set-or-append/" class="dropdown-item">Set or append</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/find-in-list/" class="dropdown-item">Find in list</a>
-</li>
-            
-<li>
-    <a href="../../tuples-lists/combine-lists/" class="dropdown-item">Combine lists</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Sets & Dictionaries</a>
+    <a href="#" class="dropdown-item">Collections</a>
     <ul class="dropdown-menu">
             
 <li>
@@ -243,23 +209,23 @@
 </li>
             
 <li>
-    <a href="../sets/" class="dropdown-item">Sets</a>
+    <a href="../tuples/" class="dropdown-item">Group Related Values Into Tuples</a>
 </li>
             
 <li>
-    <a href="../overlap/" class="dropdown-item">Overlap</a>
+    <a href="../lists/" class="dropdown-item">Manage Sequences of Values with Lists</a>
 </li>
             
 <li>
-    <a href="../dicts/" class="dropdown-item">Dicts</a>
+    <a href="../sets/" class="dropdown-item">Identify Unique &amp; Shared Elements with Sets</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Dict iteration</a>
+    <a href="../dicts/" class="dropdown-item">Organize Labeled Collections with Dictionaries</a>
 </li>
             
 <li>
-    <a href="../counters/" class="dropdown-item">Counters</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Iterate Pythonically</a>
 </li>
     </ul>
   </li>
@@ -376,12 +342,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../counters/" class="nav-link">
+                                <a rel="next" href="../../../num1/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/sets-dicts/dict-iteration.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/collections/iterate-pythonically.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -430,12 +396,112 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#iterate-pythonically" class="nav-link">Iterate Pythonically</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#a-few-recipes" class="nav-link">A Few Recipes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#bonus-skill-comprehensions" class="nav-link">Bonus Skill: Comprehensions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="iterate-pythonically">Iterate Pythonically</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to accomplish various iteration-related tasks while keeping my code simple and easy.</strong></p>
+</blockquote>
+<p>When iterating over the elements in a collection, it's easy to fall back on counter-based iteration like one would use in an old-fashioned language such as fortran, C, or java. Don't do that! Python has a different conceptualization of "iteration", and it's more powerful, convenient, and compact. Some situations do require the use of a counter variable and index-based collection access, but they're fairly rare.</p>
+<p>It's also worth remembering that many tasks that require iteration in lower-level languages can be done with a single function or method call in python. For example, to find the sum of the elements in a list, you can do <code>sum(some_list)</code> instead of adding them up one at a time via iteration.</p>
+<p>What follows is a few example recipes to illustrate the "pythonic way" to iterate over collections.</p>
+<hr />
+<h2 id="a-few-recipes">A Few Recipes</h2>
+<h3 id="do-something-with-every-element-of-a-tuple-list-or-set">do something with every element of a tuple, list, or set</h3>
+<pre><code class="language-python">for element in some_list_set_or_collection:
+    # do something with element
+</code></pre>
+<h3 id="iterate-over-a-sequences-elements-in-reverse-order">iterate over a sequence's elements in reverse order</h3>
+<pre><code class="language-python">for element in reversed(some_sequence):
+    # do something with element
+</code></pre>
+<h3 id="keep-a-counter-variable-while-iterating">keep a counter variable while iterating</h3>
+<p>Sometimes you do need to count the iterations as you iterate through a sequences. That does not mean you should reach for <code>for i in range(...)</code> and access the elements by index! Python provides the <code>enumerate()</code> function specifically for this:</p>
+<pre><code class="language-python">for i, element in enumerate(some_sequence):
+    print(f&quot;Element number {i} is {element}.&quot;)
+</code></pre>
+<h3 id="iterating-over-corresponding-items-of-two-or-more-sequences">iterating over corresponding items of two (or more) sequences</h3>
+<pre><code class="language-python">list_of_sums =[]
+for element1, element2 in zip(sequence1, sequence2):
+    list_of_sums.append(element1 + element2)
+</code></pre>
+<h3 id="iterating-over-corresponding-items-of-two-or-more-sequences-while-keeping-a-counter">iterating over corresponding items of two (or more) sequences while keeping a counter</h3>
+<pre><code class="language-python">for i, (x, y) in enumerate(zip(x_values, x_values)):
+    print(f&quot;The coordinates of point {i} are ({x}, {y}).&quot;)
+</code></pre>
+<h3 id="iterating-over-all-combinations-of-elements-from-two-sequences">iterating over all combinations of elements from two sequences</h3>
+<p>The old-school way:</p>
+<pre><code class="language-python"># Not very pythonic:
+for x in x_values:
+    for y in y_values:
+        print(f&quot;The coordinates of point ({x}, {y}).&quot;)
+</code></pre>
+<p>The pythonic way:</p>
+<pre><code class="language-python">from itertools import product
+for x, y in product(x_values, y_values):
+    print(f&quot;The coordinates of point ({x}, {y}).&quot;)
+</code></pre>
+<p>It's only the same number of lines the first time you use it; after that, the import statement doesn't need to be repeated. And in general, the less nested your code is, the easier it is to comprehend.</p>
+<h3 id="iterating-over-a-sequence-in-multi-element-chunks">iterating over a sequence in multi-element chunks</h3>
+<pre><code class="language-python">from itertools import batched
+for tuple_of_n_successive_elements in batched(some_sequence, n):
+    # do something with each successive set of `n` elements
+</code></pre>
+<hr />
+<h2 id="bonus-skill-comprehensions">Bonus Skill: Comprehensions</h2>
+<p>For tasks that require a short, simple iterative loop to produce a new list, set, or dict, python provides a special syntax called a <em>comprehension</em>. Comprehensions are a compact way to express the same thing you would do with a loop, but in a single line of code. They are often more readable than the equivalent loop, and they can be faster too.</p>
+<ul>
+<li>
+<p><a href="https://www.geeksforgeeks.org/python-list-comprehension/" target="_blank">Geeks for Geeks: <em>List Comprehension in Python</em></a></p>
+</li>
+<li>
+<p><a href="https://openstax.org/books/introduction-python-programming/pages/9-5-list-comprehensions" target="_blank">OpenStax Intro to Python Programming: List Comprehensions</a></p>
+</li>
+</ul>
+<h3 id="calculate-values-of-a-new-list-from-corresponding-elements-of-an-old-list">calculate values of a new list from corresponding elements of an old list</h3>
+<pre><code class="language-python">old_list = [1.2, 3.4, 7.9, 12.4]  # just an arbitrary example
+squares_of_old = [x**2 for x in old_list]
+roots_of_old = [math.sqrt(x) for x in old_list]
+roots_of_all = [math.sqrt(n) for n in range(1, 100)]
+</code></pre>
+<h3 id="filter-a-list-to-keep-only-some-elements">filter a list to keep only some elements</h3>
+<pre><code class="language-python">data = [random.uniform(-1, 1) for _ in range(10)]  # just fake data
+positive_data = [x for x in data if x &gt; 0]
+divisible_by_7 = [x for x in range(1, 100) if x % 7 == 0]
+</code></pre>
+<h3 id="calculate-values-of-a-new-list-from-only-some-values-in-an-old-list">calculate values of a new list from only some values in an old list</h3>
+<pre><code class="language-python">data_sqrts_1 = [math.sqrt(x) for x in data if x &gt; 0]  # omit negative values
+data_sqrts_2 = [math.sqrt(x) if x &gt; 0 else 0 for x in data]  # replace negative values with 0
+</code></pre>
+<p>Comprehensions can also make sets, dictionaries, and a special kind of object called a <em>generator</em>, just by changing the syntax slightly.</p>
+<h3 id="combine-a-keywords-list-and-a-values-list-into-a-dictionary">combine a keywords list and a values list into a dictionary</h3>
+<pre><code class="language-python">keys = ['mass', 'charge', 'spin']
+values = [9.11e-31, -1.6e-19, 1/2]
+dict1 = {key: val for key, val in zip(keys, values)}
+</code></pre>
+<p>Note the curly-braces. List comprehensions use square brackets; set comprehensions use curly braces; and dict comprehensions use curly braces with a colon between the key and value.</p></div>
             </div>
         </div>
 

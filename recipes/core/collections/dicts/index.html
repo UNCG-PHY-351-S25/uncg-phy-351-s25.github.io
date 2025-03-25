@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Set or append - PHY 351 Reference</title>
+        <title>Organize Labeled Collections with Dictionaries - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -201,7 +201,7 @@
   </li>
             
   <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Tuples & Lists</a>
+    <a href="#" class="dropdown-item">Collections</a>
     <ul class="dropdown-menu">
             
 <li>
@@ -209,57 +209,23 @@
 </li>
             
 <li>
-    <a href="../tuples/" class="dropdown-item">Tuples</a>
+    <a href="../tuples/" class="dropdown-item">Group Related Values Into Tuples</a>
 </li>
             
 <li>
-    <a href="../lists/" class="dropdown-item">Lists</a>
+    <a href="../lists/" class="dropdown-item">Manage Sequences of Values with Lists</a>
 </li>
             
 <li>
-    <a href="../iterate/" class="dropdown-item">Iterate</a>
+    <a href="../sets/" class="dropdown-item">Identify Unique &amp; Shared Elements with Sets</a>
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Set or append</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Organize Labeled Collections with Dictionaries</a>
 </li>
             
 <li>
-    <a href="../find-in-list/" class="dropdown-item">Find in list</a>
-</li>
-            
-<li>
-    <a href="../combine-lists/" class="dropdown-item">Combine lists</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Sets & Dictionaries</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../sets-dicts/" class="dropdown-item">(Recipe List)</a>
-</li>
-            
-<li>
-    <a href="../../sets-dicts/sets/" class="dropdown-item">Sets</a>
-</li>
-            
-<li>
-    <a href="../../sets-dicts/overlap/" class="dropdown-item">Overlap</a>
-</li>
-            
-<li>
-    <a href="../../sets-dicts/dicts/" class="dropdown-item">Dicts</a>
-</li>
-            
-<li>
-    <a href="../../sets-dicts/dict-iteration/" class="dropdown-item">Dict iteration</a>
-</li>
-            
-<li>
-    <a href="../../sets-dicts/counters/" class="dropdown-item">Counters</a>
+    <a href="../iterate-pythonically/" class="dropdown-item">Iterate Pythonically</a>
 </li>
     </ul>
   </li>
@@ -371,17 +337,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../iterate/" class="nav-link">
+                                <a rel="prev" href="../sets/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../find-in-list/" class="nav-link">
+                                <a rel="next" href="../iterate-pythonically/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/tuples-lists/set-or-append.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/UNCG-PHY-351-S25.github.io/edit/master/docs/recipes/core/collections/dicts.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -430,12 +396,113 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#organize-labeled-collections-with-dictionaries" class="nav-link">Organize Labeled Collections with Dictionaries</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#a-few-recipes" class="nav-link">A Few Recipes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="organize-labeled-collections-with-dictionaries">Organize Labeled Collections with Dictionaries</h1>
+<hr />
+<h2 id="problem-to-solve">Problem to Solve</h2>
+<blockquote>
+<p><strong>I want to collect related values together, with the ability to access the elements by some meaningful label rather than by a numeric index.</strong></p>
+</blockquote>
+<p><em>Dictionaries</em> ("dicts") are a core workhorse of the python language. Much of python itself is built using dictionaries, which means they are very full-featured and optimized.</p>
+<p>Like tuples, lists, and sets, dictionaries are a collection of other values. The key difference is that they are key-value pairs: Each <em>value</em> you stick into a dictionary is associated with a <em>key</em> that you can use to retrieve it later.</p>
+<ul>
+<li>
+<p>List or tuple: Access an element by its index, for example <code>mylist[3]</code>.</p>
+</li>
+<li>
+<p>Dictionary: Access an element by its key, for example <code>mydict['mass']</code>.</p>
+</li>
+</ul>
+<p>Some online introductions:</p>
+<ul>
+<li>
+<p><a href="https://www.w3schools.com/python/python_dictionaries.asp" target="_blank">W3 Schools: <em>Python Dictionaries</em></a></p>
+</li>
+<li>
+<p><a href="https://www.geeksforgeeks.org/python-dictionary/" target="_blank">Geeks for Geeks: <em>Dictionaries in Python</em></a></p>
+</li>
+</ul>
+<hr />
+<h2 id="a-few-recipes">A Few Recipes</h2>
+<p>The thing that makes dictionaries more complicated to work with than other kinds of collection is the fact that they contain both keys and values.</p>
+<h3 id="building-a-dictionary-one-key-value-pair-at-a-time">building a dictionary one key-value pair at a time</h3>
+<pre><code class="language-python">dict1 = {}  # an empty dictionary
+dict1['mass'] = 9.11e-31  # add a key-value pair
+dict1['charge'] = -1.6e-19  # add another key-value pair
+dict1['spin'] = 1/2  # add another key-value pair
+print(dict1)  # yields {'mass': 9.11e-31, 'charge': -1.6e-19, 'spin': 0.5}
+</code></pre>
+<p>(This is often something you'll do with a loop, adding one item to the dictionary per iteration.)</p>
+<h3 id="building-a-dictionary-from-multiple-key-value-pairs-at-once">building a dictionary from multiple key-value pairs at once</h3>
+<pre><code class="language-python">dict1 = {
+    'mass': 9.11e-31,
+    'charge': -1.6e-19,
+    'spin': 1/2
+}  # a dictionary with 3 key-value pairs
+print(dict1)  # yields {'mass': 9.11e-31, 'charge': -1.6e-19, 'spin': 0.5}
+</code></pre>
+<h3 id="extracting-the-set-of-keys">extracting the set of keys</h3>
+<pre><code class="language-python">key_set = set(dict1.keys())  # the set of keys in dict1
+print(key_set)  # yields {'mass', 'charge', 'spin'}
+</code></pre>
+<h3 id="extracting-the-keys-to-a-list">extracting the keys to a list</h3>
+<pre><code class="language-python">key_list = list(dict1.keys())  # the keys in a list
+print(key_list)  # yields ['mass', 'charge', 'spin']
+</code></pre>
+<h3 id="extracting-the-values-without-keys-to-a-list">extracting the values (without keys) to a list</h3>
+<pre><code class="language-python">value_list = list(dict1.values())  # the values in a list
+print(value_list)  # yields [9.11e-31, -1.6e-19, 0.5]
+average_value = mean(value_list)  # the average of the values
+max_value = max(value_list)  # the maximum value
+</code></pre>
+<h3 id="iterating-over-the-keys">iterating over the keys</h3>
+<pre><code class="language-python">for key in dict1:
+    print(key)  # yields 'mass', 'charge', 'spin'
+</code></pre>
+<h3 id="iterating-over-the-values">iterating over the values</h3>
+<pre><code class="language-python">for value in dict1.values():
+    print(value)  # yields 9.11e-31, -1.6e-19, 0.5
+</code></pre>
+<h3 id="iterating-over-the-key-value-pairs">iterating over the key-value pairs</h3>
+<pre><code class="language-python">for key, value in dict1.items():
+    print(f&quot;{key} = {value}&quot;)  # yields &quot;mass = 9.11e-31&quot;, &quot;charge = -1.6e-19&quot;, &quot;spin = 0.5&quot;
+</code></pre>
+<h3 id="checking-if-a-key-is-in-the-dictionary">checking if a key is in the dictionary</h3>
+<pre><code class="language-python">if 'mass' in dict1:
+    print(&quot;`mass` is in the dictionary&quot;)
+else:
+    print(&quot;`mass` is NOT in the dictionary&quot;)
+</code></pre>
+<h3 id="finding-the-key-corresponding-to-the-maximum-or-minimum-value">finding the key corresponding to the maximum or minimum value</h3>
+<pre><code class="language-python">max_key = max(dict1, key=dict1.get)  # the key corresponding to the maximum value
+max_val = dict1[max_key]  # the maximum value
+min_key = min(dict1, key=dict1.get)  # the key corresponding to the minimum value
+min_val = dict1[min_key]  # the minimum value
+</code></pre>
+<h3 id="getting-a-list-of-the-keys-sorted-according-to-their-values-in-ascending-order">getting a list of the keys sorted according to their values (in ascending order)</h3>
+<pre><code class="language-python">sorted_keys = sorted(dict1, key=dict1.get)  # the keys sorted by their values
+</code></pre>
+<p>You can then extract the associated values via <code>dict1[key]</code> for whatever key(s) you want.</p>
+<p>To get the keys in <strong>descending</strong> order of their values, include the optional <code>reverse=True</code> argument to the <code>sorted()</code> function.</p>
+<hr />
+<p>Dictionaries have many more features and utility methods, so make sure to read through the references linked above.</p></div>
             </div>
         </div>
 
