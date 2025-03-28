@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Numerical Methods 1: Finding Roots &amp; Extrema - PHY 351 Reference</title>
+        <title>Overview - PHY 351 Reference</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -237,7 +237,49 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Numerical Methods 1: Finding Roots &amp; Extrema</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Overview</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Randomness</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="random/" class="dropdown-item">(Recipe List)</a>
+</li>
+            
+<li>
+    <a href="random/integers/" class="dropdown-item">Generate Random Integers</a>
+</li>
+            
+<li>
+    <a href="random/choices/" class="dropdown-item">Pick Randomly From a Set of Options</a>
+</li>
+            
+<li>
+    <a href="random/sampling/" class="dropdown-item">Shuffle and/or Sample From a Set</a>
+</li>
+            
+<li>
+    <a href="random/reals/" class="dropdown-item">Generate Random Real Numbers</a>
+</li>
+            
+<li>
+    <a href="random/distributions/" class="dropdown-item">Draw From a Weighted Distribution</a>
+</li>
+            
+<li>
+    <a href="random/seeding/" class="dropdown-item">Reproduce "Random" Results</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../roots" class="dropdown-item">Roots</a>
+</li>
+            
+<li>
+    <a href="../../extrema" class="dropdown-item">Extrema</a>
 </li>
     </ul>
   </li>
@@ -342,7 +384,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../scipy/" class="nav-link">
+                                <a rel="next" href="random/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -397,7 +439,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#numerical-methods-1-finding-roots-extrema" class="nav-link">Numerical Methods 1: Finding Roots &amp; Extrema</a>
+            <li class="nav-item" data-bs-level="1"><a href="#numerical-methods-1-randomness-roots-extrema" class="nav-link">Numerical Methods 1: Randomness, Roots &amp; Extrema</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -406,15 +448,18 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="numerical-methods-1-finding-roots-extrema">Numerical Methods 1: Finding Roots &amp; Extrema</h1>
+<h1 id="numerical-methods-1-randomness-roots-extrema">Numerical Methods 1: Randomness, Roots &amp; Extrema</h1>
 <p>"Numerical methods" are algorithms — recipes, if you will — for solving mathematical problems via numerical calculations on a computer. There is a vast vast VAST literature on such things, and this course will barely scratch the surface. That, however, should be enough to give you a sense of how the game is played, and to empower you to track down the methods you need when you do.</p>
-<p>Our first set of numerical methods focus on two things you might want to do to an equation: solve it (i.e., "find its root(s)"), and find its extrema (maxima and/or minima). For some equations, this is easily done with analytic methods (paper and pencil rearranging of symbols). For others, analytic methods fail, and numerical methods are the only way to go. In between, we get cases that could in principle be solved analytically, given enough time and a big enough whiteboard, but why bother when a computer can do it quickly and easily?</p>
+<p>Our first set of numerical methods focus on generating random-ish numbers (important for many kinds of simulations), and two things you might want to do to an equation: solve it (i.e., "find its root(s)"), and find its extrema (maxima and/or minima). For some equations, this is easily done with analytic methods (paper and pencil rearranging of symbols). For others, analytic methods fail, and numerical methods are the only way to go. In between, we get cases that could in principle be solved analytically, given enough time and a big enough whiteboard, but why bother when a computer can do it quickly and easily?</p>
 <ol>
 <li>
-<p><strong>Solving nonlinear equations:</strong> Three different algorithms for "finding the roots of an equation", each with its own advantages and disadvantages.</p>
+<p><a href="random/"><strong>Randomness</strong></a>: Recipes for generating effectively-random numbers, making random choices, randomizing the order of things, and such.</p>
 </li>
 <li>
-<p><strong>Finding extrema:</strong> A recipe for finding maxima or minima of a one-dimensional function, and another for finding extrema of 2D, 3D, and higher-dimensional functions.</p>
+<p><strong>Finding Roots of Equations</strong>: Three different algorithms for "finding the roots of an equation", each with its own advantages and disadvantages.</p>
+</li>
+<li>
+<p><strong>Finding Extrema</strong>: A recipe for finding maxima or minima of a one-dimensional function, and another for finding extrema of 2D, 3D, and higher-dimensional functions.</p>
 </li>
 </ol></div>
             </div>
