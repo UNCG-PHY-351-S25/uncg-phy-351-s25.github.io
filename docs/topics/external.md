@@ -2,6 +2,15 @@
 
 _This is a list of topically-focused python-related tutorial and reference articles that I've stumbled across while putting this course together, thought might be useful to y'all, and not been excessively annoyed by. Do NOT assume that you're supposed to learn or know everything in them!_
 
+## Free Python Books & Courses
+
+- <a href="https://automatetheboringstuff.com/#toc" target="_blank">Automate the Boring Stuff with Python</a> by Al Sweigart
+- OpenStax <a href="https://openstax.org/details/books/introduction-python-programming" target="_blank">Introduction to Python Programming</a>
+- W3 Schools <a href="https://www.w3schools.com/python/default.asp" target="_blank">Python Tutorial</a>
+- Geeks for Geeks <a href="https://www.geeksforgeeks.org/python-programming-language-tutorial/" target="_blank">Python Programming Language Tutorial</a>
+- LaunchSchool's <a href="https://launchschool.com/books" target="_blank">Open Book Shelf</a>, including <a href="https://launchschool.com/books/python/read/introduction" target="_blank">Introduction to Programming with Python</a>
+
+
 
 ## Workflow Topics
 - [The Python Standard REPL: Try Out Code and Ideas Quickly](https://realpython.com/python-repl/) by _Real Python_

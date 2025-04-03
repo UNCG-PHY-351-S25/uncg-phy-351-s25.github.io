@@ -42,7 +42,7 @@ ___
 ### Prerequisites:
 
 - A GitHub account linked to your UNCG email address.
-    - If you don't have this yet, see [Creating your GitHub Account](../../../../topics/setup/github-account) for instructions.
+    - If you don't have this yet, see [Creating your GitHub Account](../../../topics/setup/github-account.md) for instructions.
     - If you have a personal GitHub account not affiliated with UNCG, you should probably just create a new one for this course. (I don't know if it's possible to associate your existing one with your UNCG email address. Feel free to investigate that possibility, if you'd prefer.)
 
 - Membership in the course GitHub"org".

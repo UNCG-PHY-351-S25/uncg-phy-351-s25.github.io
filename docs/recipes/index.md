@@ -25,7 +25,7 @@ The recipes in this compendium are organized in the order of the course assignme
 
     I use the term _core python_ to mean the standard parts of the python ecosystem: the base python language and the "standard library" of modules that is typically installed along with it. For purposes of this course I'm also including the tool stack we'll use to work with python: _GitHub_ and _git_, _JupyterLab_ and its pieces, and a little of the _Unix_ command-line.
 
-- [**World B: Numerical Methods 1 — Numerical Solving, Finding & Randomness**](num1/index.md)
+- [**World B: Numerical Methods 1 — Randomness, Roots & Extrema**](num1/index.md)
 
     Now that we've covered the essentials of python, let's take a break from "learning to code" in order to "learn why to code" — that is, how to use those skillz to do some physics-y stuff.
 

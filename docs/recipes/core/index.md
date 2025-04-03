@@ -12,7 +12,4 @@ I've divided that up in to the following chunks:
 
 - [**Iteration Recipes**](iteration/index.md): Humans hate doing the same thing over and over with only tiny variations. Computers excel at it. These recipes illustrate various ways of taking advantage of that.
 
-- [**Tuple & List Recipes**](tuples-lists/index.md): The first of two recipe categories on using python's various "collection" data types, applying the simpler collections (_tuples_ and _lists_) to problems involving "ordered sequences of things".
-
-- [**Set & Dictionary Recipes**](sets-dicts/index.md): _Sets_ are an infrequently-used collection type, but are super-convenient for the problems they fit. _Dictionaries_ ("dicts") are freaking everywhere in python, and for good reason. This collection of collection recipes will show you why and how.
-
+- [**Collection Recipes**](collections/index.md): Recipes for using python's various collection types: _tuples_, _lists_, _sets_, and _dictionaries_ ("dicts").

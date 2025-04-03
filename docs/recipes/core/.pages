@@ -4,5 +4,4 @@ nav:
     - Calculation: calculation
     - Functions: functions
     - Iteration: iteration
-    - Tuples & Lists: tuples-lists
-    - Sets & Dictionaries: sets-dicts
+    - Collections: collections

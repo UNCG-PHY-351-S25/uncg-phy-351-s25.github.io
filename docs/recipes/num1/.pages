@@ -1,0 +1,5 @@
+nav:
+    - Overview: index.md
+    - Randomness: random
+    - Roots: roots
+    - Extrema: extrema

@@ -1,7 +1,7 @@
 nav:
     - (Recipe List): index.md
+    - tuples.md
+    - lists.md
     - sets.md
-    - overlap.md
     - dicts.md
-    - dict-iteration.md
-    - counters.md
+    - iterate-pythonically.md

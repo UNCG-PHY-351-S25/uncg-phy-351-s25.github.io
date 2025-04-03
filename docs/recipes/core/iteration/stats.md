@@ -118,7 +118,7 @@ for i in range(1, N + 1):
     delta = value - mean
     mean += delta / i
     S += (value - mean) * delta
-standard_deviation = math.sqrt(S / (i - 1))
+standard_deviation = sqrt(S / (i - 1))
 ```
 
 ## Variant: Mean and Standard Deviation with Collection
@@ -147,7 +147,7 @@ for i, value in enumerate(<<data_collection>>, 1):
     delta = value - mean
     mean += delta / i
     S += (value - mean) * delta
-standard_deviation = math.sqrt(S / (i - 1))
+standard_deviation = sqrt(S / (i - 1))
 ```
 Again, if this `enumerate(...)` stuff is gibberish to you, ignore it for now.
 

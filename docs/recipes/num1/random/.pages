@@ -1,0 +1,8 @@
+nav:
+    - (Recipe List): index.md
+    - integers.md
+    - choices.md
+    - sampling.md
+    - reals.md
+    - distributions.md
+    - seeding.md
