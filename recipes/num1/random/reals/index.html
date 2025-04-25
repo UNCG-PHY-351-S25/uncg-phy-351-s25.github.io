@@ -269,7 +269,7 @@
 </li>
             
 <li>
-    <a href="../seeding/" class="dropdown-item">Reproduce "Random" Results</a>
+    <a href="../seeding/" class="dropdown-item">Reproduce Pseudorandom Results</a>
 </li>
     </ul>
   </li>
@@ -445,7 +445,15 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#recipes" class="nav-link">Recipes</a>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-generate-a-real-number-between-0-inclusive-and-1-exclusive" class="nav-link">Recipe: Generate a Real Number Between 0 (inclusive) and 1 (exclusive)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-flip-a-biased-coin" class="nav-link">Recipe: Flip a Biased Coin</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recipe-generate-a-real-number-between-two-arbitrary-values" class="nav-link">Recipe: Generate a Real Number Between Two Arbitrary Values</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -466,13 +474,12 @@
 <p>These recipes assume you want to pick a number with in some range of values, with all possibilities in that range being equally likely. The technical term for that is "sampling from a <em>uniform</em> distribution." If you need to weight some values more than others, see the next recipe, <a href="../distributions/"><strong>Draw From a Weighted Distribution</strong></a>.</p>
 <p>Again, we're assuming <code>import random</code> has been done.</p>
 <hr />
-<h2 id="recipes">Recipes</h2>
-<h3 id="generate-a-real-number-between-0-inclusive-and-1-exclusive">generate a real number between 0 (inclusive) and 1 (exclusive)</h3>
+<h2 id="recipe-generate-a-real-number-between-0-inclusive-and-1-exclusive">Recipe: Generate a Real Number Between 0 (inclusive) and 1 (exclusive)</h2>
 <p>Under the hood, this is the most fundamental of all pseudorandom number tasks; all the rest are built upon this. As a result, this is one is the fastest.</p>
 <pre><code class="language-python">zero_to_one = random.random()
 </code></pre>
 <p>That's it. The <code>random()</code> function returns a float in the range <code>[0.0, 1.0)</code> every time it's called. No arguments.</p>
-<h3 id="flip-a-biased-coin">flip a biased coin</h3>
+<h2 id="recipe-flip-a-biased-coin">Recipe: Flip a Biased Coin</h2>
 <p>One common application of this "flipping a biased coin", i.e., choosing between two alternatives where one outcome has probability <span class="arithmatex">\(p\)</span> and the other has probability <span class="arithmatex">\(1 - p\)</span>. The recipe is:</p>
 <pre><code class="language-python">if random.random() &lt; p:
     result = &quot;heads&quot;
@@ -483,7 +490,7 @@ else:
 <pre><code class="language-python">result = &quot;heads&quot; if random.random() &lt; p else &quot;tails&quot;
 </code></pre>
 <p>You could accomplish the same thing with <code>result = random.choices(["heads", "tails"], [p, 1 - p])</code>, but that's considerably slower — by my tests, about 13 times slower.</p>
-<h3 id="generate-a-real-number-between-two-arbitrary-values">generate a real number between two arbitrary values</h3>
+<h2 id="recipe-generate-a-real-number-between-two-arbitrary-values">Recipe: Generate a Real Number Between Two Arbitrary Values</h2>
 <p>This is the most common need: Randomly pick a number between <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> (inclusive of endpoints), with all values in that range equally likely. The recipe is:</p>
 <pre><code class="language-python"># assuming `a` and `b` are already defined,
 random_value = random.uniform(a, b)

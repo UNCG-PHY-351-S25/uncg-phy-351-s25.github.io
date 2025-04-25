@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Reproduce "Random" Results - PHY 351 Reference</title>
+        <title>Reproduce Pseudorandom Results - PHY 351 Reference</title>
         <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../../css/brands.min.css" rel="stylesheet">
@@ -269,7 +269,7 @@
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Reproduce "Random" Results</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Reproduce Pseudorandom Results</a>
 </li>
     </ul>
   </li>
@@ -439,7 +439,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#reproduce-random-results" class="nav-link">Reproduce "Random" Results</a>
+            <li class="nav-item" data-bs-level="1"><a href="#reproduce-pseudorandom-results" class="nav-link">Reproduce Pseudorandom Results</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#problem-to-solve" class="nav-link">Problem to Solve</a>
               <ul class="nav flex-column">
@@ -468,11 +468,11 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="reproduce-random-results">Reproduce "Random" Results</h1>
+<h1 id="reproduce-pseudorandom-results">Reproduce Pseudorandom Results</h1>
 <hr />
 <h2 id="problem-to-solve">Problem to Solve</h2>
 <blockquote>
-<p><strong>I want to be able to reproduce the same sequence of "random" numbers for testing or sharing with others.</strong></p>
+<p><strong>I want to be able to reproduce a specific sequence of "random" numbers for testing or sharing with others.</strong></p>
 </blockquote>
 <hr />
 <h2 id="background-knowledge">Background Knowledge</h2>
@@ -536,7 +536,7 @@ def flip_coins(num_flips, seed=None):
     return heads
 </code></pre>
 <p>If I save that in a file named <code>flip_coins.py</code> and then start an IPython console, I can do this:</p>
-<pre><code class="language-python">In [1]: %run flip_coins.py
+<pre><code class="language-text">In [1]: %run flip_coins.py
 
 In [2]: flip_coins(10000)
 *** Random number generator seeded with `307492323691025515227351811167579029126`.

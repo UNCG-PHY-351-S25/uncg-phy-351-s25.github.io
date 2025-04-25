@@ -269,7 +269,7 @@
 </li>
             
 <li>
-    <a href="../seeding/" class="dropdown-item">Reproduce "Random" Results</a>
+    <a href="../seeding/" class="dropdown-item">Reproduce Pseudorandom Results</a>
 </li>
     </ul>
   </li>
@@ -445,11 +445,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#recipes" class="nav-link">Recipes</a>
+            <li class="nav-item" data-bs-level="2"><a href="#recipes-for-discrete-distributions" class="nav-link">Recipes for Discrete Distributions</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#continuous-distribution-the-normal-gaussian-distribution" class="nav-link">continuous distribution: the normal (Gaussian) distribution</a>
+            <li class="nav-item" data-bs-level="2"><a href="#recipes-for-continuous-distributions" class="nav-link">Recipes for Continuous Distributions</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -469,8 +469,8 @@
 <p>In scientific computing and data science/statistics, a common task is to randomly generate numbers such that some values are more likely than others. The weightings of the various values are specified by a <em>distribution</em>, which is basically what a histogram of sampled values would look like in the limit of infinitely many values and infinitely narrow histogram bins. The most famous distribution is the normal (a.k.a. Gaussian) distribution, colloquially known as the "bell curve".</p>
 <p>The built-in <code>random</code> module provides a few functions for generating pseudorandom numbers from some a few common distributions. The add-on packages <em>numpy</em> and <em>scipy</em>, which we'll get to a bit later in the course, provide many, many more.</p>
 <hr />
-<h2 id="recipes">Recipes</h2>
-<h3 id="discrete-distribution-the-binomial-distribution">discrete distribution: the <em>binomial</em> distribution</h3>
+<h2 id="recipes-for-discrete-distributions">Recipes for Discrete Distributions</h2>
+<h3 id="the-binomial-distribution">the <em>binomial</em> distribution</h3>
 <p>A <em>discrete</em> distribution is one that can only produce specific values (typically integers), but not any values in between them.</p>
 <p>Imagine flipping a biased coin, which comes up "heads" with probability <span class="arithmatex">\(p\)</span> and "tails" with probability <span class="arithmatex">\(1 - p\)</span>. Now imagine flipping that coin <span class="arithmatex">\(N\)</span> times, keeping track of the total number of "heads" and "tails" that comes up. What is the probability of getting no "heads" at all and <span class="arithmatex">\(N\)</span> "tails"? Of getting one "heads" and <span class="arithmatex">\(N - 1\)</span> "tails"? Of getting 2 and <span class="arithmatex">\(N - 2\)</span>? Etc… This is called the <a href="https://en.wikipedia.org/wiki/Binomial_distribution" target="_blank"><em>binomial distribution</em></a>.</p>
 <p>If you want to generate random numbers between 0 and <span class="arithmatex">\(N\)</span> whose relative likelihood follows this distribution, you can use the <code>random.binomialvariate()</code> function. The first argument is the number of trials (coin flips), and the second argument is the probability of "heads".</p>
@@ -479,9 +479,10 @@
     print(f&quot;Out of {N} flips, {n_heads} were heads and {N - n_heads} were tails.&quot;)
     return n_heads
 </code></pre>
-<h2 id="continuous-distribution-the-normal-gaussian-distribution">continuous distribution: the <em>normal</em> (Gaussian) distribution</h2>
+<h2 id="recipes-for-continuous-distributions">Recipes for Continuous Distributions</h2>
+<h3 id="the-normal-gaussian-distribution">the <em>normal</em> (Gaussian) distribution</h3>
 <p>A <em>continuous</em> distribution is one that can produce any value in a range, not just specific values.</p>
-<p>The most famous continuous distribution is the <em>normal</em> (or Gaussian) distribution, which is the classic "bell curve". It is defined by two parameters: the mean (average), about which the bell-shaped peak is centered; and the standard deviation, a measure of the width of the peak about that mean.</p>
+<p>The most famous continuous distribution is <a href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank">the <em>normal</em> (or Gaussian) distribution</a>, which is the classic "bell curve". It is defined by two parameters: the mean (average), about which the bell-shaped peak is centered; and the standard deviation, a measure of the width of the peak about that mean.</p>
 <p>To generate random numbers between <span class="arithmatex">\(-\infty\)</span> and <span class="arithmatex">\(+\infty\)</span> whose relative likelihood follows this distribution, you can use the <code>random.gauss()</code> function. The first argument is the mean, and the second argument is the standard deviation.</p>
 <p>For example, to generate a list of 160 simulated student's test scores, assuming a mean of 75 and a standard deviation of 10, you could do this:</p>
 <pre><code class="language-python">scores = []
@@ -500,7 +501,16 @@ for i in range(160):
 scores = [max(0, min(100, round(random.gauss(75, 10)))) for i in range(160)]
 </code></pre>
 <h3 id="other-continuous-distributions">other continuous distributions</h3>
-<p>The <code>random</code> module provides a few other continuous distributions, including one for exponentially-decreasing probabilities (<code>expovariate()</code>) and several obscure, specialized ones. They all work in essentially the same way as <code>random.gauss()</code>.</p>
+<p>The <code>random</code> module provides a few other continuous distributions, including <a href="https://en.wikipedia.org/wiki/Exponential_distribution" target="_blank">one for exponentially-decreasing probabilities</a> (<code>expovariate()</code>) and several obscure, specialized ones. They all work in essentially the same way as <code>random.gauss()</code>.</p>
+<p>Many, <em>many</em> additional distributions are available in the <em>numpy</em> and <em>scipy</em> packages, which we'll introduce in World C (coming soon to a course near you). If you want to take a peek:</p>
+<ul>
+<li>
+<p><a href="https://numpy.org/doc/stable/reference/random/generator.html#distributions" target="_blank"><em>Numpy</em>'s random distributions</a></p>
+</li>
+<li>
+<p><a href="https://docs.scipy.org/doc/scipy/tutorial/stats/probability_distributions.html" target="_blank"><em>Scipy</em>'s random distributions</a></p>
+</li>
+</ul>
 <hr /></div>
             </div>
         </div>
